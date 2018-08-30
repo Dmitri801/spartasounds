@@ -1,0 +1,25 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.0.1",
+    "@material-ui/icons": "^3.0.1",
+    "d3-ease": "^1.0.5",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-move": "^2.8.0",
+    "react-reveal": "^1.2.2",
+    "react-scripts": "1.1.5",
+    "react-spring": "^5.6.10"
+  },
+  "scripts": {
+    "dev": "react-scripts start && sass --watch src/styles/scss:src/styles/css",
+    "start": "react-scripts start",
+    "sass": "sass --watch src/styles/scss:src/styles/css",
+    "sass:build": "sass --update src/styles/scss:src/styles/css",
+    "build": "yarn sass:build && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

@@ -1,0 +1,22 @@
+import React from "react";
+
+import Logo from "../../resources/Images/Logo.png";
+
+export const TheLogo = props => {
+  const template = (
+    <div
+      className="img_cover"
+      style={{
+        width: props.width,
+        height: props.height,
+        background: `url(${Logo}) no-repeat`
+      }}
+    />
+  );
+
+  if (props.link) {
+    return template;
+  } else {
+    return template;
+  }
+};

@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #1a1a1d; }
+
+.bck_dark {
+  background: #1a1a1d; }
+
+.header_text {
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  font-weight: 100;
+  display: 'inline';
+  position: relative;
+  left: 75px;
+  bottom: 43px;
+  transition: opacity 0.5s ease-out;
+  letter-spacing: 0.3px; }
+  .header_text:hover {
+    cursor: pointer;
+    opacity: 0.8; }
+
+.header_second {
+  font-family: 'Mukta', serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: 'inline';
+  position: relative;
+  left: 318px;
+  bottom: 67px;
+  transition: all 0.5s ease-out; }
+
+.header_logo {
+  max-height: 70px; }
+
+.img_cover {
+  background-size: cover !important; }
+
+.link_logo {
+  display: inline-block; }
+
+.nav .nav_link {
+  transition: all 0.2s ease-out; }
+  .nav .nav_link:hover {
+    color: rgba(255, 255, 255, 0.8) !important; }
+
+.featured_wrapper {
+  margin: 0 auto;
+  width: 1280px;
+  height: 100vh;
+  overflow: hidden; }
+
+.featured_stripes {
+  position: relative; }
+
+.featured_text {
+  position: relative;
+  font-family: 'Cinzel', cursive; }
+
+.featured_stripes .stripe {
+  width: 230px;
+  height: 1200px;
+  position: absolute; }
+
+.featured_number {
+  font-size: 270px;
+  color: #ffffff;
+  transform: translate(260px, 170px);
+  position: absolute; }
+
+.featured_kit {
+  width: 500px;
+  height: 500px;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  position: absolute; }
+
+.featured_button {
+  position: absolute;
+  padding: 0px 20px; }
+
+.featured_first {
+  position: absolute;
+  background: #1a1a1d;
+  color: #ffffff;
+  font-size: 92px;
+  text-transform: uppercase;
+  padding: 0px 20px; }
+
+.featured_second {
+  position: absolute;
+  background: #1a1a1d;
+  color: #ffffff;
+  font-size: 92px;
+  text-transform: uppercase;
+  padding: 0px 20px; }
+
+.landing_btn {
+  transition: all 0.5s ease-out; }
+  .landing_btn:hover {
+    background-color: #070e12 !important; }
+
+/*# sourceMappingURL=index.css.map */
