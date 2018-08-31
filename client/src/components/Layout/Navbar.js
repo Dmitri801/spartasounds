@@ -55,7 +55,7 @@ class Navbar extends Component {
                 >
                   {styles => (
                     <span style={styles} className="header_second">
-                      Colosseum of samples - for producers
+                      Colosseum of samples for producers
                     </span>
                   )}
                 </Transition>

@@ -7,7 +7,12 @@ body {
 .bck_dark {
   background: #1a1a1d; }
 
+.bck_ultra_dark {
+  background: #000;
+  color: #fff; }
+
 .header_text {
+  transition: all 0.5s ease-out;
   font-family: 'Cinzel', serif;
   font-size: 30px;
   font-weight: 100;
@@ -15,21 +20,20 @@ body {
   position: relative;
   left: 75px;
   bottom: 43px;
-  transition: opacity 0.5s ease-out;
   letter-spacing: 0.3px; }
   .header_text:hover {
     cursor: pointer;
     opacity: 0.8; }
 
 .header_second {
+  transition: all 0.5s ease-out;
   font-family: 'Mukta', serif;
   font-size: 15px;
   font-weight: 700;
   display: 'inline';
   position: relative;
   left: 318px;
-  bottom: 67px;
-  transition: all 0.5s ease-out; }
+  bottom: 67px; }
 
 .header_logo {
   max-height: 70px; }
@@ -100,5 +104,156 @@ body {
   transition: all 0.5s ease-out; }
   .landing_btn:hover {
     background-color: #070e12 !important; }
+
+footer .container {
+  display: flex;
+  flex-direction: column; }
+
+footer .logo {
+  align-self: center;
+  max-width: 50%; }
+
+footer .connect_wrapper {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%; }
+
+footer .connect_header {
+  transition: all 0.5s ease-out;
+  position: absolute;
+  top: 27px;
+  left: 320px; }
+
+footer .connect_facebook_icon a {
+  position: absolute;
+  color: #fff;
+  top: 90px;
+  left: 300px;
+  font-size: 40px;
+  transition: all 0.5s ease-out; }
+  footer .connect_facebook_icon a:hover {
+    color: #334f8d; }
+
+footer .connect_soundcloud_icon a {
+  position: absolute;
+  color: #fff;
+  top: 83px;
+  left: 370px;
+  font-size: 50px;
+  transition: all 0.5s ease-out; }
+  footer .connect_soundcloud_icon a:hover {
+    color: #ff5805; }
+
+footer .connect_twitter_icon a {
+  transition: all 0.5s ease-out;
+  position: absolute;
+  color: #fff;
+  top: 88px;
+  left: 470px;
+  font-size: 45px; }
+  footer .connect_twitter_icon a:hover {
+    color: #1a97f0; }
+
+footer .contact_wrapper {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%; }
+
+footer .contact_btn {
+  transition: all 0.5s ease-out;
+  position: absolute;
+  width: 450px;
+  top: 82px;
+  left: 1190px; }
+  footer .contact_btn:hover {
+    background-color: #ca1517 !important; }
+
+@media screen and (min-width: 1771px) {
+  footer .contact_btn {
+    left: 1250px; } }
+@media screen and (min-width: 1270px) and (max-width: 1670px) {
+  footer .contact_btn {
+    left: 1000px; } }
+@media screen and (min-width: 1171px) and (max-width: 1470px) {
+  footer .contact_btn {
+    left: 830px; } }
+@media screen and (min-width: 769px) and (max-width: 1287px) {
+  footer .contact_btn {
+    width: 250px;
+    left: 730px; }
+
+  footer .connect_header {
+    left: 170px; }
+
+  footer .connect_facebook_icon a {
+    left: 150px; }
+
+  footer .connect_soundcloud_icon a {
+    left: 220px; }
+
+  footer .connect_twitter_icon a {
+    left: 320px; } }
+@media screen and (max-width: 1040px) {
+  footer .contact_btn {
+    width: 250px;
+    left: 630px; }
+
+  footer .connect_header {
+    left: 100px; }
+
+  footer .connect_facebook_icon a {
+    left: 80px; }
+
+  footer .connect_soundcloud_icon a {
+    left: 150px; }
+
+  footer .connect_twitter_icon a {
+    left: 250px; } }
+@media screen and (max-width: 1040px) {
+  footer .contact_btn {
+    width: 150px;
+    left: 580px; }
+
+  footer .connect_header {
+    left: 100px;
+    display: none; }
+
+  footer .connect_facebook_icon a {
+    left: 80px;
+    font-size: 30px; }
+
+  footer .connect_soundcloud_icon a {
+    left: 150px;
+    font-size: 40px; }
+
+  footer .connect_twitter_icon a {
+    left: 250px;
+    font-size: 35px; } }
+@media screen and (max-width: 736px) {
+  footer .contact_btn {
+    top: 150px;
+    width: 150px;
+    left: 220px; }
+
+  footer .connect_header {
+    left: 100px;
+    display: none; }
+
+  footer .connect_facebook_icon a {
+    top: 160px;
+    left: 20px;
+    font-size: 20px; }
+
+  footer .connect_soundcloud_icon a {
+    top: 153px;
+    left: 70px;
+    font-size: 30px; }
+
+  footer .connect_twitter_icon a {
+    top: 158px;
+    left: 150px;
+    font-size: 25px; } }
 
 /*# sourceMappingURL=index.css.map */

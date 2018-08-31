@@ -1,0 +1,108 @@
+@include media3Xlg {
+    footer .contact_btn {
+        left: 1250px;
+    }
+}
+
+@include media2Xlg {
+    footer .contact_btn {
+        left: 1000px;
+    }
+}
+
+@include mediaXlg {
+    footer .contact_btn {
+        left: 830px;
+    }
+}
+
+@include mediaLg {
+    footer .contact_btn {
+        width: 250px;
+        left: 730px;
+    }
+    footer .connect_header {
+        left: 170px;
+    }
+    footer .connect_facebook_icon a {
+        left: 150px;
+    }
+    footer .connect_soundcloud_icon a {
+        left: 220px;
+    }
+    footer .connect_twitter_icon a {
+        left: 320px;
+    }
+}
+
+@include mediaMdLg {
+    footer .contact_btn {
+        width: 250px;
+        left: 630px;
+    }
+    footer .connect_header {
+        left: 100px;
+    }
+    footer .connect_facebook_icon a {
+        left: 80px;
+    }
+    footer .connect_soundcloud_icon a {
+        left: 150px;
+    }
+    footer .connect_twitter_icon a {
+        left: 250px;
+    }
+}
+
+@include mediaMd {
+    footer .contact_btn {
+        width: 150px;
+        left: 580px;
+    }
+    footer .connect_header {
+        left: 100px;
+        display: none;
+    }
+    footer .connect_facebook_icon a {
+        left: 80px;
+        font-size: 30px;
+    }
+    footer .connect_soundcloud_icon a {
+        left: 150px;
+        font-size: 40px;
+
+    }
+    footer .connect_twitter_icon a {
+        left: 250px;
+        font-size: 35px;
+    }
+}
+
+@include mediaSm {
+    footer .contact_btn {
+        top: 150px;
+        width: 150px;
+        left: 220px;
+    }
+    footer .connect_header {
+       
+        left: 100px;
+        display: none;
+    }
+    footer .connect_facebook_icon a {
+        top: 160px;
+        left: 20px;
+        font-size: 20px;
+    }
+    footer .connect_soundcloud_icon a {
+        top: 153px;
+        left: 70px;
+        font-size: 30px;
+
+    }
+    footer .connect_twitter_icon a {
+        top: 158px;
+        left: 150px;
+        font-size: 25px;
+    }
+}

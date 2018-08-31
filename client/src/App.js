@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import Navbar from './components/Layout/Navbar';
+import Layout from './components/Layout';
+import { Switch, Route } from 'react-router-dom';
+
 import Home from './components/Home';
 class App extends Component {
-  componentDidMount() {
-    axios.get('/api/products/genres').then(response => console.log(response.data))
-  }
+  
   render() {
     return (
-      <div style={{height: '2000px'}} className="App">
-       <Navbar />
-       <Home />
-      </div>
+      <Layout>
+      <Switch>
+        <Route path="/" exact component={Home} />
+      </Switch>
+      </Layout>
     );
   }
 }

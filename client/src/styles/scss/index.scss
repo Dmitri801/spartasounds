@@ -1,13 +1,20 @@
 @import 'body';
 @import 'config';
 
+// Universal Classes
 .bck_dark {
   background: $primary-dark;
+}
+
+.bck_ultra_dark {
+  background: #000;
+  color: #fff;
 }
 
 
 // Header
 .header_text {
+  @include easeOut;
   font-family: 'Cinzel', serif;
   font-size: 30px;
   font-weight: 100;
@@ -15,7 +22,6 @@
   position: relative;
   left: 75px;
   bottom: 43px;
-  transition: opacity 0.5s ease-out;
   letter-spacing: 0.3px;
   &:hover {
     cursor: pointer;
@@ -24,6 +30,7 @@
 }
 
 .header_second {
+  @include easeOut;
   font-family: 'Mukta', serif;
   font-size: 15px;
   font-weight: 700;
@@ -31,7 +38,6 @@
   position: relative;
   left: 318px;
   bottom: 67px;
-  transition: all 0.5s ease-out;
  
 }
 
@@ -120,11 +126,92 @@
 }
 
 .landing_btn {
-  transition: all 0.5s ease-out;
+  @include easeOut;
   &:hover {
     background-color: darken($sparta-blue, 5) !important;
   }
 }
 
 
+// Footer
+footer .container {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .logo {
+
+  align-self: center;
+  max-width: 50%;
+}
+
+footer .connect_wrapper {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+}
+
+footer .connect_header {
+  @include easeOut;
+  position: absolute;
+  top: 27px;
+  left: 320px; 
+}
+
+footer .connect_facebook_icon a {
+  position: absolute;
+  color: #fff;
+  top: 90px;
+  left: 300px; 
+  font-size: 40px;
+  @include easeOut;
+  &:hover {
+    color: #334f8d;
+  }
+  
+}
+footer .connect_soundcloud_icon a {
+  position: absolute;
+  color: #fff;
+  top: 83px;
+  left: 370px; 
+  font-size: 50px;
+  @include easeOut;
+  &:hover {
+    color: #ff5805;
+  }
+}
+footer .connect_twitter_icon a {
+  @include easeOut;
+  position: absolute;
+  color: #fff;
+  top: 88px;
+  left: 470px; 
+  font-size: 45px;
+  &:hover {
+    color: #1a97f0;
+  }
+}
+
+footer .contact_wrapper {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%
+}
+
+footer .contact_btn {
+  @include easeOut;
+  position: absolute;
+  width: 450px;
+  top: 82px;
+  left: 1190px;
+  &:hover {
+    background-color: lighten($sparta-red, 5) !important;
+  }
+}
+
+
+@import 'mobile';
 
