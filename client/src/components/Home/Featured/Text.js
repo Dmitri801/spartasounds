@@ -136,7 +136,7 @@ class Text extends Component {
       enter={{
         opacity: [1],
 
-        timing: { delay: 1500, duration: 500, ease: easePolyOut }
+        timing: { delay: 800, duration: 500, ease: easePolyOut }
       }}
     >
       {({ opacity }) => {

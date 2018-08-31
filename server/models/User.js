@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 const SALT_I = 10;
 const userSchema = mongoose.Schema({
     email: {
@@ -26,7 +27,7 @@ const userSchema = mongoose.Schema({
         type: Array,
         default: []
     },
-    role: {
+    isAdmin: {
         type: Boolean,
         default: false
     },
@@ -51,6 +52,37 @@ userSchema.pre("save", function(next) {
       next();
     }
   });
+
+  // Create compare password method, and compare with bcrypt
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+      if (err) return cb(err);
+      cb(null, isMatch);
+    });
+  };
+  
+  // Create method to generate a token for the user logging in
+  userSchema.methods.generateToken = function(cb) {
+    var user = this;
+    var token = jwt.sign(user._id.toHexString(), process.env.SECRET);
+  
+    user.token = token;
+    user.save((err, user) => {
+      if (err) return cb(err);
+      cb(null, user);
+    });
+  };
+  
+  // Create Method to find by a user token
+  userSchema.statics.findByToken = function(token, cb) {
+    var user = this;
+    jwt.verify(token, process.env.SECRET, function(err, decode) {
+      user.findOne({ _id: decode, token: token }, function(err, user) {
+        if (err) return cb(err);
+        cb(null, user);
+      });
+    });
+  };
 
 const User = mongoose.model('User', userSchema);
 
