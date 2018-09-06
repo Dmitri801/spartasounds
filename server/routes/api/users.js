@@ -28,6 +28,9 @@ router.get("/api/users/auth", auth, (req, res) => {
     const user = new User(req.body);
     user.save((err, doc) => {
       if (err) {
+        if(err.name === "MongoError") {
+          return res.json({ success: false, message: "That Email Already Exists"})
+        }
         return res.json({ success: false, err });
       } else {
         res.status(200).json({ success: true, userData: doc });

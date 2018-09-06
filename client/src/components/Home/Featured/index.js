@@ -1,11 +1,11 @@
 import React from "react";
 import Stripes from "./Stripes";
-import Text from "./Text";
+import TextAndModal from "./TextAndModal";
 const Featured = () => {
   return (
     <div className="featured_wrapper">
       <Stripes />
-      <Text />
+      <TextAndModal />
     </div>
   );
 };

@@ -76,6 +76,7 @@
         left: 250px;
         font-size: 35px;
     }
+    
 }
 
 @include mediaSm {
@@ -105,4 +106,8 @@
         left: 150px;
         font-size: 25px;
     }
+    footer .copyright {
+        top: 0px;
+        
+      }
 }

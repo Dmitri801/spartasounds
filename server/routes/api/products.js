@@ -69,4 +69,6 @@ router.get("/api/products/allproducts", (req, res) => {
     })
   })
 
+ 
+
   module.exports = router;

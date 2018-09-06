@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 const Footer = () => {
-  console.log(window.innerWidth)
+ 
   return (
     <footer className="bck_ultra_dark">
       <div className="container">
@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
         <div className="connect_wrapper">
           <div className="connect_header">
-            <h2>Connect With Us</h2>
+            <h2>Connect</h2>
           </div>
           <div className="connect_facebook_icon">
             <a href="https://facebook.com">
@@ -38,14 +38,15 @@ const Footer = () => {
             className="contact_btn"
             fullWidth={true}
             size="large"
-            variant="contained"
-            style={{
-              backgroundColor: "#b31314",
-              color: "#fff"
-            }}
+            variant="outlined"
+            
+            
           >
             Get In Touch
           </Button>
+          <div className="copyright_wrapper">
+          <p className="copyright">Copyright &copy;2018 </p>
+          </div>
         </div>
       </div>
     </footer>

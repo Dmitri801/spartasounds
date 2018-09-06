@@ -9,7 +9,10 @@ export const TheLogo = props => {
       style={{
         width: props.width,
         height: props.height,
-        background: `url(${Logo}) no-repeat`
+        background: `url(${Logo}) no-repeat`,
+        position: props.position,
+        right: props.right,
+        bottom: props.bottom
       }}
     />
   );
