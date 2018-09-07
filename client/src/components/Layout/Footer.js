@@ -45,7 +45,7 @@ const Footer = () => {
             Get In Touch
           </Button>
           <div className="copyright_wrapper">
-          <p className="copyright">Copyright &copy;2018 </p>
+          <p className="copyright">Copyright &copy;2018  - <a href="https://buildwithme-dmitriy.now.sh">DMI Web Design</a> - </p>
           </div>
         </div>
       </div>

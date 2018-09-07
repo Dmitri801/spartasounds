@@ -55,6 +55,9 @@
 }
 
 @include mediaMd {
+    .homeSignup {
+        display: none;
+    }
     footer .contact_btn {
         width: 150px;
         left: 580px;
@@ -108,6 +111,8 @@
     }
     footer .copyright {
         top: 0px;
+        left: 10px;
+        
         
       }
 }

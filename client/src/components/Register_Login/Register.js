@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { update, isFormValid, generateData } from "../utils/formActions";
 import { registerUser } from "../../store/actions/userActions";
 import { openModal } from '../../store/actions/modalActions';
+const registerBackground = require('../../resources/Images/register-background.jpeg');
 class Register extends Component {
   state = {
     formError: false,
@@ -135,7 +136,7 @@ class Register extends Component {
       <div style={{ height: "100vh" }}>
         <div
           style={{
-            background: `url('https://images.unsplash.com/photo-1516223725307-6f76b9ec8742?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6c1e4b4793a0a08b909dc38f620b937f&auto=format&fit=crop&w=1267&q=80')`,
+            background: `url(${registerBackground})`,
             backgroundAttachment: "fixed",
             position: "absolute",
             backgroundSize: "cover",

@@ -1,0 +1,99 @@
+// Log In
+.login_header {
+    text-align: center;
+    padding-bottom: 0px !important;
+    font-size: 40px;
+  }
+  hr {
+    width: 80%;
+    border-color: $secondary-dark;
+  }
+  .login_label {
+    margin-left: 120px;
+    margin-top: 10px;
+    color: $secondary-dark;
+    font-weight: 900;
+  }
+  input {
+    @include quickOut;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 2pt $secondary-dark;
+    border: none;
+    font-size: 15px;
+    padding: 10px 10px;
+    border-radius: 30px;
+    width: 70%;
+  }
+  
+  input:focus {
+    box-shadow: 0 0 0 1.5pt $sparta-orange;
+    outline: none;
+  }
+  .form_field_block {
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+  }
+  
+  form hr {
+    margin-top: 50px;
+    width: 70%;
+  }
+  
+  .error_label {
+    position: absolute;
+    margin-top: 40px;
+    color: $sparta-red;
+  }
+  
+  .error_label_bottom {
+    display: flex;
+    justify-content: center;
+    p {
+      color: $sparta-red;
+      font-size: 1.6rem;
+      font-family: "Cinzel", cursive;
+    }
+  }
+  
+  form .bottom_login_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    .login_user_btn {
+      width: 60%;
+      background-color: $sparta-orange;
+      color: #fff;
+      border-radius: 30px;
+      text-transform: capitalize;
+      &:hover {
+        background-color: lighten($sparta-orange, 3);
+      }
+    }
+  }
+  
+  form p {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    span {
+      margin: 0px 7px;
+  
+      color: darken($sparta-orange, 1);
+      cursor: pointer;
+    }
+  }
+  
+  .closeIcon {
+    @include quickOut;
+    position: absolute;
+    right: 9px;
+    top: 5px;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: $secondary-dark;
+    &:hover {
+      color: $sparta-red;
+    }
+  }

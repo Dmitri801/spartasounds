@@ -14,25 +14,6 @@ body {
     right: 0px; }
   to {
     right: 26px; } }
-.bck_dark {
-  background: #1a1a1d; }
-
-.bck_ultra_dark {
-  background: #000;
-  color: #fff; }
-
-a {
-  color: inherit;
-  text-decoration: none; }
-
-.container {
-  width: 100%;
-  margin: 0; }
-
-.main_loader {
-  text-align: center;
-  margin-top: 100px; }
-
 .header_text {
   transition: all 0.5s ease-out;
   font-family: "Cinzel", serif;
@@ -190,9 +171,53 @@ a {
   .landing_btn:hover {
     background-color: #070e12 !important; }
 
+.homeSignup {
+  margin: 10px auto; }
+  .homeSignup .signupPromo_img {
+    height: 450px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    box-sizing: border-box;
+    padding: 80px; }
+  .homeSignup .signup_promo {
+    background: rgba(26, 26, 29, 0.8);
+    text-align: center;
+    font-family: 'Cinzel', 'serif';
+    color: #ffffff;
+    padding: 0px 20px;
+    text-transform: uppercase;
+    display: table; }
+  .homeSignup .title {
+    font-size: 70px;
+    font-weight: 700;
+    margin: 10px auto; }
+  .homeSignup .low_title {
+    font-size: 50px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin: 0 auto; }
+  .homeSignup .signup_promo_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    width: 100%; }
+    .homeSignup .signup_promo_btn button {
+      transition: all 0.5s ease-out;
+      width: 600px;
+      padding: 10px 0;
+      color: #fff;
+      font-family: 'Cinzel', 'serif';
+      font-size: 30px;
+      background-color: #b31314; }
+      .homeSignup .signup_promo_btn button:hover {
+        background-color: #9c1111; }
+
 .sample_modal_title {
   transition: all 0.5s ease-out;
   border: 5px dotted rgba(202, 55, 38, 0.8);
+  background-color: rgba(202, 55, 38, 0.2);
   text-align: center;
   text-shadow: 2px 1px #0e1d24;
   font-size: 40px;
@@ -207,7 +232,8 @@ a {
   margin-right: 0;
   padding: 10px;
   margin-left: 38px;
-  height: 150px;
+  margin-bottom: 10px;
+  height: 100px;
   width: 500px; }
   .send_sample_form_wrapper input {
     font-size: 1.5rem;
@@ -216,8 +242,29 @@ a {
     width: 550px;
     padding: 15px; }
     .send_sample_form_wrapper input:focus {
-      box-shadow: 0 0 0 3pt #ca3726;
+      box-shadow: 0 0 0 2pt #ca3726;
       font-weight: 700; }
+
+.sample_btn {
+  transition: all 0.5s ease-out;
+  display: flex;
+  justify-content: center; }
+  .sample_btn button {
+    border: 1px solid;
+    border-color: #b31314;
+    padding: 15px;
+    color: #fff;
+    width: 90%; }
+    .sample_btn button:hover {
+      background-color: #b31314; }
+
+.sample_headline {
+  display: flex;
+  justify-content: center; }
+  .sample_headline a {
+    font-size: 42px;
+    color: #b31314;
+    text-transform: uppercase; }
 
 .login_header {
   text-align: center;
@@ -436,6 +483,15 @@ form .bottom_register_container {
   margin-bottom: 10px;
   border: 1px solid #f3b169; }
 
+.beatstore_container {
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .beatstore_container iframe {
+    box-shadow: 0 8px 10px 1px rgba(26, 26, 29, 0.14), 0 3px 14px 2px rgba(26, 26, 29, 0.12), 0 5px 5px -3px rgba(26, 26, 29, 0.5);
+    z-index: 999; }
+
 footer {
   position: relative;
   width: 100% !important;
@@ -459,7 +515,7 @@ footer .connect_header {
   transition: all 0.5s ease-out;
   position: absolute;
   top: 17px;
-  left: 360px; }
+  left: 365px; }
 
 footer .connect_facebook_icon a {
   position: absolute;
@@ -518,8 +574,31 @@ footer .copyright {
   transition: all 0.5s ease-out;
   position: absolute;
   font-weight: 300;
-  top: 160px;
-  left: 340px; }
+  top: 140px;
+  left: 290px; }
+  footer .copyright a {
+    color: #b31314;
+    text-transform: uppercase;
+    font-family: "Cinzel", "serif"; }
+
+.bck_dark {
+  background: #1a1a1d; }
+
+.bck_ultra_dark {
+  background: #000;
+  color: #fff; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+.container {
+  width: 100%;
+  margin: 0; }
+
+.main_loader {
+  text-align: center;
+  margin-top: 100px; }
 
 @media screen and (min-width: 1771px) {
   footer .contact_btn {
@@ -563,6 +642,9 @@ footer .copyright {
   footer .connect_twitter_icon a {
     left: 250px; } }
 @media screen and (max-width: 1040px) {
+  .homeSignup {
+    display: none; }
+
   footer .contact_btn {
     width: 150px;
     left: 580px; }
@@ -608,6 +690,7 @@ footer .copyright {
     font-size: 25px; }
 
   footer .copyright {
-    top: 0px; } }
+    top: 0px;
+    left: 10px; } }
 
 /*# sourceMappingURL=index.css.map */

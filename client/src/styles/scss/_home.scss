@@ -1,0 +1,185 @@
+// Home
+
+// Home - Featured
+.featured_wrapper {
+    margin: 0 auto;
+    width: 1280px;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .featured_stripes {
+    position: relative;
+  }
+  .featured_text {
+    position: relative;
+    font-family: "Cinzel", cursive;
+  }
+  
+  .featured_stripes .stripe {
+    width: 230px;
+    height: 1200px;
+    position: absolute;
+  }
+  
+  .featured_number {
+    font-size: 270px;
+    color: #ffffff;
+    transform: translate(260px, 170px);
+    position: absolute;
+  }
+  
+  .featured_kit {
+    width: 500px;
+    height: 500px;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    position: absolute;
+  }
+  .featured_button {
+    position: absolute;
+    padding: 0px 20px;
+  }
+  .featured_first {
+    position: absolute;
+    background: $primary-dark;
+    color: #ffffff;
+    font-size: 92px;
+    text-transform: uppercase;
+    padding: 0px 20px;
+  }
+  
+  .featured_second {
+    position: absolute;
+    background: $primary-dark;
+    color: #ffffff;
+    font-size: 92px;
+    text-transform: uppercase;
+    padding: 0px 20px;
+  }
+  
+  .landing_btn {
+    @include easeOut;
+    &:hover {
+      background-color: darken($sparta-blue, 5) !important;
+    }
+  }
+  
+  // Home - Signup Promo
+  .homeSignup {
+    margin: 10px auto;
+    .signupPromo_img {
+      height: 450px;
+      background-position: center !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      box-sizing: border-box;
+      padding: 80px;
+    }
+    .signup_promo {
+      background: rgba($primary-dark, 0.8);
+      text-align: center;
+      font-family: 'Cinzel', 'serif';
+      color: #ffffff;
+      padding: 0px 20px;
+      text-transform: uppercase;
+      display: table;
+    }
+    .title {
+      font-size: 70px;
+      font-weight: 700;
+      margin: 10px auto;
+    }
+    .low_title {
+      font-size: 50px;
+      font-weight: 300;
+      margin-top: 10px;
+      margin: 0 auto;
+    }
+    .signup_promo_btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0px;
+      width: 100%;
+      button {
+        @include easeOut;
+        width: 600px;
+        padding: 10px 0;
+        color: #fff;
+        font-family: 'Cinzel', 'serif';
+        font-size: 30px;
+        background-color: $sparta-red;
+        &:hover {
+          background-color: darken($sparta-red, 5);
+        }
+      }
+    }
+  }
+  
+  // Home -Sample Modal
+  .sample_modal_title {
+    @include easeOut;
+    border: 5px dotted rgba($sparta-orange, 0.8);
+    background-color: rgba($sparta-orange, 0.2);
+    text-align: center;
+    text-shadow: 2px 1px $sparta-blue;
+    font-size: 40px;
+    text-transform: uppercase;
+    &:hover {
+      border: 5px dotted rgba($sparta-orange, 1);
+    }
+  }
+  
+  .send_sample_form_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+    padding: 10px;
+    margin-left: 38px;
+    margin-bottom: 10px;
+    height: 100px;
+    width: 500px;
+  
+    input {
+      font-size: 1.5rem;
+      color: $sparta-orange;
+      font-weight: 600;
+      width: 550px;
+      padding: 15px;
+      &:focus {
+        box-shadow: 0 0 0 2pt $sparta-orange;
+        font-weight: 700;
+      }
+    }
+  }
+  
+  .sample_btn {
+    @include easeOut;
+    display: flex;
+    justify-content: center;
+  
+    button {
+      border: 1px solid;
+      border-color: $sparta-red;
+      padding: 15px;
+      color: #fff;
+      width: 90%;
+  
+      &:hover {
+        background-color: $sparta-red;
+      }
+    }
+  }
+  
+  .sample_headline {
+    display: flex;
+    justify-content: center;
+  
+    a {
+      font-size: 42px;
+      color: $sparta-red;
+      text-transform: uppercase;
+    }
+  }

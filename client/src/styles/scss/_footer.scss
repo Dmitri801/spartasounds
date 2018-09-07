@@ -1,0 +1,105 @@
+// Footer
+
+footer {
+    position: relative;
+    width: 100% !important;
+    z-index: 99999;
+  }
+  
+  footer .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer .logo {
+    align-self: center;
+    max-width: 50%;
+  }
+  
+  footer .connect_wrapper {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 100%;
+  }
+  
+  footer .connect_header {
+    @include easeOut;
+    position: absolute;
+    top: 17px;
+    left: 365px;
+  }
+  
+  footer .connect_facebook_icon a {
+    position: absolute;
+    color: #fff;
+    top: 80px;
+    left: 300px;
+    font-size: 40px;
+    @include easeOut;
+    &:hover {
+      color: #334f8d;
+    }
+  }
+  footer .connect_soundcloud_icon a {
+    position: absolute;
+    color: #fff;
+    top: 73px;
+    left: 370px;
+    font-size: 50px;
+    @include easeOut;
+    &:hover {
+      color: #ff5805;
+    }
+  }
+  footer .connect_twitter_icon a {
+    @include easeOut;
+    position: absolute;
+    color: #fff;
+    top: 78px;
+    left: 470px;
+    font-size: 45px;
+    &:hover {
+      color: #1a97f0;
+    }
+  }
+  
+  footer .contact_wrapper {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 100%;
+  }
+  
+  footer .contact_btn {
+    @include easeOut;
+    position: absolute;
+    border-color: $sparta-red;
+    color: #fff;
+    width: 450px;
+    top: 82px;
+    left: 1190px;
+    &:hover {
+      background-color: lighten($sparta-red, 5) !important;
+    }
+  }
+  
+  footer .copyright_wrapper {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 150px;
+  }
+  
+  footer .copyright {
+    @include easeOut;
+    position: absolute;
+    font-weight: 300;
+    top: 140px;
+    left: 290px;
+    a {
+      color: $sparta-red;
+      text-transform: uppercase;
+      font-family: "Cinzel", "serif";
+    }
+  }

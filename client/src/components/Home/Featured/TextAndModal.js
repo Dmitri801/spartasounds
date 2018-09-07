@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import FormField from "../../UI/Forms/FormField";
 import { update } from "../../utils/formActions";
 import { easePolyOut } from "d3-ease";
@@ -246,7 +247,7 @@ class TextAndModal extends Component {
           onBackDropClick={this.closeSampleModal}
           titleClassName="sample_modal_title"
           closeIcon={this.closeIcon}
-          modalTitle="Enter Your Email"
+          modalTitle="Sparta Sounds Promo"
           fullWidth={true}
           modalOpen={sampleModalOpen}
         >
@@ -259,6 +260,19 @@ class TextAndModal extends Component {
                 formData={this.state.formData.email}
               />
             </div>
+            <div className="sample_btn">
+            <Button>
+                Submit
+            </Button>
+            </div>
+            
+            <p style={{
+              marginTop: '80px',
+              marginBottom: '0px'
+            }}>Download A Variety of Free Kits When You Become A Member</p>
+           <div className="sample_headline">
+           <Link to="/register"><span>Register Now</span></Link>
+           </div>
           </form>
         </Modal>
       </div>

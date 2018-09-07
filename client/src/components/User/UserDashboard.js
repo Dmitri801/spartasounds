@@ -1,14 +1,14 @@
 import React from 'react'
 import UserLayout from './index';
 import Button from "@material-ui/core/Button";
-
+const userDashboardBackground = require('../../resources/Images/user-dashboard-background.jpeg');
 const UserDashboard = (props) => {
   
   return (
     <UserLayout>
       <div
           style={{
-            background: `url('https://images.unsplash.com/photo-1485809885770-fefe16c8f8fb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d34150b5506268d2ac72dbb10c9b220a&auto=format&fit=crop&w=1354&q=80')`,
+            background: `url(${userDashboardBackground})`,
             backgroundAttachment: "fixed",
             position: "absolute",
             backgroundSize: "cover",
