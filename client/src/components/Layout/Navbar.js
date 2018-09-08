@@ -37,16 +37,16 @@ class Navbar extends Component {
       return (
         <div style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button color="inherit">Home</Button>
+            <Button disableRipple color="inherit">Home</Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/custom_kits">
-            <Button color="inherit">Custom Kits</Button>
+            <Button disableRipple  color="inherit">Custom Kits</Button>
           </Link>
           <Link
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
             to="/beatstore"
           >
-            <Button color="inherit">Beat Store</Button>
+            <Button disableRipple  color="inherit">Beat Store</Button>
           </Link>
           <Link className="home_register_btn" to="/register">
             <Button disableRipple variant="contained">
@@ -68,19 +68,19 @@ class Navbar extends Component {
       return (
         <div style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button color="inherit">Home</Button>
+            <Button disableRipple  color="inherit">Home</Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/custom_kits">
-            <Button color="inherit">Custom Kits</Button>
+            <Button disableRipple  color="inherit">Custom Kits</Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/free_kits">
-            <Button color="inherit">Free Kits</Button>
+            <Button disableRipple  color="inherit">Free Kits</Button>
           </Link>
           <Link
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
             to="/beatstore"
           >
-            <Button color="inherit">Beat Store</Button>
+            <Button disableRipple  color="inherit">Beat Store</Button>
           </Link>
           <div className="user_menu">
             <IconButton

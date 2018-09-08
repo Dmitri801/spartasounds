@@ -7,9 +7,9 @@ const CardBlockFeatured = (props) => {
        return (
         props.list ? (
             props.list.map((card, index) => (
-                <div className="">
+                <div key={index}>
                     <Card 
-                     key={index}
+                     isAuth={props.isAuth}
                      {...card}
                     />
                 </div>

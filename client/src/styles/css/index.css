@@ -511,10 +511,40 @@ form .bottom_register_container {
 .card_item_wrapper {
   text-align: center; }
   .card_item_wrapper .image {
+    transition: all 0.5s ease-out;
     height: 350px;
-    width: 250px;
-    background-position: center !important;
-    border: 1px solid #ca3726; }
+    width: 350px;
+    background-position: 60% !important;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px #ca3726, inset 0 0 0 2px #f3b169, inset 0 0 0 3px #0e1d24, -5px 4px 9px -1px rgba(179, 19, 20, 0.86); }
+    .card_item_wrapper .image:hover {
+      opacity: 0.6;
+      box-shadow: inset 0 0 0 0px #ca3726, inset 0 0 0 0px #f3b169, 0 0px 0px #4e4e50; }
+  .card_item_wrapper .action_container .tags .name {
+    font-weight: 300;
+    color: #f3b169; }
+  .card_item_wrapper .action_container .tags .genre {
+    font-weight: 700;
+    font-family: 'Cinzel', 'serif'; }
+  .card_item_wrapper .action_container .tags hr {
+    border-color: #4e4e50;
+    margin: 0 30px; }
+  .card_item_wrapper .add_to_cart_btn {
+    transition: all 0.5s ease-out;
+    margin-top: 5px;
+    border: 1px solid #b31314;
+    width: 80%; }
+    .card_item_wrapper .add_to_cart_btn:hover {
+      background-color: rgba(179, 19, 20, 0.3); }
+    .card_item_wrapper .add_to_cart_btn .cart_icon {
+      color: #fff; }
+  .card_item_wrapper .add_to_cart_btn_unauth {
+    margin-top: 5px;
+    border: 1px solid #4e4e50;
+    color: #4e4e50 !important; }
+    .card_item_wrapper .add_to_cart_btn_unauth .cart_icon {
+      color: #4e4e50; }
 
 footer {
   position: relative;

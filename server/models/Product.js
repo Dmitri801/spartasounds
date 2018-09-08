@@ -31,7 +31,7 @@ const productSchema = Schema({
         type: Array,
         default: []
     },
-    availability: {
+    demoTrack: {
         type: String
     },
     sampleLength: {
