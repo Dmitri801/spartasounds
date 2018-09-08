@@ -5,7 +5,7 @@ import {
     AUTH_USER,
     LOGOUT_USER
 } from './types';
-import { USERS_API } from '../../components/utils/misc.js';
+import { USERS_API } from '../utils/misc';
 
 export function loginUser(dataToSubmit) {
     const request = axios.post(`${USERS_API}/login`, dataToSubmit)

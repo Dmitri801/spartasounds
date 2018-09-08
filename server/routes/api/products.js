@@ -9,7 +9,7 @@ const { Product } = require("../../models/Product");
 // ============= PRODUCTS ============== //
 
 // BY ARRIVAL
-// @route       GET api/product/allproducts?sortBy=createdAt&order=desc&limit=4 // BY SELL
+// @route       GET api/products/allproducts?sortBy=createdAt&order=desc&limit=4 // BY SELL
 // /allproducts?sortBy=sold&order=desc&limit=4
 // @description Get products by their arrival time
 // @access      Public
@@ -17,7 +17,7 @@ router.get("/api/products/allproducts", (req, res) => {
     let order = req.query.order ? req.query.order : 'asc';
     let sortBy = req.query.sortBy ? req.query.sortBy : '_id';
     let limit = req.query.limit ? parseInt(req.query.limit) : 100;
-  
+   
     Product.find()
     .populate('genre')
     .populate('category')

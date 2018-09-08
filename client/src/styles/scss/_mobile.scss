@@ -5,18 +5,27 @@
 }
 
 @include media2Xlg {
+    .header_second {
+        left: 238px;
+    }
     footer .contact_btn {
         left: 1000px;
-    }
+    } 
 }
 
 @include mediaXlg {
+    .header_second {
+        left: 138px;
+    }
     footer .contact_btn {
         left: 830px;
     }
 }
 
 @include mediaLg {
+    .header_second {
+        top: -30px;
+    }
     footer .contact_btn {
         width: 250px;
         left: 730px;

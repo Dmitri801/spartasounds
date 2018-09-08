@@ -31,6 +31,9 @@ const productSchema = Schema({
         type: Array,
         default: []
     },
+    availability: {
+        type: String
+    },
     sampleLength: {
         type: Number
     },
