@@ -39,8 +39,8 @@ class Navbar extends Component {
           <Link style={{ alignSelf: "flex-end" }} to="/">
             <Button disableRipple color="inherit">Home</Button>
           </Link>
-          <Link style={{ alignSelf: "flex-end" }} to="/custom_kits">
-            <Button disableRipple  color="inherit">Custom Kits</Button>
+          <Link style={{ alignSelf: "flex-end" }} to="/shop">
+            <Button disableRipple  color="inherit">Shop</Button>
           </Link>
           <Link
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
@@ -70,8 +70,8 @@ class Navbar extends Component {
           <Link style={{ alignSelf: "flex-end" }} to="/">
             <Button disableRipple  color="inherit">Home</Button>
           </Link>
-          <Link style={{ alignSelf: "flex-end" }} to="/custom_kits">
-            <Button disableRipple  color="inherit">Custom Kits</Button>
+          <Link style={{ alignSelf: "flex-end" }} to="/shop">
+            <Button disableRipple  color="inherit">Shop</Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/free_kits">
             <Button disableRipple  color="inherit">Free Kits</Button>

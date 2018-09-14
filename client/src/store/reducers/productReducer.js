@@ -1,6 +1,8 @@
 import {
     GET_PRODUCTS_BY_ARRIVAL,
-    GET_PRODUCTS_BY_SOLD
+    GET_PRODUCTS_BY_SOLD,
+    GET_GENRES,
+    GET_CATEGORIES
   } from "../actions/types";
   
   const initialState = {};
@@ -17,6 +19,16 @@ import {
            ...state,
            byArrival: action.payload
        }
+       case GET_GENRES: 
+        return {
+            ...state,
+            genres: action.payload
+        }
+        case GET_CATEGORIES: 
+        return {
+            ...state,
+            categories: action.payload
+        }
       default:
         return state;
     }

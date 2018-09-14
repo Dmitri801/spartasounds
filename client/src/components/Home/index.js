@@ -5,6 +5,7 @@ import {
   getProductsBySold,
   getProductsByArrival
 } from "../../store/actions/productActions";
+import { getAllAudio } from '../../store/actions/audioTrackActions';
 import { connect } from "react-redux";
 const backgroundImage = require("../../resources/Images/sparta-home-background.jpeg");
 
@@ -12,6 +13,7 @@ class Home extends Component {
   componentDidMount() {
     this.props.getProductsBySold();
     this.props.getProductsByArrival();
+    this.props.getAllAudio();
   }
   render() {
     return (
@@ -40,5 +42,5 @@ const mapStateToProps = ({ products }) => ({
 
 export default connect(
   mapStateToProps,
-  { getProductsBySold, getProductsByArrival }
+  { getProductsBySold, getProductsByArrival, getAllAudio }
 )(Home);

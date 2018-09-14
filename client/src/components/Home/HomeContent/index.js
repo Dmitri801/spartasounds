@@ -1,31 +1,71 @@
 import React, { Component } from "react";
 import HomeSignup from "./HomeSignup";
+import MusicPlayer from "../../UI/MusicPlayer/MusicPlayer";
+import {
+  openMusicPlayer,
+  closeMusicPlayer,
+  setAudio,
+  setKitPlaying,
+  playAudio,
+  pauseAudio
+} from "../../../store/actions/musicPlayerActions";
 import { connect } from "react-redux";
 import CardBlockFeatured from "../../UI/Cards/Card_Block_Featured";
 class HomeContent extends Component {
   render() {
-    
     return (
       <div>
-        <CardBlockFeatured 
-         title="Best Selling Kits"
-         list={this.props.products.bySold}
-         isAuth={this.props.users.authedUser.isAuth}
+        <CardBlockFeatured
+          title="Best Selling Kits"
+          list={this.props.products.bySold}
+          audio={this.props.musicPlayer.audio}
+          isAuth={this.props.users.authedUser.isAuth}
+          audioTracks={this.props.audioTracks.fileData}
+          setAudio={this.props.setAudio}
+          playAudio={this.props.playAudio}
+          pauseAudio={this.props.pauseAudio}
+          playing={this.props.musicPlayer.playing}
+          setKitPlaying={this.props.setKitPlaying}
+          openMusicPlayer={this.props.openMusicPlayer}
         />
         <HomeSignup />
-        <CardBlockFeatured 
-         title="New Arrivals"
-         list={this.props.products.byArrival}
-         isAuth={this.props.users.authedUser.isAuth}
+        <CardBlockFeatured
+          title="New Arrivals"
+          list={this.props.products.byArrival}
+          isAuth={this.props.users.authedUser.isAuth}
+          audio={this.props.musicPlayer.audio}
+          setAudio={this.props.setAudio}
+          audioTracks={this.props.audioTracks.fileData}
+          playAudio={this.props.playAudio}
+          pauseAudio={this.props.pauseAudio}
+          playing={this.props.musicPlayer.playing}
+          setKitPlaying={this.props.setKitPlaying}
+          openMusicPlayer={this.props.openMusicPlayer}
+        />
+        <MusicPlayer
+          closeMusicPlayer={this.props.closeMusicPlayer} 
+          playerOpen={this.props.musicPlayer.playerOpen}   
         />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ products, users }) => ({
+const mapStateToProps = ({ products, users, musicPlayer, audioTracks }) => ({
   users,
-  products
+  products,
+  audioTracks,
+  musicPlayer
 });
 
-export default connect(mapStateToProps)(HomeContent);
+export default connect(
+  mapStateToProps,
+  {
+    openMusicPlayer,
+    closeMusicPlayer,
+    setAudio,
+    setKitPlaying,
+    playAudio,
+    pauseAudio
+  }
+)(HomeContent);

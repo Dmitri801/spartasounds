@@ -7,6 +7,8 @@
 @import "user";
 @import "beatstore";
 @import "card";
+@import "musicplayer";
+@import "shop";
 @import "footer";
 
 // Universal Classes
@@ -32,6 +34,23 @@ a {
 .main_loader {
   text-align: center;
   margin-top: 100px;
+}
+
+.page_top {
+  display: flex;
+  align-items: flex-end;
+  height: 60px;
+  background-color: $sparta-blue;
+  border-bottom: 1px solid $secondary-dark;
+  margin-top: 50px;
+  padding: 20px;
+  .container {
+    position: absolute;
+    font-size: 1.7rem;
+    color: #fff;
+    top: 100px;
+    left: 70px;
+  }
 }
 
 

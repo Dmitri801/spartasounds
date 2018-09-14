@@ -11,6 +11,13 @@
     footer .contact_btn {
         left: 1000px;
     } 
+    .the_player {
+        .playerDisplay {
+            width: 1000px;
+        }
+    }
+    
+    
 }
 
 @include mediaXlg {
@@ -20,10 +27,19 @@
     footer .contact_btn {
         left: 830px;
     }
+
+    .the_player {
+      
+        .playerDisplay {
+            width: 800px;
+        }
+    }
+
+    
 }
 
 @include mediaLg {
-    .header_second {
+    .header_second { 
         top: -30px;
     }
     footer .contact_btn {
@@ -42,12 +58,18 @@
     footer .connect_twitter_icon a {
         left: 320px;
     }
+
+    .the_player {
+        .playerDisplay {
+            width: 600px;
+        }
+    }
 }
 
 @include mediaMdLg {
     footer .contact_btn {
         width: 250px;
-        left: 630px;
+        left: 830px;
     }
     footer .connect_header {
         left: 100px;
@@ -60,6 +82,15 @@
     }
     footer .connect_twitter_icon a {
         left: 250px;
+    }
+    footer .logo {
+        width: 0px;
+    }
+
+    .the_player {
+        .playerDisplay {
+            width: 400px;
+        }
     }
 }
 
@@ -87,6 +118,12 @@
     footer .connect_twitter_icon a {
         left: 250px;
         font-size: 35px;
+    }
+
+    .the_player {
+        .playerDisplay {
+            display: none;
+        }
     }
     
 }

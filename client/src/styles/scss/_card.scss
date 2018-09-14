@@ -18,13 +18,15 @@
 
 .card_item_wrapper {
   text-align: center;
+  
  .image {
    @include easeOut;
    height: 350px;
    width: 350px;
    background-position: 60% !important;
-  
    border-radius: 10px;
+   position: relative;
+   z-index: 9 !important;
    cursor: pointer;
    box-shadow: 
     inset 0 0 0 1px $sparta-orange, 
@@ -32,13 +34,46 @@
     inset 0 0 0 3px $sparta-blue,
     -5px 4px 9px -1px rgba($sparta-red, 0.86);
     &:hover {
-      opacity: 0.6;
+      .card_playBtn {
+        display: block; 
+      }
+      .card_pauseBtn {
+        display: block;
+      }
+      opacity: 0.8;
       box-shadow: 
       inset 0 0 0 0px $sparta-orange, 
       inset 0 0 0 0px $sparta-yellow,
       0 0px 0px $secondary-dark;
+      
     }
  }
+ .card_playBtn {
+   @include easeOut;
+   position: absolute;
+   z-index: 999 !important;
+   cursor: pointer;
+   display: none;
+   font-size: 11.2rem;
+   margin-left: 100px;
+   margin-top: 50px;
+   &:hover {     
+    transform: scale(1.1);  
+  }
+ }
+ .card_pauseBtn {
+  @include easeOut;
+ position: absolute;
+ z-index: 999 !important;
+ cursor: pointer;
+ display: none;
+ font-size: 11.2rem;
+ margin-left: 100px;
+ margin-top: 50px;
+ &:hover {     
+  transform: scale(1.1);  
+}
+}
  .action_container {
    .tags {
      .name {

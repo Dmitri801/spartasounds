@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import FormField from "../UI/Forms/FormField";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { update, isFormValid, generateData } from "../utils/formActions";
-import { withRouter } from 'react-router-dom';
-import { loginUser } from '../../store/actions/userActions';
-import { closeModal } from '../../store/actions/modalActions';
+import { withRouter } from "react-router-dom";
+import { loginUser } from "../../store/actions/userActions";
+import { closeModal } from "../../store/actions/modalActions";
 import Modal from "../UI/Modal";
 class Login extends Component {
   state = {
@@ -92,9 +92,9 @@ class Login extends Component {
   );
 
   onRegisterClick = () => {
-    this.props.history.push('/register');
+    this.props.history.push("/register");
     this.resetLoginForm();
-  }
+  };
 
   updateForm = element => {
     const newFormData = update(element, this.state.formData, "login");
@@ -109,17 +109,15 @@ class Login extends Component {
     let dataToSubmit = generateData(this.state.formData, "login");
     if (formIsValid) {
       this.props.dispatch(loginUser(dataToSubmit)).then(response => {
-        if(response.payload.loginSuccess) {
-          
-          this.props.history.push('/user/dashboard')
-          this.resetLoginForm()
+        if (response.payload.loginSuccess) {
+          this.props.history.push("/user/dashboard");
+          this.resetLoginForm();
         } else {
           this.setState({
             formError: true
-          })
+          });
         }
-      })
-      
+      });
     } else {
       this.setState({
         formError: true
@@ -157,9 +155,9 @@ class Login extends Component {
             change={element => this.updateForm(element)}
           />
           <hr />
-          
+
           <div className="bottom_login_container">
-            <Button 
+            <Button
               onClick={event => this.submitForm(event)}
               className="login_user_btn"
               variant="contained"
@@ -168,12 +166,16 @@ class Login extends Component {
             </Button>
           </div>
           <p>
-            Not a member yet? 
+            Not a member yet?
             <span onClick={this.onRegisterClick}>Register Here </span>
           </p>
           {this.state.formError ? (
-            <div  className="error_label_bottom">
-            <p >{this.props.users.loginSuccess ? this.props.users.loginSuccess.message : "Please Check Your Information"}</p>
+            <div className="error_label_bottom">
+              <p>
+                {this.props.users.loginSuccess
+                  ? this.props.users.loginSuccess.message
+                  : "Please Check Your Information"}
+              </p>
             </div>
           ) : null}
         </form>
@@ -182,9 +184,9 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   users: state.users,
   loginModalOpen: state.loginModalOpen.loginModalOpen
-})
+});
 
 export default connect(mapStateToProps)(withRouter(Login));

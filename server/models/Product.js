@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 const productSchema = Schema({
     name: {
         type: String,
@@ -32,7 +33,7 @@ const productSchema = Schema({
         default: []
     },
     demoTrack: {
-        type: String
+        type: Schema.Types.ObjectId,
     },
     sampleLength: {
         type: Number
