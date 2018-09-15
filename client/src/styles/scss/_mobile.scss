@@ -1,164 +1,157 @@
 @include media3Xlg {
-    footer .contact_btn {
-        left: 1250px;
-    }
+  footer .contact_btn {
+    left: 1250px;
+  }
 }
 
 @include media2Xlg {
-    .header_second {
-        left: 238px;
+  .header_second {
+    left: 238px;
+  }
+  footer .contact_btn {
+    left: 1000px;
+  }
+  .the_player {
+    .playerDisplay {
+      width: 1000px;
     }
-    footer .contact_btn {
-        left: 1000px;
-    } 
-    .the_player {
-        .playerDisplay {
-            width: 1000px;
-        }
-    }
-    
-    
+  }
+
+  .user_info_panel {
+    margin-left: 250px;
+  }
 }
 
 @include mediaXlg {
-    .header_second {
-        left: 138px;
-    }
-    footer .contact_btn {
-        left: 830px;
-    }
+  .header_second {
+    left: 138px;
+  }
+  footer .contact_btn {
+    left: 830px;
+  }
 
-    .the_player {
-      
-        .playerDisplay {
-            width: 800px;
-        }
+  .the_player {
+    .playerDisplay {
+      width: 800px;
     }
-
-    
+  }
 }
 
 @include mediaLg {
-    .header_second { 
-        top: -30px;
-    }
-    footer .contact_btn {
-        width: 250px;
-        left: 730px;
-    }
-    footer .connect_header {
-        left: 170px;
-    }
-    footer .connect_facebook_icon a {
-        left: 150px;
-    }
-    footer .connect_soundcloud_icon a {
-        left: 220px;
-    }
-    footer .connect_twitter_icon a {
-        left: 320px;
-    }
+  .header_second {
+    top: -30px;
+  }
+  footer .contact_btn {
+    width: 250px;
+    left: 730px;
+  }
+  footer .connect_header {
+    left: 170px;
+  }
+  footer .connect_facebook_icon a {
+    left: 150px;
+  }
+  footer .connect_soundcloud_icon a {
+    left: 220px;
+  }
+  footer .connect_twitter_icon a {
+    left: 320px;
+  }
 
-    .the_player {
-        .playerDisplay {
-            width: 600px;
-        }
+  .the_player {
+    .playerDisplay {
+      width: 600px;
     }
+  }
 }
 
 @include mediaMdLg {
-    footer .contact_btn {
-        width: 250px;
-        left: 830px;
-    }
-    footer .connect_header {
-        left: 100px;
-    }
-    footer .connect_facebook_icon a {
-        left: 80px;
-    }
-    footer .connect_soundcloud_icon a {
-        left: 150px;
-    }
-    footer .connect_twitter_icon a {
-        left: 250px;
-    }
-    footer .logo {
-        width: 0px;
-    }
+  footer .contact_btn {
+    width: 250px;
+    left: 830px;
+  }
+  footer .connect_header {
+    left: 100px;
+  }
+  footer .connect_facebook_icon a {
+    left: 80px;
+  }
+  footer .connect_soundcloud_icon a {
+    left: 150px;
+  }
+  footer .connect_twitter_icon a {
+    left: 250px;
+  }
+  footer .logo {
+    width: 0px;
+  }
 
-    .the_player {
-        .playerDisplay {
-            width: 400px;
-        }
+  .the_player {
+    .playerDisplay {
+      width: 400px;
     }
+  }
 }
 
 @include mediaMd {
-    .homeSignup {
-        display: none;
-    }
-    footer .contact_btn {
-        width: 150px;
-        left: 580px;
-    }
-    footer .connect_header {
-        left: 100px;
-        display: none;
-    }
-    footer .connect_facebook_icon a {
-        left: 80px;
-        font-size: 30px;
-    }
-    footer .connect_soundcloud_icon a {
-        left: 150px;
-        font-size: 40px;
+  .homeSignup {
+    display: none;
+  }
+  footer .contact_btn {
+    width: 150px;
+    left: 580px;
+  }
+  footer .connect_header {
+    left: 100px;
+    display: none;
+  }
+  footer .connect_facebook_icon a {
+    left: 80px;
+    font-size: 30px;
+  }
+  footer .connect_soundcloud_icon a {
+    left: 150px;
+    font-size: 40px;
+  }
+  footer .connect_twitter_icon a {
+    left: 250px;
+    font-size: 35px;
+  }
 
+  .the_player {
+    .playerDisplay {
+      display: none;
     }
-    footer .connect_twitter_icon a {
-        left: 250px;
-        font-size: 35px;
-    }
-
-    .the_player {
-        .playerDisplay {
-            display: none;
-        }
-    }
-    
+  }
 }
 
 @include mediaSm {
-    footer .contact_btn {
-        top: 150px;
-        width: 150px;
-        left: 220px;
-    }
-    footer .connect_header {
-       
-        left: 100px;
-        display: none;
-    }
-    footer .connect_facebook_icon a {
-        top: 160px;
-        left: 20px;
-        font-size: 20px;
-    }
-    footer .connect_soundcloud_icon a {
-        top: 153px;
-        left: 70px;
-        font-size: 30px;
-
-    }
-    footer .connect_twitter_icon a {
-        top: 158px;
-        left: 150px;
-        font-size: 25px;
-    }
-    footer .copyright {
-        top: 0px;
-        left: 10px;
-        
-        
-      }
+  footer .contact_btn {
+    top: 150px;
+    width: 150px;
+    left: 220px;
+  }
+  footer .connect_header {
+    left: 100px;
+    display: none;
+  }
+  footer .connect_facebook_icon a {
+    top: 160px;
+    left: 20px;
+    font-size: 20px;
+  }
+  footer .connect_soundcloud_icon a {
+    top: 153px;
+    left: 70px;
+    font-size: 30px;
+  }
+  footer .connect_twitter_icon a {
+    top: 158px;
+    left: 150px;
+    font-size: 25px;
+  }
+  footer .copyright {
+    top: 0px;
+    left: 10px;
+  }
 }

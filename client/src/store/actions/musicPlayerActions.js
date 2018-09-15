@@ -4,6 +4,7 @@ import {
   SET_AUDIO,
   PLAY_AUDIO,
   PAUSE_AUDIO,
+  RESET_AUDIO,
   SET_KIT_PLAYING
 } from "./types";
 import { AUDIO_API } from "../utils/misc";
@@ -32,6 +33,12 @@ export const setKitPlaying = kit => {
   return {
     type: SET_KIT_PLAYING,
     payload: kit
+  };
+};
+
+export const resetAudio = () => {
+  return {
+    type: RESET_AUDIO
   };
 };
 

@@ -7,6 +7,7 @@ import {
   setAudio,
   setKitPlaying,
   playAudio,
+  resetAudio,
   pauseAudio
 } from "../../../store/actions/musicPlayerActions";
 import { connect } from "react-redux";
@@ -21,10 +22,12 @@ class HomeContent extends Component {
           audio={this.props.musicPlayer.audio}
           isAuth={this.props.users.authedUser.isAuth}
           audioTracks={this.props.audioTracks.fileData}
+          resetAudio={this.props.resetAudio}
           setAudio={this.props.setAudio}
           playAudio={this.props.playAudio}
           pauseAudio={this.props.pauseAudio}
           playing={this.props.musicPlayer.playing}
+          kitPlaying={this.props.musicPlayer.kitPlaying}
           setKitPlaying={this.props.setKitPlaying}
           openMusicPlayer={this.props.openMusicPlayer}
         />
@@ -36,15 +39,17 @@ class HomeContent extends Component {
           audio={this.props.musicPlayer.audio}
           setAudio={this.props.setAudio}
           audioTracks={this.props.audioTracks.fileData}
+          resetAudio={this.props.resetAudio}
           playAudio={this.props.playAudio}
           pauseAudio={this.props.pauseAudio}
           playing={this.props.musicPlayer.playing}
           setKitPlaying={this.props.setKitPlaying}
+          kitPlaying={this.props.musicPlayer.kitPlaying}
           openMusicPlayer={this.props.openMusicPlayer}
         />
         <MusicPlayer
-          closeMusicPlayer={this.props.closeMusicPlayer} 
-          playerOpen={this.props.musicPlayer.playerOpen}   
+          closeMusicPlayer={this.props.closeMusicPlayer}
+          playerOpen={this.props.musicPlayer.playerOpen}
         />
       </div>
     );
@@ -66,6 +71,7 @@ export default connect(
     setAudio,
     setKitPlaying,
     playAudio,
+    resetAudio,
     pauseAudio
   }
 )(HomeContent);

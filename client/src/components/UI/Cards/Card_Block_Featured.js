@@ -13,10 +13,12 @@ const CardBlockFeatured = props => {
                 audioTrackData={props.audioTracks}
                 playAudio={props.playAudio}
                 pauseAudio={props.pauseAudio}
+                resetAudio={props.resetAudio}
                 setKitPlaying={props.setKitPlaying}
                 playing={props.playing}
                 openMusicPlayer={props.openMusicPlayer}
                 setAudio={props.setAudio}
+                kitPlaying={props.kitPlaying}
                 {...card}
               />
             </div>

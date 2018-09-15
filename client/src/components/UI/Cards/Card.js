@@ -16,48 +16,68 @@ class Card extends Component {
   };
 
   renderPlayerControls = () => {
-    if(this.props.demoTrack) {
-      if(this.props.playing) {
-       return <PauseButton onClick={this.pauseDemoTrack} className="card_pauseBtn" />
+    if (this.props.demoTrack) {
+      if (this.props.playing && this.props.name === this.props.kitPlaying) {
+        return (
+          <PauseButton
+            onClick={this.pauseDemoTrack}
+            className="card_pauseBtn"
+          />
+        );
       } else {
-       return <PlayButton onClick={this.playDemoTrack} className="card_playBtn" />
+        return (
+          <PlayButton onClick={this.playDemoTrack} className="card_playBtn" />
+        );
       }
     }
-  }
+  };
 
   playDemoTrack = () => {
-    let filename;
-    let kitName;
-    if(this.props.audioTrackData) {
-      this.props.audioTrackData.map(track => {
-        if(this.props.demoTrack === track._id) {
-          kitName = this.props.name
-          filename = track.filename;
-        }
-        return {
-          filename, 
-          kitName
-        }
-      })
-      this.props.setKitPlaying(kitName)
-      this.props.setAudio(filename)
-      this.props.openMusicPlayer();
-      this.props.playAudio();
+    if (this.props.name !== this.props.kitPlaying && this.props.playing) {
+      console.log("matched");
+      this.props.resetAudio();
+      this.pauseDemoTrack();
+      this.props.audio.currentTime = 0;
       setTimeout(() => {
-        this.props.audio.play()
+        this.props.playAudio();
+        this.props.audio.play();
         this.props.audio.addEventListener("ended", () => {
           this.props.audio.currentTime = 0;
           this.pauseDemoTrack();
-        })
-      }, 500)
-      
+        });
+      }, 1000);
     }
-  }
+    let filename;
+    let kitName;
+    if (this.props.audioTrackData) {
+      this.props.audioTrackData.map(track => {
+        if (this.props.demoTrack === track._id) {
+          kitName = this.props.name;
+          filename = track.filename;
+        }
+        return {
+          filename,
+          kitName
+        };
+      });
+      this.props.setKitPlaying(kitName);
+      this.props.setAudio(filename);
+      this.props.openMusicPlayer();
+      this.props.playAudio();
+      setTimeout(() => {
+        this.props.audio.play();
+        this.props.audio.addEventListener("ended", () => {
+          this.props.audio.currentTime = 0;
+          this.pauseDemoTrack();
+        });
+      }, 500);
+    }
+  };
 
   pauseDemoTrack = () => {
-    this.props.pauseAudio()
-    this.props.audio.pause()
-  }
+    this.props.pauseAudio();
+    this.props.audio.pause();
+  };
 
   render() {
     const props = this.props;

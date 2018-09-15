@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import FormField from "../UI/Forms/FormField";
-import {toastr} from 'react-redux-toastr'
+import Spinner from "../UI/Spinner";
+import { toastr } from "react-redux-toastr";
 import { connect } from "react-redux";
 import { update, isFormValid, generateData } from "../utils/formActions";
 import { registerUser } from "../../store/actions/userActions";
-import { openModal } from '../../store/actions/modalActions';
-const registerBackground = require('../../resources/Images/register-background.jpeg');
+import { openModal } from "../../store/actions/modalActions";
+const registerBackground = require("../../resources/Images/register-background.jpeg");
 class Register extends Component {
   state = {
+    loading: false,
     formError: false,
     formSuccess: "",
     formData: {
@@ -102,33 +104,54 @@ class Register extends Component {
 
   submitForm = e => {
     e.preventDefault();
+
+    this.setState({
+      loading: true
+    });
+
     let formIsValid = isFormValid(this.state.formData, "register");
     let dataToSubmit = generateData(this.state.formData, "register");
     if (formIsValid) {
-      this.props.dispatch(registerUser(dataToSubmit))
-       .then(res => {
-         if(res.payload.success) {
-          this.setState({
-            formError: false,
-            formSuccess: true
-          }, () => {
-            this.props.history.push('/')
-            toastr.success("Welcome", "You can now log in")
-          });
+      this.props.dispatch(registerUser(dataToSubmit)).then(res => {
+        if (res.payload.success) {
+          this.setState(
+            {
+              formError: false,
+              formSuccess: true
+            },
+            () => {
+              this.props.history.push("/");
+              toastr.success("Welcome", "You can now log in");
+            }
+          );
           setTimeout(() => {
             this.props.dispatch(openModal());
-          }, 2000)
-         } else {
-           this.setState({
-             formError: true
-           })
-         }
-       })
-    
+            this.setState({
+              loading: false
+            });
+          }, 2000);
+        } else {
+          this.setState({
+            formError: true
+          });
+        }
+      });
+    } else {
+      setTimeout(() => {
+        this.setState({
+          formError: true,
+          loading: false
+        });
+      }, 500);
     }
-    this.setState({
-      formError: true
-    })
+  };
+
+  renderError = () => {
+    if (this.props.users.registerSuccess && !this.state.loading) {
+      return this.props.users.registerSuccess.message;
+    } else if (!this.state.loading && !this.props.users.registerSuccess) {
+      return "Please Check Your Information";
+    }
   };
 
   render() {
@@ -226,14 +249,23 @@ class Register extends Component {
                 <Button
                   onClick={event => this.submitForm(event)}
                   variant="outlined"
+                  disabled={this.state.loading}
+                  style={
+                    this.state.loading
+                      ? { borderColor: "grey", opacity: "0.4" }
+                      : null
+                  }
                   className="register_user_btn"
                 >
                   Register
                 </Button>
+                {this.state.loading && (
+                  <Spinner specialClassName="register_spinner" />
+                )}
               </div>
               {this.state.formError ? (
                 <div className="error_label_bottom">
-                  <p>{this.props.users.registerSuccess && this.props.users.registerSuccess.success === false ? this.props.users.registerSuccess.message : "Please Check Your Information"}</p>
+                  <p>{this.renderError()}</p>
                 </div>
               ) : null}
             </form>
@@ -244,8 +276,8 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   users: state.users
-})
+});
 
 export default connect(mapStateToProps)(Register);

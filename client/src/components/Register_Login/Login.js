@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import FormField from "../UI/Forms/FormField";
+import Spinner from "../UI/Spinner";
 import { connect } from "react-redux";
 import { update, isFormValid, generateData } from "../utils/formActions";
 import { withRouter } from "react-router-dom";
-import { loginUser } from "../../store/actions/userActions";
+import { loginUser, resetLogin } from "../../store/actions/userActions";
 import { closeModal } from "../../store/actions/modalActions";
 import Modal from "../UI/Modal";
 class Login extends Component {
   state = {
+    loading: false,
     formError: false,
     formSuccess: "",
     formData: {
@@ -85,6 +87,11 @@ class Login extends Component {
         }
       }
     }));
+    setTimeout(() => {
+      this.setState({
+        loading: false
+      });
+    }, 1500);
   };
 
   closeIcon = () => (
@@ -105,6 +112,12 @@ class Login extends Component {
   };
   submitForm = e => {
     e.preventDefault();
+    this.setState({
+      loading: true
+    });
+
+    this.props.dispatch(resetLogin());
+
     let formIsValid = isFormValid(this.state.formData, "login");
     let dataToSubmit = generateData(this.state.formData, "login");
     if (formIsValid) {
@@ -113,19 +126,34 @@ class Login extends Component {
           this.props.history.push("/user/dashboard");
           this.resetLoginForm();
         } else {
-          this.setState({
-            formError: true
-          });
+          setTimeout(() => {
+            this.setState({
+              formError: true,
+              loading: false
+            });
+          }, 500);
         }
       });
     } else {
-      this.setState({
-        formError: true
-      });
+      setTimeout(() => {
+        this.setState({
+          formError: true,
+          loading: false
+        });
+      }, 500);
+    }
+  };
+
+  renderError = () => {
+    if (this.props.users.loginSuccess && !this.state.loading) {
+      return this.props.users.loginSuccess.message;
+    } else if (!this.state.loading && !this.props.users.loginSuccess) {
+      return "Please Check Your Information";
     }
   };
   render() {
     const { loginModalOpen } = this.props;
+    const { loading } = this.state;
     return (
       <Modal
         closeIcon={this.closeIcon}
@@ -160,22 +188,23 @@ class Login extends Component {
             <Button
               onClick={event => this.submitForm(event)}
               className="login_user_btn"
+              disabled={loading}
+              style={
+                loading ? { backgroundColor: "grey", opacity: "0.4" } : null
+              }
               variant="contained"
             >
               Log In
             </Button>
+            {loading && <Spinner specialClassName="login_spinner" />}
           </div>
-          <p>
+          <p style={loading ? { opacity: "0.4" } : null}>
             Not a member yet?
             <span onClick={this.onRegisterClick}>Register Here </span>
           </p>
           {this.state.formError ? (
             <div className="error_label_bottom">
-              <p>
-                {this.props.users.loginSuccess
-                  ? this.props.users.loginSuccess.message
-                  : "Please Check Your Information"}
-              </p>
+              <p>{this.renderError()}</p>
             </div>
           ) : null}
         </form>

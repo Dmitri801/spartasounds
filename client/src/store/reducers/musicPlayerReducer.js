@@ -4,6 +4,7 @@ import {
   SET_AUDIO,
   PLAY_AUDIO,
   PAUSE_AUDIO,
+  RESET_AUDIO,
   SET_KIT_PLAYING
 } from "../actions/types";
 
@@ -26,15 +27,20 @@ export default function(state = initialState, action) {
         ...state,
         playing: true
       };
-    case SET_KIT_PLAYING: 
-     return {
-         ...state,
-         kitPlaying: action.payload
-     }
+    case SET_KIT_PLAYING:
+      return {
+        ...state,
+        kitPlaying: action.payload
+      };
     case PAUSE_AUDIO:
       return {
         ...state,
         playing: false
+      };
+    case RESET_AUDIO:
+      return {
+        ...state,
+        audio: new Audio()
       };
     case OPEN_PLAYER:
       return {

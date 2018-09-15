@@ -1,0 +1,39 @@
+.login_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin-top: 40px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border: 7px outset $secondary-dark;
+  border-top-color: $sparta-red;
+  animation: spinner 1s linear infinite;
+}
+
+.register_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  height: 120px;
+  width: 120px;
+  margin-top: 230px;
+  margin-left: -60px;
+  border-radius: 50%;
+  border: 7px outset $secondary-dark;
+  border-top-color: $sparta-red;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -698,6 +698,41 @@ form .bottom_register_container {
   position: absolute;
   left: 500px; }
 
+.login_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin-top: 40px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border: 7px outset #4e4e50;
+  border-top-color: #b31314;
+  animation: spinner 1s linear infinite; }
+
+.register_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  height: 120px;
+  width: 120px;
+  margin-top: 230px;
+  margin-left: -60px;
+  border-radius: 50%;
+  border: 7px outset #4e4e50;
+  border-top-color: #b31314;
+  animation: spinner 1s linear infinite; }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg); } }
 footer {
   position: relative;
   width: 100% !important;
@@ -833,7 +868,10 @@ a {
     left: 1000px; }
 
   .the_player .playerDisplay {
-    width: 1000px; } }
+    width: 1000px; }
+
+  .user_info_panel {
+    margin-left: 250px; } }
 @media screen and (min-width: 1171px) and (max-width: 1470px) {
   .header_second {
     left: 138px; }
