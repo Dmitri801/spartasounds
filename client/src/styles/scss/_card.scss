@@ -1,3 +1,37 @@
+// SHOP CARDS
+
+
+.shop_container {
+  display: flex;
+  margin-top: 5px;
+  margin-right: 25px;
+}
+
+.card_block_shop {
+  height: 1100px;
+  min-width: 1200px;
+  padding: 25px;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba($secondary-dark, 0.16),
+    0 3px 6px rgba($secondary-dark, 0.23);
+  .container {
+    margin: 10px;
+    .card_item_wrapper {
+      margin: 10px;
+    }
+  }
+  .title {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 3rem;
+  }
+}
+
+// HOME CARDS
+
 .card_block_featured {
   margin: 20px;
   height: 650px;
@@ -18,7 +52,7 @@
 
 .card_item_wrapper {
   text-align: center;
-  
+   
  .image {
    @include easeOut;
    height: 350px;

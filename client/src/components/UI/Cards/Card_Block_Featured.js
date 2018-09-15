@@ -22,7 +22,7 @@ const CardBlockFeatured = props => {
                 {...card}
               />
             </div>
-          );
+          ); 
         })
       : null;
   };

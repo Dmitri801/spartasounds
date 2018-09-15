@@ -26,7 +26,7 @@ export const price = [
     {
         "_id": 1,
         "name": "Free",
-        "array": [0]
+        "array": [0, 0]
     },
     {
         "_id": 2,

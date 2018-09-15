@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import PageTop from "../UI/PageTop";
 import { connect } from "react-redux";
-import { getGenres, getCategories } from "../../store/actions/productActions";
+import {
+  getGenres,
+  getCategories,
+  getProductsToShop
+} from "../../store/actions/productActions";
 import CollapsibleCheckbox from "../UI/CollapsibleSelections/CollapseCheckbox";
-import CollapsibleRadio from '../UI/CollapsibleSelections/CollapseRadio';
+import CollapsibleRadio from "../UI/CollapsibleSelections/CollapseRadio";
 import { instruments, price } from "../utils/fixed_categories";
+import LoadShopCards from "./LoadShopCards";
 class Shop extends Component {
   state = {
     grid: "",
@@ -20,37 +25,51 @@ class Shop extends Component {
   componentDidMount() {
     this.props.getGenres();
     this.props.getCategories();
+
+    this.props.getProductsToShop(
+      this.state.skip,
+      this.state.limit,
+      this.state.filters
+    );
   }
 
-  handlePrice = (value) => {
+  handlePrice = value => {
     const data = price;
-    let array = []
+    let array = [];
 
-    for(let key in data) {
-      if(data[key]._id === parseInt(value, 10)) {
-        array = data[key].array
+    for (let key in data) {
+      if (data[key]._id === parseInt(value, 10)) {
+        array = data[key].array;
       }
     }
-      return array;
-  }
+    return array;
+  };
 
   handleFilters = (filters, option) => {
-    const newFilters = {...this.state.filters}
+    const newFilters = { ...this.state.filters };
     newFilters[option] = filters;
 
-    if(option === "price") {
+    if (option === "price") {
       let priceValues = this.handlePrice(filters);
-      newFilters[option] = priceValues
+      newFilters[option] = priceValues;
     }
+    this.showFilteredResults(newFilters);
     this.setState({
       filters: newFilters
-    })
+    });
+  };
+
+  showFilteredResults = filters => {
+    this.props.getProductsToShop(0, this.state.limit, filters).then(() => {
+      this.setState({
+        skip: 0
+      });
+    });
   };
   render() {
-    console.log(this.state.filters);
     const { products } = this.props;
     return (
-      <div style={{width: "100%" }}>
+      <div style={{ width: "100%" }}>
         <PageTop title="Browse Sounds" />
 
         <div className="container">
@@ -75,19 +94,28 @@ class Shop extends Component {
                 title="Categories"
                 list={products.categories}
                 handleFilters={filters =>
-                  this.handleFilters(filters, "categories")
+                  this.handleFilters(filters, "category")
                 }
               />
-               <CollapsibleRadio
+              <CollapsibleRadio
                 initState={false}
                 title="Price"
                 list={price}
-                handleFilters={filters =>
-                  this.handleFilters(filters, "price")
-                }
+                handleFilters={filters => this.handleFilters(filters, "price")}
               />
             </div>
-            <div className="right">right</div>
+            <div className="right">
+              <div className="shop_options">
+                <div className="shop_grids clear">grids</div>
+              </div>
+              <LoadShopCards
+                grid={this.state.grid}
+                limit={this.state.limit}
+                size={products.toShopSize}
+                list={products.toShop}
+                loadMore={() => console.log("Load More")}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -101,5 +129,5 @@ const mapStateToProps = ({ products }) => ({
 
 export default connect(
   mapStateToProps,
-  { getGenres, getCategories }
+  { getGenres, getCategories, getProductsToShop }
 )(Shop);
