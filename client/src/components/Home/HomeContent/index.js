@@ -49,7 +49,7 @@ class HomeContent extends Component {
         />
         <MusicPlayer
           closeMusicPlayer={this.props.closeMusicPlayer}
-          playerOpen={this.props.musicPlayer.playerOpen}
+         
         />
       </div>
     );

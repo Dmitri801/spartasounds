@@ -111,8 +111,7 @@ class MusicPlayer extends Component {
     this.props.musicPlayer.audio.pause();
   };
   render() {
-    const {  playerOpen } = this.props;
-    const { audio, playing, kitPlaying } = this.props.musicPlayer;
+    const { audio, playing, kitPlaying, playerOpen } = this.props.musicPlayer;
     const { currentTime, trackDuration, progressBar } = this.state;
     let renderPlayer;
     if (audio) {

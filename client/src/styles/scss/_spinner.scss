@@ -32,6 +32,24 @@
   animation: spinner 1s linear infinite;
 }
 
+
+.auth_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  height: 160px;
+  width: 160px;
+  margin-top: -230px;
+  margin-left: -60px;
+  border-radius: 50%;
+  border: 11px solid $secondary-dark;
+  border-top-color: $sparta-red;
+  animation: spinner 1s linear infinite;
+}
+
 @keyframes spinner {
   to {
     transform: rotate(360deg);

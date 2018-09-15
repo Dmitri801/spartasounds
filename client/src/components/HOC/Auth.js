@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { auth } from "../../store/actions/userActions";
 import { openModal } from "../../store/actions/modalActions";
-import CircularProgress from "@material-ui/core/CircularProgress";
-
+import Spinner from "../UI/Spinner";
 export default function(ComposedClass, reload, adminRoute = null) {
   class Authentication extends Component {
     state = {
@@ -39,12 +38,7 @@ export default function(ComposedClass, reload, adminRoute = null) {
       if (this.state.loading) {
         return (
           <div className="main_loader">
-            <CircularProgress
-              style={{
-                color: "#f3b169"
-              }}
-              thickness={7}
-            />
+           <Spinner specialClassName="auth_spinner" />
           </div>
         );
       }
