@@ -8,6 +8,7 @@ const products = require("./routes/api/products");
 const categories = require("./routes/api/categories");
 const genres = require("./routes/api/genres");
 const audiotracks = require('./routes/api/audiotracks');
+const test = require('./routes/api/test');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 // =================================== //
 
 app.use("/", audiotracks);
+app.use("/", test);
 app.use("/", users);
 app.use("/", products);
 app.use("/", categories);

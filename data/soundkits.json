@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Horror Trap",
+        "description": "Horror Trap with the vibes of Travis Scott",
+        "price": "55",
+        "genre": "5b8890062cf1c031b251b3be",
+        "category": "5b8941708a9b32040856d035",
+        "instruments": ["808s", "Drums", "Synth", "Guitars", "Vox"],
+        "demoTrack": "5b9db11c4225c50591e0777e",
+        "sold": "105",
+        "sampleLength": 28,
+        "publish": true
+    },
+    {
+        "name": "Serum Waves",
+        "description": "Dark pad presets for Serum",
+        "price": "10",
+        "genre": "5b9db29fc79d36064351791d",
+        "category": "5b9db2b0c79d36064351791e",
+        "instruments": ["Synth"],
+        "sold": "1",
+        "sampleLength": 18,
+        "publish": true
+    }
+   
+]

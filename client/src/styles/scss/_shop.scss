@@ -5,7 +5,7 @@
 }
 
 .shop_wrapper .left {
-  flex-grow: 1.0;
+  flex-grow: 1;
   max-width: 400px;
   margin-left: 70px;
 }
@@ -15,11 +15,59 @@
   .collapse_list {
     border-bottom: 2px solid $secondary-dark;
   }
- .collapse_title {
-     font-size: 2.3rem;
- }
+  .collapse_title {
+    font-size: 2.3rem;
+  }
 }
 
 .shop_wrapper .right {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
   margin-left: 20px;
+}
+
+.shop_container {
+  display: grid;
+  grid-template-columns: 90%;
+  grid-auto-rows: minmax(700px, auto);
+  margin-bottom: 5px;
+}
+
+.load_more_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 5px;
+  span {
+    @include easeOut;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    font-family: "Cinzel", "serif";
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    padding: 12px;
+    height: 50px;
+    width: 350px;
+    background-color: darken($sparta-orange, 7);
+
+    &:hover {
+      background-color: lighten($sparta-orange, 2);
+      box-shadow: 0 0 20px $secondary-dark;
+    }
+    &:active {
+      box-shadow: inset 0 0 30px $secondary-dark;
+    }
+  }
+}
+
+.shopCards_hr {
+  margin-bottom: 0;
+  margin-top: 10px;
+  border-width: 3px;
+  border-color: $secondary-dark;
 }

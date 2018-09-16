@@ -57,9 +57,13 @@ export const getProductsToShop = (
   };
 
   const request = axios.post(`${PRODUCTS_API}/shop`, data).then(res => {
+    let newState = [
+      ...prevState,
+      ...res.data.articles
+    ]
     return {
       size: res.data.size,
-      articles: res.data.articles
+      articles: newState
     };
   });
   return {

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import MusicPlayer from "../UI/MusicPlayer/MusicPlayer";
+import { closeMusicPlayer } from "../../store/actions/musicPlayerActions";
 import PageTop from "../UI/PageTop";
 import { connect } from "react-redux";
 import {
@@ -8,12 +10,13 @@ import {
 } from "../../store/actions/productActions";
 import CollapsibleCheckbox from "../UI/CollapsibleSelections/CollapseCheckbox";
 import CollapsibleRadio from "../UI/CollapsibleSelections/CollapseRadio";
+import { getAllAudio } from "../../store/actions/audioTrackActions";
 import { instruments, price } from "../utils/fixed_categories";
 import LoadShopCards from "./LoadShopCards";
 class Shop extends Component {
   state = {
     grid: "",
-    limit: 6,
+    limit: 4,
     skip: 0,
     filters: {
       genre: [],
@@ -31,6 +34,8 @@ class Shop extends Component {
       this.state.limit,
       this.state.filters
     );
+
+    this.props.getAllAudio();
   }
 
   handlePrice = value => {
@@ -66,6 +71,21 @@ class Shop extends Component {
       });
     });
   };
+
+  loadMoreCards = () => {
+    let skip = this.state.skip + this.state.limit;
+
+    this.props.getProductsToShop(
+      skip, 
+      this.state.limit,
+      this.state.filters,
+      this.props.products.toShop
+    ).then(() => {
+      this.setState({
+        skip
+      })
+    })
+  }
   render() {
     const { products } = this.props;
     return (
@@ -106,18 +126,19 @@ class Shop extends Component {
             </div>
             <div className="right">
               <div className="shop_options">
-                <div className="shop_grids clear">grids</div>
+                
               </div>
               <LoadShopCards
                 grid={this.state.grid}
                 limit={this.state.limit}
                 size={products.toShopSize}
                 list={products.toShop}
-                loadMore={() => console.log("Load More")}
+                loadMore={() => this.loadMoreCards()}
               />
             </div>
           </div>
         </div>
+        <MusicPlayer closeMusicPlayer={this.props.closeMusicPlayer} />
       </div>
     );
   }
@@ -129,5 +150,5 @@ const mapStateToProps = ({ products }) => ({
 
 export default connect(
   mapStateToProps,
-  { getGenres, getCategories, getProductsToShop }
+  { getGenres, getCategories, getProductsToShop, closeMusicPlayer, getAllAudio }
 )(Shop);

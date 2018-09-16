@@ -2,9 +2,7 @@
   footer .contact_btn {
     left: 1250px;
   }
-  .card_block_shop {
-    min-width: 1000px;
-  }
+  
 }
 
 @include media2Xlg {
@@ -23,9 +21,7 @@
   .user_info_panel {
     margin-left: 250px;
   }
-  .card_block_shop {
-    min-width: 800px;
-  }
+  
 }
 
 @include mediaXlg {
@@ -41,9 +37,7 @@
       width: 800px;
     }
   }
-  .card_block_shop {
-    min-width: 700px;
-  }
+ 
 }
 
 @include mediaLg {

@@ -1,13 +1,39 @@
 import React, { Component } from "react";
+import {
+  openMusicPlayer,
+  closeMusicPlayer,
+  setAudio,
+  setKitPlaying,
+  playAudio,
+  resetAudio,
+  pauseAudio
+} from "../../../store/actions/musicPlayerActions";
+import { connect } from "react-redux";
 import Card from "./Card";
 class CardBlockShop extends Component {
   renderCards = () => {
-    return this.props.list ? this.props.list.map(card => 
-    <Card 
-     key={card._id}
-     {...card}
-     grid={this.props.grid}
-    />) : null;
+    return this.props.list
+      ? this.props.list.map(card => (
+          <Card
+            key={card._id}
+            isAuth={this.props.users.authedUser.isAuth}
+            audio={this.props.musicPlayer.audio}
+            audioTrackData={this.props.audioTracks.fileData}
+            playAudio={this.props.playAudio}
+            pauseAudio={this.props.pauseAudio}
+            resetAudio={this.props.resetAudio}
+            setKitPlaying={this.props.setKitPlaying}
+            playing={this.props.musicPlayer.playing}
+            openMusicPlayer={this.props.openMusicPlayer}
+            closeMusicPlayer={this.props.closeMusicPlayer}
+            setAudio={this.props.setAudio}
+            kitPlaying={this.props.musicPlayer.kitPlaying}
+            {...card}
+            grid={this.props.grid}
+            imageStyling={"shopImage"}
+          />
+        ))
+      : null;
   };
 
   render() {
@@ -15,12 +41,14 @@ class CardBlockShop extends Component {
     return (
       <div className="card_block_shop">
         <div className="container">
-          <div style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            flexWrap: "wrap"
-          }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              flexWrap: "wrap"
+            }}
+          >
             {list ? (
               list.length === 0 ? (
                 <div>No Results Found</div>
@@ -34,4 +62,21 @@ class CardBlockShop extends Component {
   }
 }
 
-export default CardBlockShop;
+const mapStateToProps = ({ users, musicPlayer, audioTracks }) => ({
+  users,
+  musicPlayer,
+  audioTracks
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    openMusicPlayer,
+    closeMusicPlayer,
+    setAudio,
+    setKitPlaying,
+    playAudio,
+    resetAudio,
+    pauseAudio
+  }
+)(CardBlockShop);

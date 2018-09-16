@@ -132,7 +132,8 @@ class Register extends Component {
           }, 2000);
         } else {
           this.setState({
-            formError: true
+            formError: true,
+            loading: false
           });
         }
       });
@@ -149,7 +150,7 @@ class Register extends Component {
   renderError = () => {
     if (this.props.users.registerSuccess && !this.state.loading) {
       return this.props.users.registerSuccess.message;
-    } else if (!this.state.loading && !this.props.users.registerSuccess) {
+    } else if (!this.state.loading ) {
       return "Please Check Your Information";
     }
   };

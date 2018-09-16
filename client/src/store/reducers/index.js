@@ -5,6 +5,7 @@ import userReducer from "./userReducer.js";
 import modalReducer from './modalReducer';
 import musicPlayerReducer from './musicPlayerReducer';
 import audioTrackReducer from './audioTrackReducer';
+import testReducer from './testReducer';
 
 const rootReducer = combineReducers({
   loginModalOpen: modalReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   products: productReducer,
   musicPlayer: musicPlayerReducer,
   audioTracks: audioTrackReducer,
+  tester: testReducer,
   toastr: toastrReducer
 });
 
