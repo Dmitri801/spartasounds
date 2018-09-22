@@ -202,7 +202,7 @@ class AddProduct extends Component {
       );
       this.updateFields(newFormData);
     });
-  }
+  } 
 
   updateFields = newFormData => {
     this.setState({ formData: newFormData });
@@ -223,9 +223,9 @@ class AddProduct extends Component {
       formSuccess: true
     });
     this.props.history.push("/");
+    this.props.alert.success("Product Added");
     setTimeout(() => {
       this.props.clearProduct();
-      this.props.alert.success("Product Added");
     }, 500);
   };
 
@@ -252,7 +252,7 @@ class AddProduct extends Component {
       console.log(this.state.formData);
     }
   };
-  imagesHandler = (images) => {
+  imagesHandler = (images) => { 
     const newFormData = {
       ...this.state.formData,
     }

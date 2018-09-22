@@ -17,9 +17,9 @@ const store = applyMiddleware(promiseMiddleware, reduxThunk)(createStore);
 const alertOptions = {
   position: 'top center',
   zIndex: 11100000,
-  timeout: 5000,
+  timeout: 3000,
   type: "error",
-  offset: '700px',
+  offset: '600px',
   transition: 'scale'
 }
 ReactDOM.render(

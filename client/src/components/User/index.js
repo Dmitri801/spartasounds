@@ -29,6 +29,10 @@ const admin = [
     {
         name: "Manage Products",
         linkTo: "/admin/manage_products"
+    }, 
+    {
+        name: "Upload Files",
+        linkTo: "/admin/upload"
     }
 ]
 

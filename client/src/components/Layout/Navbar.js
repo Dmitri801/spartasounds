@@ -68,19 +68,19 @@ class Navbar extends Component {
       return (
         <div style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button disableRipple  color="inherit">Home</Button>
+            <Button disableRipple={true}  color="inherit">Home</Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/shop">
-            <Button disableRipple  color="inherit">Shop</Button>
+            <Button disableRipple={true}  color="inherit">Shop</Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/free_kits">
-            <Button disableRipple  color="inherit">Free Kits</Button>
+            <Button disableRipple={true}  color="inherit">Free Kits</Button>
           </Link>
           <Link
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
             to="/beatstore"
           >
-            <Button disableRipple  color="inherit">Beat Store</Button>
+            <Button disableRipple={true}  color="inherit">Beat Store</Button>
           </Link>
           <div className="user_menu">
             <IconButton
@@ -101,6 +101,7 @@ class Navbar extends Component {
                 <Link to="/user/dashboard">
                   <MenuItem
                     style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
+                    disableRipple={true}
                   >
                     My Account
                   </MenuItem>
@@ -111,6 +112,7 @@ class Navbar extends Component {
                   </div>
                   <MenuItem
                     style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
+                    disableRipple={true}
                   >
                     My Cart
                   </MenuItem>
@@ -118,6 +120,7 @@ class Navbar extends Component {
                 <div onClick={() => this.logoutHandler()}>
                   <MenuItem
                     style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
+                    disableRipple={true}
                   >
                     Log Out
                   </MenuItem>

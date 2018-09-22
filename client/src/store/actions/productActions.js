@@ -6,7 +6,12 @@ import {
   GET_CATEGORIES,
   GET_PRODUCTS_TO_SHOP, 
   ADD_PRODUCT,
-  CLEAR_PRODUCT
+  ADD_GENRE,
+  ADD_CATEGORY,
+  CLEAR_GENRE,
+  CLEAR_CATEGORY,
+  CLEAR_PRODUCT,
+  REMOVE_PRODUCT
 } from "./types";
 import { PRODUCTS_API } from "../utils/misc";
 
@@ -90,4 +95,48 @@ export const clearProduct = () => {
     payload: ''
 
   }
+}
+
+export const addGenre = (dataToSubmit) => {
+  const request = axios.post(`${PRODUCTS_API}/genre`, dataToSubmit)
+    .then(response => response.data)
+
+   return {
+     type: ADD_GENRE,
+     payload: request
+   }
+}
+export const clearGenre = () => {
+  return {
+    type: CLEAR_GENRE,
+    payload: ''
+
+  }
+}
+
+export const addCategory = (dataToSubmit) => {
+  const request = axios.post(`${PRODUCTS_API}/category`, dataToSubmit)
+    .then(response => response.data)
+
+   return {
+     type: ADD_CATEGORY,
+     payload: request
+   }
+}
+export const clearCategory = () => {
+  return {
+    type: CLEAR_CATEGORY,
+    payload: ''
+
+  }
+}
+
+export const removeProduct = (id) => {
+  const request = axios.delete(`${PRODUCTS_API}/remove/${id}`)
+    .then(response => response.data);
+
+    return {
+      type: REMOVE_PRODUCT,
+      payload: request
+    }
 }

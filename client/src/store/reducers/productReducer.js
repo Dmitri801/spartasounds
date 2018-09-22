@@ -5,7 +5,12 @@ import {
   GET_CATEGORIES,
   GET_PRODUCTS_TO_SHOP,
   ADD_PRODUCT,
-  CLEAR_PRODUCT
+  ADD_GENRE,
+  ADD_CATEGORY,
+  CLEAR_CATEGORY,
+  CLEAR_GENRE,
+  CLEAR_PRODUCT,
+  REMOVE_PRODUCT
 } from "../actions/types";
 
 const initialState = {};
@@ -47,6 +52,30 @@ export default function(state = initialState, action) {
      return {
        ...state,
        newProduct: action.payload
+     }
+    case ADD_GENRE: 
+      return {
+        ...state,
+        newGenre: action.payload
+      }
+    case CLEAR_GENRE:
+     return {
+       ...state,
+       newProduct: action.payload
+     }
+    case ADD_CATEGORY:
+     return {
+       ...state,
+       newCategory: action.payload
+     }
+    case CLEAR_CATEGORY:
+     return {
+       ...state,
+       newCategory: action.payload
+     }
+    case REMOVE_PRODUCT: 
+     return {
+       ...state
      }
     default:
       return state;

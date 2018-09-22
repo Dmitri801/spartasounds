@@ -40,12 +40,12 @@ router.post("/api/products/shop", (req, res) => {
     .skip(skip)
     .limit(limit)
     .exec((err, articles) => {
-      if(err) return res.status(400).send(err)
+      if (err) return res.status(400).send(err);
       res.status(200).json({
         size: articles.length,
         articles: articles
-      })
-    })
+      });
+    });
   res.status(200);
 });
 
@@ -107,6 +107,16 @@ router.post("/api/products/new", auth, admin, (req, res) => {
     if (err) return res.json({ success: false, err });
     res.status(200).json({ success: true, product: doc });
   });
+});
+
+// @route DELETE api/products/remove/:id
+// @description Remove Product Based On ID
+// @access Admin
+
+router.delete("/api/products/remove/:id", auth, admin, (req, res) => {
+  Product.findById(req.params.id).then(product => {
+    product.remove().then(() => res.json({ success: true }))
+  }).catch((e) => res.json({success: false}));
 });
 
 module.exports = router;
