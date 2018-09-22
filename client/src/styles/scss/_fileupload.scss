@@ -1,0 +1,31 @@
+.dropzone {
+    display: flex;
+    margin: 15px;
+    padding: 13px;
+    border: 2px dotted $sparta-blue;
+}
+.dropzone_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 200px;
+    background-color: rgba($secondary-dark, 0.3);
+    cursor: pointer;
+    .circle_icon {
+        font-size: 3.3rem;
+        color: $sparta-yellow;
+    }
+
+}
+
+.dropzone_box_image {
+    @include easeOut;
+    align-content: flex-end;
+    height: 150px;
+    width: 200px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.5;
+    }
+}

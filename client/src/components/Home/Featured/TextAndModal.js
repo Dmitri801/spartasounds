@@ -258,15 +258,15 @@ class TextAndModal extends Component {
               <FormField
                 change={element => this.updateForm(element)}
                 id={"email"}
-                location="Home" 
+                location="home" 
                 formData={this.state.formData.email}
               />
             </div>
             <div className="sample_btn">
             <a style={{width: '100%', display: 'flex', justifyContent: 'center'}} onClick={() => window.location.href="http://localhost:8080/api/test/stream/47c45dccd515a0f77d1a3ca738d7eecd.zip"}>
             <Button onClick={this.closeSampleModal}>
-                Get My Download
-            </Button>
+               DOWNLOAD
+            </Button> 
             </a>
             </div>
             <p style={{

@@ -4,7 +4,9 @@ import {
   GET_PRODUCTS_BY_ARRIVAL,
   GET_GENRES,
   GET_CATEGORIES,
-  GET_PRODUCTS_TO_SHOP
+  GET_PRODUCTS_TO_SHOP, 
+  ADD_PRODUCT,
+  CLEAR_PRODUCT
 } from "./types";
 import { PRODUCTS_API } from "../utils/misc";
 
@@ -71,3 +73,21 @@ export const getProductsToShop = (
     payload: request
   };
 };
+
+export const addProduct = (dataToSubmit) => {
+  const request = axios.post(`${PRODUCTS_API}/new`, dataToSubmit)
+    .then((response) => response.data)
+
+    return {
+      type: ADD_PRODUCT,
+      payload: request
+    }
+}
+
+export const clearProduct = () => {
+  return {
+    type: CLEAR_PRODUCT,
+    payload: ''
+
+  }
+}

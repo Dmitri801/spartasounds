@@ -30,6 +30,9 @@ router.post("/api/products/shop", (req, res) => {
       }
     }
   }
+
+  findArguments["publish"] = true;
+
   Product.find(findArguments)
     .populate("genre")
     .populate("category")

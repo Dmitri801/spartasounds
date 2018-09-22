@@ -162,7 +162,7 @@ class Register extends Component {
           style={{
             background: `url(${registerBackground})`,
             backgroundAttachment: "fixed",
-            position: "absolute",
+            position: "absolute", 
             backgroundSize: "cover",
             height: "100%",
             width: "100%",

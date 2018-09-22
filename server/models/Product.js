@@ -33,7 +33,7 @@ const productSchema = Schema({
         default: []
     },
     demoTrack: {
-        type: Schema.Types.ObjectId,
+        type: String,
     },
     sampleLength: {
         type: Number

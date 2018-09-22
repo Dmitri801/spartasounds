@@ -34,7 +34,8 @@ const storage = new GridFsStorage({
         resolve(fileInfo);
       });
     });
-  }
+  },
+  options: {useNewUrlParser: true}
 });
 const upload = multer({ storage });
 // Audio Tracks API

@@ -3,7 +3,9 @@ import {
   GET_PRODUCTS_BY_SOLD,
   GET_GENRES,
   GET_CATEGORIES,
-  GET_PRODUCTS_TO_SHOP
+  GET_PRODUCTS_TO_SHOP,
+  ADD_PRODUCT,
+  CLEAR_PRODUCT
 } from "../actions/types";
 
 const initialState = {};
@@ -36,6 +38,16 @@ export default function(state = initialState, action) {
         toShop: action.payload.articles,
         toShopSize: action.payload.size,
       };
+    case ADD_PRODUCT:
+     return {
+       ...state,
+       newProduct: action.payload
+     }
+    case CLEAR_PRODUCT: 
+     return {
+       ...state,
+       newProduct: action.payload
+     }
     default:
       return state;
   }

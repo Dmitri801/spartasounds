@@ -13,7 +13,7 @@ const UserDashboard = (props) => {
             position: "absolute",
             backgroundSize: "cover",
             backgroundPosition: "100px",
-            height: "110%",
+            height: "1000px",
             width: "98%",
             zIndex: "1",
             opacity: "0.1"

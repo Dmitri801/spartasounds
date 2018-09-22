@@ -6,6 +6,7 @@ import ShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import PlayButton from "@material-ui/icons/PlayCircleOutline";
 import PauseButton from "@material-ui/icons/PauseCircleOutline";
 const imageComingSoon = require("../../../resources/Images/coming_soon.png");
+
 class Card extends Component {
   renderCardImage = images => {
     if (images.length > 0) {

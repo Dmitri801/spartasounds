@@ -17,7 +17,7 @@ const BeatStore = () => {
           className="bck_overlay"
         />
       <iframe title="beatStore" src="//www.beatstars.com/player/?storeId=8013" scrolling="no" width="100%" 
-      style={{margin: '50px', maxWidth: '1224px', height: '600px'}} frameBorder="0" marginheight="0" marginwidth="0"> -- none -- </iframe>
+      style={{margin: '50px', maxWidth: '1224px', height: '600px'}} frameBorder="0" marginHeight="0" marginWidth="0"> -- none -- </iframe>
     </div>
   )
 }

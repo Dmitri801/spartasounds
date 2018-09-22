@@ -7,6 +7,7 @@ import UserDashboard from './components/User/UserDashboard';
 import BeatStore from './components/BeatStore';
 import Shop from './components/Shop';
 import Home from './components/Home';
+import AddProduct from './components/User/Admin/AddProduct';
 import TestUpload from './components/Test/TestUpload';
 class App extends Component {
   
@@ -15,6 +16,7 @@ class App extends Component {
       <Layout>
       <Switch>
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
+        <Route path="/admin/add_product" exact component={Auth(AddProduct, true)} />
         <Route path="/" exact component={Auth(Home, null)} />
         <Route path="/shop" exact component={Auth(Shop, null)} />
         <Route path="/beatstore" exact component={Auth(BeatStore, null)} />
