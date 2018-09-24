@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
-import Tooltip from "@material-ui/core/Tooltip";
-import Zoom from "@material-ui/core/Zoom";
-import ShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import PlayButton from "@material-ui/icons/PlayCircleOutline";
 import PauseButton from "@material-ui/icons/PauseCircleOutline";
+import ViewDetailsBtn from "../Buttons/ViewDetails";
 const imageComingSoon = require("../../../resources/Images/coming_soon.png");
 
 class Card extends Component {
@@ -89,44 +86,21 @@ class Card extends Component {
           className="image"
           id={props.imageStyling}
           style={{
-            background: `url(${this.renderCardImage(props.images)}) no-repeat`
+            background: `url(${this.renderCardImage(props.images)}) no-repeat`,
+            
           }}
         >
           {this.renderPlayerControls()}
         </div>
-
+          {props.location === "Shop" ? <hr /> : null}
         <div className="action_container">
           <div className="tags">
             <div className="name">{props.name}</div>
             <div className="genre">{props.genre.name}</div>
-            <div className="price">${props.price}</div>
-            <hr />
-            {!props.isAuth ? (
-              <Tooltip
-                TransitionComponent={Zoom}
-                title="Log in or Register to purchase"
-                placement="top-end"
-              >
-                <Button
-                  disableRipple
-                  className="add_to_cart_btn_unauth"
-                  variant="outlined"
-                >
-                  <ShoppingCartIcon className="cart_icon" />
-                  Add To Cart
-                </Button>
-              </Tooltip>
-            ) : (
-              <Button
-                disableRipple
-                className="add_to_cart_btn"
-                color="inherit"
-                variant="outlined"
-              >
-                <ShoppingCartIcon className="cart_icon" />
-                Add To Cart
-              </Button>
-            )}
+            
+            <div className="price">{props.price === 0 ? "FREE" : `$${props.price}`}</div>
+          
+            <ViewDetailsBtn title="View Details" />
           </div>
         </div>
       </div>

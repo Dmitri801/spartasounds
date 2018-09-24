@@ -857,11 +857,11 @@ form .bottom_register_container {
   .beatstore_container iframe {
     position: relative;
     box-shadow: 0 8px 10px 1px rgba(26, 26, 29, 0.14), 0 3px 14px 2px rgba(26, 26, 29, 0.12), 0 5px 5px -3px rgba(26, 26, 29, 0.5);
-    z-index: 11999; }
+    z-index: 999; }
 
 .card_block_shop {
   width: 100%;
-  padding: 25px;
+  padding: 0px 25px 25px 25px;
   overflow: hidden;
   background-color: #000;
   color: #fff;
@@ -898,7 +898,8 @@ form .bottom_register_container {
     transition: all 0.5s ease-out;
     height: 350px;
     width: 350px;
-    background-position: 60% !important;
+    background-position: 60% 50% !important;
+    padding: 15px;
     border-radius: 10px;
     position: relative;
     z-index: 9 !important;
@@ -942,21 +943,6 @@ form .bottom_register_container {
   .card_item_wrapper .action_container .tags hr {
     border-color: #4e4e50;
     margin: 0 30px; }
-  .card_item_wrapper .add_to_cart_btn {
-    transition: all 0.5s ease-out;
-    margin-top: 5px;
-    border: 1px solid #b31314;
-    width: 80%; }
-    .card_item_wrapper .add_to_cart_btn:hover {
-      background-color: rgba(179, 19, 20, 0.3); }
-    .card_item_wrapper .add_to_cart_btn .cart_icon {
-      color: #fff; }
-  .card_item_wrapper .add_to_cart_btn_unauth {
-    margin-top: 5px;
-    border: 1px solid #4e4e50;
-    color: #4e4e50 !important; }
-    .card_item_wrapper .add_to_cart_btn_unauth .cart_icon {
-      color: #4e4e50; }
 
 .the_player {
   transition: all 0.5s ease-out;
@@ -1089,31 +1075,6 @@ form .bottom_register_container {
   grid-auto-rows: minmax(700px, auto);
   margin-bottom: 5px; }
 
-.load_more_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  padding: 5px; }
-  .load_more_container span {
-    transition: all 0.5s ease-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.2rem;
-    font-family: "Cinzel", "serif";
-    letter-spacing: 1.2px;
-    cursor: pointer;
-    padding: 12px;
-    height: 50px;
-    width: 350px;
-    background-color: #ac2f20; }
-    .load_more_container span:hover {
-      background-color: #d33928;
-      box-shadow: 0 0 20px #4e4e50; }
-    .load_more_container span:active {
-      box-shadow: inset 0 0 30px #4e4e50; }
-
 .shopCards_hr {
   margin-bottom: 0;
   margin-top: 10px;
@@ -1213,6 +1174,66 @@ form .bottom_register_container {
   cursor: pointer; }
   .dropzone_box_image:hover {
     opacity: 0.5; }
+
+.load_more_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 5px; }
+  .load_more_container span {
+    transition: all 0.5s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    font-family: "Cinzel", "serif";
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    padding: 12px;
+    height: 50px;
+    width: 350px;
+    background-color: #ac2f20; }
+    .load_more_container span:hover {
+      background-color: #d33928;
+      box-shadow: 0 0 20px #4e4e50; }
+    .load_more_container span:active {
+      box-shadow: inset 0 0 30px #4e4e50; }
+
+.view_details_btn {
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1.2px;
+  height: 30px;
+  padding: 12px;
+  margin: 12px;
+  font-family: "Cinzel", "serif";
+  background-color: #9f2b1e; }
+  .view_details_btn:hover {
+    background-color: #d33928;
+    box-shadow: 0 0 20px #4e4e50; }
+  .view_details_btn:active {
+    box-shadow: inset 0 0 30px #4e4e50; }
+
+.add_to_cart_btn {
+  transition: all 0.5s ease-out;
+  margin-top: 5px;
+  border: 1px solid #b31314;
+  width: 80%; }
+  .add_to_cart_btn:hover {
+    background-color: rgba(179, 19, 20, 0.3); }
+  .add_to_cart_btn .cart_icon {
+    color: #fff; }
+
+.add_to_cart_btn_unauth {
+  margin-top: 5px;
+  border: 1px solid #4e4e50;
+  color: #4e4e50 !important; }
+  .add_to_cart_btn_unauth .cart_icon {
+    color: #4e4e50; }
 
 footer {
   position: relative;

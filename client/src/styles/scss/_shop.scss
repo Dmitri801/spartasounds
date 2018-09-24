@@ -35,35 +35,7 @@
   margin-bottom: 5px;
 }
 
-.load_more_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  padding: 5px;
-  span {
-    @include easeOut;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.2rem;
-    font-family: "Cinzel", "serif";
-    letter-spacing: 1.2px;
-    cursor: pointer;
-    padding: 12px;
-    height: 50px;
-    width: 350px;
-    background-color: darken($sparta-orange, 7);
 
-    &:hover {
-      background-color: lighten($sparta-orange, 2);
-      box-shadow: 0 0 20px $secondary-dark;
-    }
-    &:active {
-      box-shadow: inset 0 0 30px $secondary-dark;
-    }
-  }
-}
 
 .shopCards_hr {
   margin-bottom: 0;

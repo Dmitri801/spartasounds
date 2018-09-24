@@ -6,7 +6,7 @@ const { admin } = require('../../middleware/admin');
 // Models
 const { Category} = require("../../models/Category");
 
-// ============= CATEGORY ============== //
+// ============= CATEGORY ============== //     
 // @route       POST api/products/category
 // @description Create A New Category 
 // @access      Admin

@@ -2,7 +2,7 @@
 
 .card_block_shop {
   width: 100%;
-  padding: 25px;
+  padding: 0px 25px 25px 25px;
   overflow: hidden;
   background-color: #000;
   color: #fff;
@@ -55,7 +55,8 @@
    @include easeOut;
    height: 350px;
    width: 350px;
-   background-position: 60% !important;
+   background-position: 60% 50% !important;
+   padding: 15px;
    border-radius: 10px;
    position: relative;
    z-index: 9 !important;
@@ -77,6 +78,7 @@
       inset 0 0 0 0px $sparta-orange, 
       inset 0 0 0 0px $sparta-yellow,
       0 0px 0px $secondary-dark;
+      
       
     }
  }
@@ -120,27 +122,6 @@
        border-color: $secondary-dark;
        margin: 0 30px;
      }
-   }
- }
- .add_to_cart_btn {
-   @include easeOut;
-   margin-top: 5px;
-   border: 1px solid $sparta-red;
-   width: 80%;
-   &:hover {
-     background-color: rgba($sparta-red, 0.3);
-   }
-   .cart_icon {
-     color: #fff;
-   }
- }
- .add_to_cart_btn_unauth {
-   margin-top: 5px;
-   border: 1px solid $secondary-dark;
-   color: $secondary-dark !important;
-   .cart_icon {
-     color: $secondary-dark;
-     
    }
  }
 }

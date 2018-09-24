@@ -16,6 +16,7 @@ class CardBlockShop extends Component {
       ? this.props.list.map(card => (
           <Card
             key={card._id}
+            location={"Shop"}
             isAuth={this.props.users.authedUser.isAuth}
             audio={this.props.musicPlayer.audio}
             audioTrackData={this.props.audioTracks.fileData}
