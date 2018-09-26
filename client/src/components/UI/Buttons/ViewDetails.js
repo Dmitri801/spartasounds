@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const ViewDetails = (props) => {
+const ViewDetails = props => {
   return (
-    <div className="view_details_btn">
+    <div onClick={props.click} className="view_details_btn">
       {props.title}
     </div>
-  )
-}
+  );
+};
 
 export default ViewDetails;

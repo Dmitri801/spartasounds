@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PlayButton from "@material-ui/icons/PlayCircleOutline";
 import PauseButton from "@material-ui/icons/PauseCircleOutline";
 import ViewDetailsBtn from "../Buttons/ViewDetails";
+import { withRouter } from "react-router-dom";
 const imageComingSoon = require("../../../resources/Images/coming_soon.png");
 
 class Card extends Component {
@@ -77,6 +78,10 @@ class Card extends Component {
     this.props.audio.pause();
   };
 
+  onViewDetailsClick = id => {
+    this.props.history.push(`/thedetails/${id}`);
+  };
+
   render() {
     const props = this.props;
 
@@ -86,21 +91,25 @@ class Card extends Component {
           className="image"
           id={props.imageStyling}
           style={{
-            background: `url(${this.renderCardImage(props.images)}) no-repeat`,
-            
+            background: `url(${this.renderCardImage(props.images)}) no-repeat`
           }}
         >
           {this.renderPlayerControls()}
         </div>
-          {props.location === "Shop" ? <hr /> : null}
+        {props.location === "Shop" ? <hr /> : null}
         <div className="action_container">
           <div className="tags">
             <div className="name">{props.name}</div>
             <div className="genre">{props.genre.name}</div>
-            
-            <div className="price">{props.price === 0 ? "FREE" : `$${props.price}`}</div>
-          
-            <ViewDetailsBtn title="View Details" />
+
+            <div className="price">
+              {props.price === 0 ? "FREE" : `$${props.price}`}
+            </div>
+
+            <ViewDetailsBtn
+              click={() => this.onViewDetailsClick(props._id)}
+              title="View Details"
+            />
           </div>
         </div>
       </div>
@@ -108,4 +117,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default withRouter(Card);

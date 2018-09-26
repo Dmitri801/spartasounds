@@ -10,6 +10,7 @@ import {
 } from "../../../store/actions/musicPlayerActions";
 import { connect } from "react-redux";
 import Card from "./Card";
+import NoResultsCard from "./NoResultsCard";
 class CardBlockShop extends Component {
   renderCards = () => {
     return this.props.list
@@ -42,19 +43,8 @@ class CardBlockShop extends Component {
     return (
       <div className="card_block_shop">
         <div className="container">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              flexWrap: "wrap"
-            }}
-          >
-            {list ? (
-              list.length === 0 ? (
-                <div>No Results Found</div>
-              ) : null
-            ) : null}
+          <div className="cards_wrapper">
+            {list ? list.length === 0 ? <NoResultsCard /> : null : null}
             {this.renderCards(list)}
           </div>
         </div>

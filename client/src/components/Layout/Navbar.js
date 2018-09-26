@@ -37,16 +37,22 @@ class Navbar extends Component {
       return (
         <div style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button disableRipple color="inherit">Home</Button>
+            <Button disableRipple color="inherit">
+              Home
+            </Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/shop">
-            <Button disableRipple  color="inherit">Shop</Button>
+            <Button disableRipple color="inherit">
+              Shop
+            </Button>
           </Link>
           <Link
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
             to="/beatstore"
           >
-            <Button disableRipple  color="inherit">Beat Store</Button>
+            <Button disableRipple color="inherit">
+              Beat Store
+            </Button>
           </Link>
           <Link className="home_register_btn" to="/register">
             <Button disableRipple variant="contained">
@@ -68,19 +74,22 @@ class Navbar extends Component {
       return (
         <div style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button disableRipple={true}  color="inherit">Home</Button>
+            <Button disableRipple={true} color="inherit">
+              Home
+            </Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/shop">
-            <Button disableRipple={true}  color="inherit">Shop</Button>
-          </Link>
-          <Link style={{ alignSelf: "flex-end" }} to="/free_kits">
-            <Button disableRipple={true}  color="inherit">Free Kits</Button>
+            <Button disableRipple={true} color="inherit">
+              Shop
+            </Button>
           </Link>
           <Link
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
             to="/beatstore"
           >
-            <Button disableRipple={true}  color="inherit">Beat Store</Button>
+            <Button disableRipple={true} color="inherit">
+              Beat Store
+            </Button>
           </Link>
           <div className="user_menu">
             <IconButton

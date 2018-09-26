@@ -7,6 +7,7 @@ import {
   ADD_PRODUCT,
   ADD_GENRE,
   ADD_CATEGORY,
+  GET_PRODUCT_DETAIL,
   CLEAR_CATEGORY,
   CLEAR_GENRE,
   CLEAR_PRODUCT,
@@ -41,42 +42,47 @@ export default function(state = initialState, action) {
       return {
         ...state,
         toShop: action.payload.articles,
-        toShopSize: action.payload.size,
+        toShopSize: action.payload.size
       };
     case ADD_PRODUCT:
-     return {
-       ...state,
-       newProduct: action.payload
-     }
-    case CLEAR_PRODUCT: 
-     return {
-       ...state,
-       newProduct: action.payload
-     }
-    case ADD_GENRE: 
+      return {
+        ...state,
+        newProduct: action.payload
+      };
+    case CLEAR_PRODUCT:
+      return {
+        ...state,
+        newProduct: action.payload
+      };
+    case ADD_GENRE:
       return {
         ...state,
         newGenre: action.payload
-      }
+      };
     case CLEAR_GENRE:
-     return {
-       ...state,
-       newProduct: action.payload
-     }
+      return {
+        ...state,
+        newProduct: action.payload
+      };
     case ADD_CATEGORY:
-     return {
-       ...state,
-       newCategory: action.payload
-     }
+      return {
+        ...state,
+        newCategory: action.payload
+      };
     case CLEAR_CATEGORY:
-     return {
-       ...state,
-       newCategory: action.payload
-     }
-    case REMOVE_PRODUCT: 
-     return {
-       ...state
-     }
+      return {
+        ...state,
+        newCategory: action.payload
+      };
+    case REMOVE_PRODUCT:
+      return {
+        ...state
+      };
+    case GET_PRODUCT_DETAIL:
+      return {
+        ...state,
+        shownProduct: action.payload
+      };
     default:
       return state;
   }
