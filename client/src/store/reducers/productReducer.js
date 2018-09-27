@@ -11,6 +11,7 @@ import {
   CLEAR_CATEGORY,
   CLEAR_GENRE,
   CLEAR_PRODUCT,
+  CLEAR_PRODUCT_DETAIL,
   REMOVE_PRODUCT
 } from "../actions/types";
 
@@ -83,6 +84,11 @@ export default function(state = initialState, action) {
         ...state,
         shownProduct: action.payload
       };
+    case CLEAR_PRODUCT_DETAIL: 
+      return {
+        ...state,
+        shownProduct: ""
+      }
     default:
       return state;
   }

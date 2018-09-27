@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import {
   openMusicPlayer,
   playAudio,
+  resetMusicPlayer,
   pauseAudio
 } from "../../../store/actions/musicPlayerActions";
 import $ from "jquery";
@@ -31,6 +32,7 @@ class MusicPlayer extends Component {
 
   componentWillUnmount() {
     this.stopPlayer();
+    this.props.resetMusicPlayer();
   }
 
   stopPlayer = () => {
@@ -124,7 +126,7 @@ class MusicPlayer extends Component {
           }}
           className="the_player"
         >
-          <div className="controls">
+          <div className="controls"> 
             <RewindIcon
               onClick={() => (audio.currentTime -= 10.0)}
               className="rewind"
@@ -164,5 +166,5 @@ const mapStateToProps = ({ musicPlayer }) => ({
 
 export default connect(
   mapStateToProps,
-  { openMusicPlayer, playAudio, pauseAudio }
+  { openMusicPlayer, playAudio, resetMusicPlayer, pauseAudio }
 )(MusicPlayer);

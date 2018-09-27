@@ -12,7 +12,7 @@ const AddToCartBtn = props => {
           title="Log in or Register to purchase"
           placement="top-end"
         >
-          <Button
+          <Button 
             disableRipple
             className="add_to_cart_btn_unauth"
             variant="outlined"

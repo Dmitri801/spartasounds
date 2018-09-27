@@ -48,7 +48,7 @@ class Card extends Component {
     }
     let filename;
     let kitName;
-    if (this.props.audioTrackData) {
+    if (this.props.audioTrackData && this.props.kitPlaying !== this.props.name) {
       this.props.audioTrackData.map(track => {
         if (this.props.demoTrack === track._id) {
           kitName = this.props.name;
@@ -70,6 +70,14 @@ class Card extends Component {
           this.pauseDemoTrack();
         });
       }, 500);
+    } else {
+      this.props.audio.play();
+      this.props.playAudio();
+      this.props.openMusicPlayer();
+      this.props.audio.addEventListener("ended", () => {
+        this.props.audio.currentTime = 0;
+        this.pauseDemoTrack();
+      });
     }
   };
 

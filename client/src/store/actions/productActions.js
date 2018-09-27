@@ -151,3 +151,9 @@ export const getProduct = id => {
     payload: request
   };
 };
+
+export const clearProductDetail = () => {
+  return {
+    type: CLEAR_PRODUCT_DETAIL
+  }
+}

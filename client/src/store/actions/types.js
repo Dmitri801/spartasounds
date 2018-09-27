@@ -7,6 +7,7 @@ export const PLAY_AUDIO = "PLAY_AUDIO";
 export const PAUSE_AUDIO = "PAUSE_AUDIO";
 export const SET_KIT_PLAYING = "SET_KIT_PLAYING";
 export const RESET_AUDIO = "RESET_AUDIO";
+export const RESET_MUSIC_PLAYER = "RESET_MUSIC_PLAYER";
 export const LOGIN_USER = "LOGIN_USER";
 export const REGISTER_USER = "REGISTER_USER";
 export const LOGOUT_USER = "LOGOUT_USER";

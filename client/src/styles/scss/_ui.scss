@@ -51,20 +51,11 @@
   }
 
   .add_to_cart_btn {
-    @include easeOut;
-    margin-top: 5px;
-    border: 1px solid $sparta-red;
-    width: 80%;
-    &:hover {
-      background-color: rgba($sparta-red, 0.3);
-    }
     .cart_icon {
       color: #fff;
     }
   }
   .add_to_cart_btn_unauth {
-    margin-top: 5px;
-    border: 1px solid $secondary-dark;
     color: $secondary-dark !important;
     .cart_icon {
       color: $secondary-dark;

@@ -5,6 +5,7 @@ import {
   PLAY_AUDIO,
   PAUSE_AUDIO,
   RESET_AUDIO,
+  RESET_MUSIC_PLAYER,
   SET_KIT_PLAYING
 } from "./types";
 import { AUDIO_API } from "../utils/misc";
@@ -53,3 +54,9 @@ export const closeMusicPlayer = () => {
     type: CLOSE_PLAYER
   };
 };
+
+export const resetMusicPlayer = () => {
+  return {
+    type: RESET_MUSIC_PLAYER
+  }
+}
