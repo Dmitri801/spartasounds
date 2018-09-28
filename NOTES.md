@@ -25,3 +25,9 @@
 - Mobile UI
 - Expanded Product Schema
 - Filter By Instruments
+
+## Image Order For Uploading
+
+1. Card Image
+2. Detail Image
+3. Cart Image

@@ -1325,7 +1325,7 @@ form .bottom_register_container {
   width: 100%; }
   .shop_container .cart_main_card {
     width: 70%;
-    height: 800px;
+    height: 820px;
     margin-left: 380px;
     border-radius: 15px;
     border: 1px solid #4e4e50;
@@ -1379,13 +1379,20 @@ form .bottom_register_container {
     .shop_container .cart_main_card .user_cart {
       color: #fff;
       display: flex;
-      padding: 60px;
+      justify-content: center;
+      padding: 15px;
+      margin: 10px;
       background-color: #1a1a1d;
-      height: 280px;
+      height: 400px;
       overflow-y: auto;
       border-radius: 15px; }
       .shop_container .cart_main_card .user_cart .cart_product_block {
-        overflow-y: auto; }
+        height: 100px;
+        width: 800px;
+        border: 1px solid white; }
+        .shop_container .cart_main_card .user_cart .cart_product_block .cart_image {
+          height: 100px;
+          width: 300px; }
 
 .load_more_container {
   display: flex;

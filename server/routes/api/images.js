@@ -1,7 +1,6 @@
 const express = require("express");
 const formidable = require("express-formidable");
 const cloudinary = require("cloudinary");
-const mongoose = require("mongoose");
 require("dotenv").config();
 const { auth } = require("../../middleware/auth");
 const { admin } = require("../../middleware/admin");
@@ -40,9 +39,9 @@ router.post("/api/images/upload", auth, admin, formidable(), (req, res) => {
 router.get("/api/images/removeimage", (req, res) => {
   let image_id = req.query.public_id;
   cloudinary.uploader.destroy(image_id, (result, err) => {
-    if(err) return res.json({success: false, error: err});
-    res.status(200).send({success: true})
-  })
-})
+    if (err) return res.json({ success: false, error: err });
+    res.status(200).send({ success: true });
+  });
+});
 
 module.exports = router;

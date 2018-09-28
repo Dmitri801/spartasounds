@@ -35,7 +35,7 @@
   width: 100%;
   .cart_main_card {
     width: 70%;
-    height: 800px;
+    height: 820px;
     margin-left: 380px;
     border-radius: 15px;
     border: 1px solid $secondary-dark;
@@ -101,13 +101,22 @@
     .user_cart {
       color: #fff;
       display: flex;
-      padding: 60px;
+      justify-content: center;
+      padding: 15px;
+      margin: 10px;
       background-color: $primary-dark;
-      height: 280px;
+
+      height: 400px;
       overflow-y: auto;
       border-radius: 15px;
       .cart_product_block {
-        overflow-y: auto;
+        height: 100px;
+        width: 800px;
+        border: 1px solid white;
+        .cart_image {
+          height: 100px;
+          width: 300px;
+        }
       }
     }
   }
