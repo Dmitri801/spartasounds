@@ -14,7 +14,12 @@ import {
   pauseAudio
 } from "../../store/actions/musicPlayerActions";
 import { getAllAudio } from "../../store/actions/audioTrackActions";
-import { getProduct, clearProductDetail } from "../../store/actions/productActions";
+import {
+  getProduct,
+  clearProductDetail
+} from "../../store/actions/productActions";
+import { openCartModal } from "../../store/actions/modalActions";
+import { addToCart } from "../../store/actions/userActions";
 import { connect } from "react-redux";
 class ProductDetail extends Component {
   state = {
@@ -31,8 +36,8 @@ class ProductDetail extends Component {
 
   loadProduct = () => {
     const id = this.props.match.params.id;
-    this.props.getProduct(id).then((res) => {
-      if(res.payload) {
+    this.props.getProduct(id).then(res => {
+      if (res.payload) {
         this.props.getAllAudio().then(() => {
           this.setState({ loading: false, error: false });
         });
@@ -40,9 +45,14 @@ class ProductDetail extends Component {
         this.setState({
           loading: false,
           error: true
-        })
+        });
       }
     });
+  };
+
+  onAddToCart = () => {
+    this.props.addToCart(this.props.match.params.id);
+    this.props.openCartModal();
   };
 
   renderDetailPage = () => {
@@ -56,6 +66,7 @@ class ProductDetail extends Component {
             playDemoTrack={this.playDemoTrack}
             pauseDemoTrack={this.pauseDemoTrack}
             playing={this.props.musicPlayer.playing}
+            addToCart={this.onAddToCart}
             users={this.props.users}
             kit={kit}
           />
@@ -68,12 +79,12 @@ class ProductDetail extends Component {
   render404 = () => {
     return (
       <div className="product_404">
-      <div className="errorbox">
-      <h1>404</h1>
+        <div className="errorbox">
+          <h1>404</h1>
+        </div>
       </div>
-      </div>
-    )
-  }
+    );
+  };
 
   playDemoTrack = () => {
     let filename;
@@ -91,15 +102,15 @@ class ProductDetail extends Component {
       });
       this.props.setKitPlaying(kitName);
       this.props.setAudio(filename);
-      this.props.openMusicPlayer();
       this.props.playAudio();
       setTimeout(() => {
         this.props.musicPlayer.audio.play();
+        this.props.openMusicPlayer();
         this.props.musicPlayer.audio.addEventListener("ended", () => {
           this.props.musicPlayer.audio.currentTime = 0;
           this.pauseDemoTrack();
         });
-      }, 500);
+      }, 30);
     } else {
       this.props.musicPlayer.audio.play();
       this.props.playAudio();
@@ -117,14 +128,14 @@ class ProductDetail extends Component {
   };
 
   renderPageTopTitle = () => {
-    if(this.props.products.shownProduct) {
+    if (this.props.products.shownProduct) {
       return this.props.products.shownProduct.name;
-    } else if(!this.props.products.shownProduct && !this.state.error) {
+    } else if (!this.props.products.shownProduct && !this.state.error) {
       return "";
-    } else if(!this.props.products.shownProduct && this.state.error) {
+    } else if (!this.props.products.shownProduct && this.state.error) {
       return "Kit Doesn't Exist";
     }
-  }
+  };
   render() {
     const { error } = this.state;
     return (
@@ -137,11 +148,18 @@ class ProductDetail extends Component {
   }
 }
 
-const mapStateToProps = ({ products, musicPlayer, audioTracks, users }) => ({
+const mapStateToProps = ({
+  products,
+  musicPlayer,
+  audioTracks,
+  users,
+  modals
+}) => ({
   products,
   users,
   musicPlayer,
-  audioTracks
+  audioTracks,
+  userCartModalOpen: modals.userCartModalOpen
 });
 
 export default connect(
@@ -156,6 +174,8 @@ export default connect(
     setKitPlaying,
     playAudio,
     resetAudio,
-    pauseAudio
+    pauseAudio,
+    openCartModal,
+    addToCart
   }
 )(ProductDetail);

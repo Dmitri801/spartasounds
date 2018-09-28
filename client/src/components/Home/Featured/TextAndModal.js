@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import FormField from "../../UI/Forms/FormField";
 import { update } from "../../utils/formActions";
 import { easePolyOut } from "d3-ease";
@@ -8,11 +8,14 @@ import FeaturedKit from "../../../resources/Images/LandingBox.png";
 import Button from "@material-ui/core/Button";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import Modal from "../../UI/Modal";
-import { getSamplePack } from '../../../store/actions/testActions';
-import { connect } from 'react-redux';
+import { getSamplePack } from "../../../store/actions/testActions";
+import {
+  openSampleModal,
+  closeSampleModal
+} from "../../../store/actions/modalActions";
+import { connect } from "react-redux";
 class TextAndModal extends Component {
   state = {
-    sampleModalOpen: false,
     formError: false,
     formSuccess: "",
     formData: {
@@ -36,14 +39,12 @@ class TextAndModal extends Component {
   };
 
   openSampleModal = () => {
-    this.setState({
-      sampleModalOpen: true
-    });
+    this.props.openSampleModal();
   };
   closeSampleModal = () => {
+    this.props.closeSampleModal();
     this.setState({
       formError: false,
-      sampleModalOpen: false,
       formSuccess: "",
       formData: {
         email: {
@@ -237,7 +238,7 @@ class TextAndModal extends Component {
   );
 
   render() {
-    const { sampleModalOpen } = this.state;
+    const { sampleModalOpen } = this.props;
     return (
       <div className="featured_text">
         {this.animateKit()}
@@ -258,24 +259,38 @@ class TextAndModal extends Component {
               <FormField
                 change={element => this.updateForm(element)}
                 id={"email"}
-                location="home" 
+                location="home"
                 formData={this.state.formData.email}
               />
             </div>
             <div className="sample_btn">
-            <a style={{width: '100%', display: 'flex', justifyContent: 'center'}} onClick={() => window.location.href="http://localhost:8080/api/test/stream/47c45dccd515a0f77d1a3ca738d7eecd.zip"}>
-            <Button onClick={this.closeSampleModal}>
-               DOWNLOAD
-            </Button> 
-            </a>
+              <a
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center"
+                }}
+                onClick={() =>
+                  (window.location.href =
+                    "http://localhost:8080/api/test/stream/47c45dccd515a0f77d1a3ca738d7eecd.zip")
+                }
+              >
+                <Button onClick={this.closeSampleModal}>DOWNLOAD</Button>
+              </a>
             </div>
-            <p style={{
-              marginTop: '80px',
-              marginBottom: '0px'
-            }}>Download A Variety of Free Kits When You Become A Member</p>
-           <div className="sample_headline">
-           <Link to="/register"><span>Register Now</span></Link>
-           </div>
+            <p
+              style={{
+                marginTop: "80px",
+                marginBottom: "0px"
+              }}
+            >
+              Download A Variety of Free Kits When You Become A Member
+            </p>
+            <div className="sample_headline">
+              <Link to="/register">
+                <span>Register Now</span>
+              </Link>
+            </div>
           </form>
         </Modal>
       </div>
@@ -283,4 +298,11 @@ class TextAndModal extends Component {
   }
 }
 
-export default connect(null, {getSamplePack})(TextAndModal);
+const mapStateToProps = ({ modals }) => ({
+  sampleModalOpen: modals.sampleModalOpen
+});
+
+export default connect(
+  mapStateToProps,
+  { getSamplePack, openSampleModal, closeSampleModal }
+)(TextAndModal);

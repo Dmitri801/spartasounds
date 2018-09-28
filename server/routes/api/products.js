@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const router = express.Router();
 // Middleware
 const { auth } = require("../../middleware/auth");
@@ -114,9 +115,11 @@ router.post("/api/products/new", auth, admin, (req, res) => {
 // @access Admin
 
 router.delete("/api/products/remove/:id", auth, admin, (req, res) => {
-  Product.findById(req.params.id).then(product => {
-    product.remove().then(() => res.json({ success: true }))
-  }).catch((e) => res.json({success: false}));
+  Product.findById(req.params.id)
+    .then(product => {
+      product.remove().then(() => res.json({ success: true }));
+    })
+    .catch(e => res.json({ success: false }));
 });
 
 module.exports = router;

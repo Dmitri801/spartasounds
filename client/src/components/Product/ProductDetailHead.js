@@ -1,10 +1,17 @@
 import React from "react";
 import AddToCartBtn from "../UI/Buttons/AddToCart";
 import PlayButtonFilled from "@material-ui/icons/PlayCircleFilled";
-import PauseIcon from '@material-ui/icons/Pause';
+import PauseIcon from "@material-ui/icons/Pause";
 const soundWaveImg = require("../../resources/Images/SoundWave.png");
 const imageComingSoon = require("../../resources/Images/coming_soon_detail.png");
-const ProductDetailHead = ({ kit, users, playDemoTrack, pauseDemoTrack, playing }) => {
+const ProductDetailHead = ({
+  kit,
+  users,
+  playDemoTrack,
+  pauseDemoTrack,
+  playing,
+  addToCart
+}) => {
   const loadProductImage = () => {
     if (kit.images.length > 0) {
       return <img src={kit.images[1].url} alt="mainImg" />;
@@ -30,7 +37,8 @@ const ProductDetailHead = ({ kit, users, playDemoTrack, pauseDemoTrack, playing 
             Sparta Sounds
           </p>
           <p>
-            <span>Price: </span>{kit.price === 0 ? "FREE" : `$${kit.price}`}
+            <span>Price: </span>
+            {kit.price === 0 ? "FREE" : `$${kit.price}`}
           </p>
         </div>
         <div className="wave_container">
@@ -43,14 +51,17 @@ const ProductDetailHead = ({ kit, users, playDemoTrack, pauseDemoTrack, playing 
                 <span>
                   <PlayButtonFilled />
                 </span>
-                Play Demo 
+                Play Demo
               </div>
             ) : (
               <div onClick={() => pauseDemoTrack()} className="playdemo_btn">
-              <PauseIcon />
+                <PauseIcon />
               </div>
             ))}
-          <AddToCartBtn isAuth={users.authedUser.isAuth} />
+          <AddToCartBtn
+            addToCart={addToCart}
+            isAuth={users.authedUser.isAuth}
+          />
         </div>
       </div>
     </div>

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PlayButton from "@material-ui/icons/PlayCircleOutline";
 import PauseButton from "@material-ui/icons/PauseCircleOutline";
 import ViewDetailsBtn from "../Buttons/ViewDetails";
+import { addToCart } from "../../../store/actions/userActions";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 const imageComingSoon = require("../../../resources/Images/coming_soon.png");
 
@@ -33,7 +35,6 @@ class Card extends Component {
 
   playDemoTrack = () => {
     if (this.props.name !== this.props.kitPlaying && this.props.playing) {
-      console.log("matched");
       this.props.resetAudio();
       this.pauseDemoTrack();
       this.props.audio.currentTime = 0;
@@ -48,7 +49,10 @@ class Card extends Component {
     }
     let filename;
     let kitName;
-    if (this.props.audioTrackData && this.props.kitPlaying !== this.props.name) {
+    if (
+      this.props.audioTrackData &&
+      this.props.kitPlaying !== this.props.name
+    ) {
       this.props.audioTrackData.map(track => {
         if (this.props.demoTrack === track._id) {
           kitName = this.props.name;
@@ -61,15 +65,15 @@ class Card extends Component {
       });
       this.props.setKitPlaying(kitName);
       this.props.setAudio(filename);
-      this.props.openMusicPlayer();
       this.props.playAudio();
       setTimeout(() => {
+        this.props.openMusicPlayer();
         this.props.audio.play();
         this.props.audio.addEventListener("ended", () => {
           this.props.audio.currentTime = 0;
           this.pauseDemoTrack();
         });
-      }, 500);
+      }, 30);
     } else {
       this.props.audio.play();
       this.props.playAudio();
@@ -115,7 +119,13 @@ class Card extends Component {
             </div>
 
             <ViewDetailsBtn
-              click={() => this.onViewDetailsClick(props._id)}
+              viewDetailsClick={() => this.onViewDetailsClick(props._id)}
+              runAction={() => {
+                props.isAuth
+                  ? this.props.dispatch(addToCart(props._id))
+                  : console.log("Login First");
+              }}
+              isAuth={props.isAuth}
               title="View Details"
             />
           </div>
@@ -125,4 +135,8 @@ class Card extends Component {
   }
 }
 
-export default withRouter(Card);
+const mapStateToProps = ({ users }) => ({
+  users
+});
+
+export default connect(mapStateToProps)(withRouter(Card));

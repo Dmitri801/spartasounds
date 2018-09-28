@@ -14,17 +14,17 @@ const FormField = ({ formData, id, change, location }) => {
         locationClassname = "add_product_inputs";
         break;
       case "add_product_description":
-       locationClassname = "add_product_inputs";
-       break;
+        locationClassname = "add_product_inputs";
+        break;
       case "add_genre":
-       locationClassname = "add_genre_inputs";
-       break;
+        locationClassname = "add_genre_inputs";
+        break;
       case "add_category":
-       locationClassname = "add_category_inputs";
-       break;
+        locationClassname = "add_category_inputs";
+        break;
       case "destroy_product":
-       locationClassname = "destroy_product_inputs";
-       break;
+        locationClassname = "destroy_product_inputs";
+        break;
       default:
         locationClassname = "";
     }
@@ -56,11 +56,11 @@ const FormField = ({ formData, id, change, location }) => {
         errorClassname = "error_label_home";
         break;
       case "add_product":
-       errorClassname = "add_product_error";
-       break;
+        errorClassname = "add_product_error";
+        break;
       case "add_product_description":
-       errorClassname = "add_product_error_desc";
-       break;
+        errorClassname = "add_product_error_desc";
+        break;
       default:
         errorClassname = "error_label";
     }

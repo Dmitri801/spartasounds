@@ -5,7 +5,7 @@ class Stripes extends Component {
   state = {
     stripes: [
       {
-        background: "#b31314", 
+        background: "#b31314",
         left: 120,
         rotate: 25,
         top: -260,
@@ -39,7 +39,6 @@ class Stripes extends Component {
           left: 0,
           rotate: 0,
           top: 0
-
         }}
         enter={{
           background: [stripe.background],
@@ -47,31 +46,26 @@ class Stripes extends Component {
           left: [stripe.left],
           rotate: [stripe.rotate],
           top: [stripe.top],
-          timing: {delay: stripe.delay, duration: 400, ease: easePolyOut},
-          events: {
-              end() {
-                  console.log('Animation Finished')
-              }
-          }
+          timing: { delay: stripe.delay, duration: 400, ease: easePolyOut }
         }}
       >
         {({ background, opacity, left, rotate, top }) => {
-          return <div style={{ 
-              background, 
-              opacity, 
-              transform: `rotate(${rotate}deg) translate(${left}px, ${top}px)`,
-         }} className="stripe">
-          </div>;
+          return (
+            <div
+              style={{
+                background,
+                opacity,
+                transform: `rotate(${rotate}deg) translate(${left}px, ${top}px)`
+              }}
+              className="stripe"
+            />
+          );
         }}
       </Animate>
     ));
   };
   render() {
-    return (
-      <div className="featured_stripes">
-        {this.showStripes()}
-      </div>
-    );
+    return <div className="featured_stripes">{this.showStripes()}</div>;
   }
 }
 

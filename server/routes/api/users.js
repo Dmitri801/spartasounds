@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const router = express.Router();
 // Middleware
 const { auth } = require("../../middleware/auth");
@@ -77,6 +78,53 @@ router.get("/api/users/logout", auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, doc) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({ success: true });
+  });
+});
+
+// @route POST api/users/addToCart
+// @description Add Item To Users Cart
+// @access Private
+router.post("/api/users/addToCart", auth, (req, res) => {
+  User.findOne({ _id: req.user._id }, (err, user) => {
+    if (err) return res.json({ success: false, err });
+    let duplicate = false;
+    user.cart.forEach(item => {
+      if (item.id == req.query.productId) {
+        duplicate = true;
+      }
+    });
+    if (duplicate) {
+      User.findOneAndUpdate(
+        {
+          _id: req.user._id,
+          "cart.id": mongoose.Types.ObjectId(req.query.productId)
+        },
+        { $inc: { "cart.$.quantity": 1 } },
+        { new: true },
+        (err, doc) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json(doc.cart);
+        }
+      );
+    } else {
+      User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+          $push: {
+            cart: {
+              id: mongoose.Types.ObjectId(req.query.productId),
+              quantity: 1,
+              date: Date.now()
+            }
+          }
+        },
+        { new: true },
+        (err, doc) => {
+          if (err) return res.json({ success: false, err });
+          res.status(200).json(doc.cart);
+        }
+      );
+    }
   });
 });
 

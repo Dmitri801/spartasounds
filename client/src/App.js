@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import AddProduct from "./components/User/Admin/AddProduct";
 import Manage from "./components/User/Admin/Manage/index.js";
 import ProductDetail from "./components/Product";
+import UserCart from "./components/User/UserCart/Cart";
 import TestUpload from "./components/Test/TestUpload";
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             exact
             component={Auth(UserDashboard, true)}
           />
+          <Route path="/user/cart" exact component={Auth(UserCart, true)} />
           <Route
             path="/admin/add_product"
             exact

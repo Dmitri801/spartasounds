@@ -4,6 +4,7 @@ $sparta-yellow: #f3b169;
 $sparta-red: #b31314;
 $sparta-orange: #ca3726;
 $sparta-blue: #0e1d24;
+$success-green: rgba(#00ff00, 0.5);
 
 @mixin easeOut {
   transition: all 0.5s ease-out;
@@ -53,7 +54,6 @@ $sparta-blue: #0e1d24;
     @content;
   }
 }
-
 
 // Key Frames
 @keyframes fade-in {

@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
-import {reducer as toastrReducer} from 'react-redux-toastr'
-import productReducer from './productReducer';
+import { reducer as toastrReducer } from "react-redux-toastr";
+import productReducer from "./productReducer";
 import userReducer from "./userReducer.js";
-import modalReducer from './modalReducer';
-import musicPlayerReducer from './musicPlayerReducer';
-import audioTrackReducer from './audioTrackReducer';
-import testReducer from './testReducer';
+import modalReducer from "./modalReducer";
+import musicPlayerReducer from "./musicPlayerReducer";
+import audioTrackReducer from "./audioTrackReducer";
+import testReducer from "./testReducer";
 
 const rootReducer = combineReducers({
-  loginModalOpen: modalReducer,
+  modals: modalReducer,
   users: userReducer,
   products: productReducer,
   musicPlayer: musicPlayerReducer,
@@ -17,4 +17,4 @@ const rootReducer = combineReducers({
   toastr: toastrReducer
 });
 
-export default rootReducer; 
+export default rootReducer;

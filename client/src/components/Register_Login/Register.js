@@ -6,7 +6,7 @@ import { toastr } from "react-redux-toastr";
 import { connect } from "react-redux";
 import { update, isFormValid, generateData } from "../utils/formActions";
 import { registerUser } from "../../store/actions/userActions";
-import { openModal } from "../../store/actions/modalActions";
+import { openLoginModal } from "../../store/actions/modalActions";
 const registerBackground = require("../../resources/Images/register-background.jpeg");
 class Register extends Component {
   state = {
@@ -125,7 +125,7 @@ class Register extends Component {
             }
           );
           setTimeout(() => {
-            this.props.dispatch(openModal());
+            this.props.dispatch(openLoginModal());
             this.setState({
               loading: false
             });
@@ -147,10 +147,21 @@ class Register extends Component {
     }
   };
 
+  onEnterSubmit = event => {
+    if (event.keyCode === 13) {
+      document.querySelectorAll(".register_inputs")[5].blur();
+      document.querySelectorAll(".register_inputs")[7].blur();
+      document.querySelectorAll(".register_inputs")[9].blur();
+      setTimeout(() => {
+        this.submitForm(event);
+      }, 30);
+    }
+  };
+
   renderError = () => {
     if (this.props.users.registerSuccess && !this.state.loading) {
       return this.props.users.registerSuccess.message;
-    } else if (!this.state.loading ) {
+    } else if (!this.state.loading) {
       return "Please Check Your Information";
     }
   };
@@ -162,7 +173,7 @@ class Register extends Component {
           style={{
             background: `url(${registerBackground})`,
             backgroundAttachment: "fixed",
-            position: "absolute", 
+            position: "absolute",
             backgroundSize: "cover",
             height: "100%",
             width: "100%",
@@ -174,7 +185,10 @@ class Register extends Component {
         <div className="form_container">
           <div className="form_card">
             <h2>Create An Account</h2>
-            <form onSubmit={event => this.submitForm(event)}>
+            <form
+              onKeyDown={event => this.onEnterSubmit(event)}
+              onSubmit={event => this.submitForm(event)}
+            >
               <div className="form_group">
                 <div className="register_label">
                   <label style={{ marginRight: "0px" }} htmlFor="firstName">

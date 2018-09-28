@@ -10,7 +10,7 @@ import { TheLogo } from "../UI/Icon";
 import { PopoverMenu } from "../UI/PopoverMenu";
 import { Transition } from "react-spring";
 import { connect } from "react-redux";
-import { openModal } from "../../store/actions/modalActions";
+import { openLoginModal } from "../../store/actions/modalActions";
 import { logoutUser } from "../../store/actions/userActions";
 
 class Navbar extends Component {
@@ -152,7 +152,7 @@ class Navbar extends Component {
   };
 
   openLoginModal = () => {
-    this.props.openModal();
+    this.props.openLoginModal();
   };
 
   onPageScroll = () => {
@@ -176,7 +176,7 @@ class Navbar extends Component {
             ? "rgb(17, 17, 17)"
             : "rgba(17, 17, 17, 0.8)",
           padding: this.state.scrollTop ? "10px 0px" : "0px 0px",
-          borderBottom: "2px solid #ca3726",
+          borderBottom: "0.3px solid rgba(202,55,38, 0.9)",
           transition: "all 0.5s ease-out"
         }}
       >
@@ -218,5 +218,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { openModal, logoutUser }
+  { openLoginModal, logoutUser }
 )(withRouter(Navbar));

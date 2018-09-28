@@ -1,0 +1,114 @@
+.cart_modal_container {
+  .modal_header {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    margin: 7px;
+    p {
+      svg {
+        position: absolute;
+        color: $success-green;
+        margin: 0;
+      }
+      span {
+        margin-left: 25px;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      margin: 0;
+    }
+    .link_container {
+      a {
+        color: $sparta-yellow;
+        text-decoration: underline;
+        padding: 7px;
+      }
+    }
+  }
+}
+
+.shop_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1000px;
+  width: 100%;
+  .cart_main_card {
+    width: 70%;
+    height: 800px;
+    margin-left: 380px;
+    border-radius: 15px;
+    border: 1px solid $secondary-dark;
+    z-index: 5;
+    background-color: rgba(#000, 0.4);
+    .checkout_steps {
+      display: flex;
+      justify-content: space-evenly;
+      color: #fff;
+      h1 {
+        padding: 15px;
+        width: 290px;
+        text-align: center;
+        span {
+          @include easeOut;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          background-color: $secondary-dark;
+        }
+        .one {
+          margin-left: 26px;
+        }
+        .two {
+          margin-left: 42px;
+        }
+      }
+    }
+    .hr_container {
+      display: flex;
+      justify-content: center;
+      .checkout_hr {
+        height: 10px;
+        width: 90%;
+        border-bottom: 1px solid $secondary-dark;
+        border-radius: 15px;
+        .hr_highlight {
+          position: absolute;
+          @include easeOut;
+          height: 11px;
+          width: 20%;
+          background: $sparta-orange;
+          border-radius: 15px;
+          transform: translateX(0);
+        }
+      }
+    }
+
+    .cart_header {
+      display: flex;
+      justify-content: center;
+      color: #fff;
+      margin: 0;
+      h1 {
+        font-weight: 200;
+      }
+    }
+
+    .user_cart {
+      color: #fff;
+      display: flex;
+      padding: 60px;
+      background-color: $primary-dark;
+      height: 280px;
+      overflow-y: auto;
+      border-radius: 15px;
+      .cart_product_block {
+        overflow-y: auto;
+      }
+    }
+  }
+}

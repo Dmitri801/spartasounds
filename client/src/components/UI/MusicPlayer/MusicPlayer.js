@@ -105,7 +105,7 @@ class MusicPlayer extends Component {
     this.props.musicPlayer.audio.addEventListener("ended", () => {
       this.props.musicPlayer.audio.currentTime = 0;
       this.pauseTrack();
-    })
+    });
   };
 
   pauseTrack = () => {
@@ -126,7 +126,7 @@ class MusicPlayer extends Component {
           }}
           className="the_player"
         >
-          <div className="controls"> 
+          <div className="controls">
             <RewindIcon
               onClick={() => (audio.currentTime -= 10.0)}
               className="rewind"

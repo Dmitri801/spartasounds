@@ -6,7 +6,7 @@
   color: #fff;
   .details_header {
     text-align: center;
-    font-family: 'Cinzel', 'serif';
+    font-family: "Cinzel", "serif";
   }
   .details_badges {
     display: flex;
@@ -65,7 +65,7 @@
   display: grid;
   grid-template-columns: 0.5fr 3fr 0.5fr;
   color: #fff;
- 
+
   .desc_content {
     display: flex;
     flex-direction: column;
@@ -76,22 +76,19 @@
         color: $sparta-yellow;
       }
     }
-    
+
     ul {
-      
       li {
         margin-top: 15px;
         color: $sparta-orange;
         font-size: 1.7rem;
-       
+
         span {
           color: #fff;
           font-size: 1.3rem;
-          
         }
       }
     }
-    
   }
   .desc_gutter {
     background-color: lighten($primary-dark, 3);
@@ -104,16 +101,16 @@
   color: #fff;
   margin: 25px;
   height: 100vh;
- .errorbox {
-   height: 250px;
-   width: 550px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-family: 'Cinzel', 'serif';
-   font-size: 3.5rem;
-   border: 1px solid $secondary-dark;
-   border-radius: 15px;
-   background-color: rgba($sparta-red, 0.4);
- }
+  .errorbox {
+    height: 250px;
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cinzel", "serif";
+    font-size: 3.5rem;
+    border: 1px solid $secondary-dark;
+    border-radius: 15px;
+    background-color: rgba($sparta-red, 0.4);
+  }
 }

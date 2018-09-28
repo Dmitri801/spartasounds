@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { update, isFormValid, generateData } from "../utils/formActions";
 import { withRouter } from "react-router-dom";
 import { loginUser, resetLogin } from "../../store/actions/userActions";
-import { closeModal } from "../../store/actions/modalActions";
+import { closeLoginModal } from "../../store/actions/modalActions";
 import Modal from "../UI/Modal";
 class Login extends Component {
   state = {
@@ -49,7 +49,7 @@ class Login extends Component {
   };
 
   resetLoginForm = () => {
-    this.props.dispatch(closeModal());
+    this.props.dispatch(closeLoginModal());
     this.setState(prevState => ({
       formError: false,
       formSuccess: "",
@@ -144,6 +144,16 @@ class Login extends Component {
     }
   };
 
+  onEnterSubmit = event => {
+    if (event.keyCode === 13) {
+      document.querySelectorAll(".form_field_block")[1].blur();
+      document.querySelectorAll(".form_field_block")[3].blur();
+      setTimeout(() => {
+        this.submitForm(event);
+      }, 30);
+    }
+  };
+
   renderError = () => {
     if (this.props.users.loginSuccess && !this.state.loading) {
       return this.props.users.loginSuccess.message;
@@ -154,16 +164,18 @@ class Login extends Component {
   render() {
     const { loginModalOpen } = this.props;
     const { loading } = this.state;
+
     return (
       <Modal
         closeIcon={this.closeIcon}
         hr={true}
         modalTitle="Log In"
+        modalName="logIn"
         fullWidth={true}
         modalOpen={loginModalOpen}
         titleClassName="login_header"
       >
-        <form onSubmit={event => this.submitForm(event)}>
+        <form onKeyDown={event => this.onEnterSubmit(event)}>
           <div className="login_label">
             <label htmlFor="email">EMAIL</label>
           </div>
@@ -215,7 +227,7 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   users: state.users,
-  loginModalOpen: state.loginModalOpen.loginModalOpen
+  loginModalOpen: state.modals.loginModalOpen
 });
 
 export default connect(mapStateToProps)(withRouter(Login));
