@@ -37,6 +37,7 @@
     width: 70%;
     height: 820px;
     margin-left: 380px;
+    margin-top: 25px;
     border-radius: 15px;
     border: 1px solid $secondary-dark;
     z-index: 5;
@@ -110,14 +111,62 @@
       overflow-y: auto;
       border-radius: 15px;
       .cart_product_block {
+        @include easeOut;
         height: 100px;
         width: 800px;
-        border: 1px solid white;
-        .cart_image {
-          height: 100px;
-          width: 300px;
+        padding: 10px;
+        margin: 10px 0;
+        border-bottom: 1px solid $secondary-dark;
+        &:hover {
+          background-color: $sparta-blue;
+        }
+        .cart_item {
+          display: flex;
+          .cart_image {
+            height: 120px;
+            width: 130px;
+          }
+          .name {
+            align-self: center;
+            font-family: "Cinzel", "serif";
+            font-size: 1.7rem;
+          }
+          .end_container {
+            display: flex;
+            align-self: center;
+            padding: 10px;
+            margin-left: auto;
+            .price {
+              margin-right: 25px;
+              font-family: "Cinzel", "serif";
+              align-self: flex-end;
+              color: $sparta-yellow;
+              font-size: 1.4rem;
+            }
+
+            color: $secondary-dark;
+            svg {
+              @include easeOut;
+              cursor: pointer;
+              font-size: 2.2rem;
+              &:hover {
+                color: $sparta-red;
+              }
+            }
+          }
         }
       }
+
+    }
+    .checkout_container {
+      display: flex;
+      justify-content: space-evenly;
+      height: 138px;
+      border-radius: 15px;
+      background-color: #000;
+      margin: 10px;
+      color: #fff;
+      
     }
   }
 }

@@ -1,9 +1,10 @@
 import React from "react";
-const comingSoonImage = require("../../../resources/Images/coming_soon_detail.png");
+import TrashIcon from "@material-ui/icons/Delete"
+const comingSoonImage = require("../../../resources/Images/coming_soon_cartsize.png");
 const CartProductBlock = ({ products, removeItem, location }) => {
   const renderCartImage = images => {
-    if (images.length > 0) {
-      return images[1].url;
+    if (images.length > 0 && images[2]) {
+      return images[2].url;
     } else {
       return comingSoonImage;
     }
@@ -18,10 +19,17 @@ const CartProductBlock = ({ products, removeItem, location }) => {
                 style={{
                   background: `url(${renderCartImage(
                     product.images
-                  )}) no-repeat`
+                  )}) no-repeat` 
                 }}
                 className="cart_image"
               />
+              <div className="name">
+               {product.name}
+              </div>
+              <div className="end_container">
+               <span className="price">${product.price}</span>
+               <TrashIcon />
+              </div>
             </div>
           </div>
         ))

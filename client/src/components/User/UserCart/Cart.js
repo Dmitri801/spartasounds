@@ -111,6 +111,10 @@ class UserCart extends Component {
                 removeItem={() => this.removeFromCart()}
               />
             </div>
+            <div className="checkout_container">
+              <h1>Total:</h1>
+              <div>Checkout</div>
+            </div>
           </div>
         </div>
       </UserLayout>

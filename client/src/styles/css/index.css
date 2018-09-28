@@ -1327,6 +1327,7 @@ form .bottom_register_container {
     width: 70%;
     height: 820px;
     margin-left: 380px;
+    margin-top: 25px;
     border-radius: 15px;
     border: 1px solid #4e4e50;
     z-index: 5;
@@ -1387,12 +1388,49 @@ form .bottom_register_container {
       overflow-y: auto;
       border-radius: 15px; }
       .shop_container .cart_main_card .user_cart .cart_product_block {
+        transition: all 0.5s ease-out;
         height: 100px;
         width: 800px;
-        border: 1px solid white; }
-        .shop_container .cart_main_card .user_cart .cart_product_block .cart_image {
-          height: 100px;
-          width: 300px; }
+        padding: 10px;
+        margin: 10px 0;
+        border-bottom: 1px solid #4e4e50; }
+        .shop_container .cart_main_card .user_cart .cart_product_block:hover {
+          background-color: #0e1d24; }
+        .shop_container .cart_main_card .user_cart .cart_product_block .cart_item {
+          display: flex; }
+          .shop_container .cart_main_card .user_cart .cart_product_block .cart_item .cart_image {
+            height: 120px;
+            width: 130px; }
+          .shop_container .cart_main_card .user_cart .cart_product_block .cart_item .name {
+            align-self: center;
+            font-family: "Cinzel", "serif";
+            font-size: 1.7rem; }
+          .shop_container .cart_main_card .user_cart .cart_product_block .cart_item .end_container {
+            display: flex;
+            align-self: center;
+            padding: 10px;
+            margin-left: auto;
+            color: #4e4e50; }
+            .shop_container .cart_main_card .user_cart .cart_product_block .cart_item .end_container .price {
+              margin-right: 25px;
+              font-family: "Cinzel", "serif";
+              align-self: flex-end;
+              color: #f3b169;
+              font-size: 1.4rem; }
+            .shop_container .cart_main_card .user_cart .cart_product_block .cart_item .end_container svg {
+              transition: all 0.5s ease-out;
+              cursor: pointer;
+              font-size: 2.2rem; }
+              .shop_container .cart_main_card .user_cart .cart_product_block .cart_item .end_container svg:hover {
+                color: #b31314; }
+    .shop_container .cart_main_card .checkout_container {
+      display: flex;
+      justify-content: space-evenly;
+      height: 138px;
+      border-radius: 15px;
+      background-color: #000;
+      margin: 10px;
+      color: #fff; }
 
 .load_more_container {
   display: flex;
