@@ -4,10 +4,63 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Zoom from "@material-ui/core/Zoom";
 import CheckMark from "@material-ui/icons/Check";
 import ShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import ShopIcon from "@material-ui/icons/Shop";
+import CheckoutBtn from "./Checkout";
 import { Transition } from "react-spring";
 class AddToCartBtn extends Component {
   state = {
     successShowing: false
+  };
+
+  renderBtn = () => {
+    if (this.props.isAuth) {
+      let productInCart = false;
+      this.props.user.cart.forEach(item => {
+        if (item.id === this.props.kitId) {
+          productInCart = true;
+        }
+      });
+      if (!productInCart || this.state.successShowing) {
+        return (
+          <Button
+            disableRipple
+            className="add_to_cart_btn"
+            color="inherit"
+            variant="outlined"
+            onClick={this.onAddToCartClick}
+          >
+            <ShoppingCartIcon className="cart_icon" />
+            Add To Cart
+          </Button>
+        );
+      } else {
+        return (
+          <CheckoutBtn
+            click={() => this.props.route.push("/user/cart")}
+            styles={{ width: "270px", height: "50px" }}
+          >
+            <ShopIcon /> ADDED
+          </CheckoutBtn>
+        );
+      }
+    } else {
+      return (
+        <Tooltip
+          TransitionComponent={Zoom}
+          title="Log in or Register to purchase"
+          placement="top-end"
+        >
+          <Button
+            disableRipple
+            className="add_to_cart_btn_unauth"
+            variant="outlined"
+          >
+            <ShoppingCartIcon className="cart_icon" />
+            Add To Cart
+          </Button>
+        </Tooltip>
+      );
+    }
   };
 
   onAddToCartClick = () => {
@@ -19,36 +72,9 @@ class AddToCartBtn extends Component {
     }, 5000);
   };
   render() {
-    const props = this.props;
     return (
       <div className="addtocartbtn_container">
-        {!props.isAuth ? (
-          <Tooltip
-            TransitionComponent={Zoom}
-            title="Log in or Register to purchase"
-            placement="top-end"
-          >
-            <Button
-              disableRipple
-              className="add_to_cart_btn_unauth"
-              variant="outlined"
-            >
-              <ShoppingCartIcon className="cart_icon" />
-              Add To Cart
-            </Button>
-          </Tooltip>
-        ) : (
-          <Button
-            disableRipple
-            className="add_to_cart_btn"
-            color="inherit"
-            variant="outlined"
-            onClick={this.onAddToCartClick}
-          >
-            <ShoppingCartIcon className="cart_icon" />
-            Add To Cart
-          </Button>
-        )}
+        {this.renderBtn()}
 
         <Transition
           from={{ transform: "translateX(270px)" }}

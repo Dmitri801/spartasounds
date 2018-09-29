@@ -27,7 +27,6 @@
 
 - Guest Shopping Cart Route, Local Storage to store cart information
 - Remove quantity from item in cart
-- Front end that shows if item has already been added to cart
 - Mobile UI
 - Expanded Product Schema
 - Filter By Instruments

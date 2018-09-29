@@ -21,13 +21,68 @@
       a {
         color: $sparta-yellow;
         text-decoration: underline;
+        cursor: pointer;
         padding: 7px;
       }
     }
   }
+  .cart_block_container {
+    display: flex;
+    justify-content: center;
+    .cart_product_block {
+      @include easeOut;
+      height: 100px;
+      width: 500px;
+      padding: 10px;
+      margin: 10px 0;
+      border-bottom: 1px solid $secondary-dark;
+      &:hover {
+        background-color: $sparta-blue;
+      }
+      .cart_item {
+        display: flex;
+        .cart_image {
+          height: 120px;
+          width: 130px;
+        }
+        .name {
+          align-self: center;
+          font-family: "Cinzel", "serif";
+          font-size: 1.1rem;
+        }
+        .end_container {
+          display: flex;
+          align-self: center;
+          padding: 10px;
+          margin-left: auto;
+          .price {
+            margin-right: 25px;
+            font-family: "Cinzel", "serif";
+            align-self: flex-end;
+            color: $sparta-yellow;
+            font-size: 1.4rem;
+          }
+  
+          color: $secondary-dark;
+          svg {
+            @include easeOut;
+            cursor: pointer;
+            font-size: 2.2rem;
+            &:hover {
+              color: $sparta-red;
+            }
+          }
+        }
+      }
+    }
+  }
+  .checkout_btn_container {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.shop_container {
+.cart_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,6 +165,17 @@
       height: 400px;
       overflow-y: auto;
       border-radius: 15px;
+      .frown_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        div {
+          margin-top: 50px;
+        }
+        svg {
+          font-size: 100px;
+        }
+      }
       .cart_product_block {
         @include easeOut;
         height: 100px;
@@ -156,17 +222,16 @@
           }
         }
       }
-
     }
     .checkout_container {
       display: flex;
       justify-content: space-evenly;
+      align-items: center;
       height: 138px;
       border-radius: 15px;
       background-color: #000;
       margin: 10px;
       color: #fff;
-      
     }
   }
 }

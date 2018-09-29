@@ -28,11 +28,12 @@
   margin-left: 20px;
 }
 
-.shop_container {
+.shop_container { 
   display: grid;
   grid-template-columns: 90%;
   grid-auto-rows: minmax(700px, auto);
-  margin-bottom: 5px;
+  margin-bottom: 100px;
+  align-items: start !important;
 }
 
 .shopCards_hr {

@@ -10,6 +10,7 @@ const ProductDetailHead = ({
   playDemoTrack,
   pauseDemoTrack,
   playing,
+  route,
   addToCart
 }) => {
   const loadProductImage = () => {
@@ -18,7 +19,7 @@ const ProductDetailHead = ({
     } else {
       return <img src={imageComingSoon} alt="mainImg" />;
     }
-  };
+  }; 
   return (
     <div className="header_container">
       <div className="header_pic">{loadProductImage()}</div>
@@ -60,7 +61,10 @@ const ProductDetailHead = ({
             ))}
           <AddToCartBtn
             addToCart={addToCart}
+            user={users.authedUser}
+            route={route}
             isAuth={users.authedUser.isAuth}
+            kitId={kit._id}
           />
         </div>
       </div>

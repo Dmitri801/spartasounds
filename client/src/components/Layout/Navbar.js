@@ -117,7 +117,7 @@ class Navbar extends Component {
                 </Link>
                 <Link to="/user/cart">
                   <div className="cart_link">
-                    <span>{users ? users.cart.length : 0}</span>
+                    <span>{users && users.cart ? users.cart.length : 0}</span>
                   </div>
                   <MenuItem
                     style={{ color: "#fff", fontFamily: "Cinzel, serif" }}

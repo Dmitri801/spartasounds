@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import ShopIcon from '@material-ui/icons/Shop';
 import CheckMark from "@material-ui/icons/Check";
 import Tooltip from "@material-ui/core/Tooltip";
 import Zoom from "@material-ui/core/Zoom";
@@ -9,6 +10,73 @@ import { connect } from "react-redux";
 class ViewDetailsBtn extends Component {
   state = {
     checked: false
+  };
+
+  renderActionBtn = () => {
+    if (this.props.isAuth) {
+      let productInCart = false;
+    this.props.user.cart.forEach(item => {
+      if (item.id === this.props.kitId) {
+        productInCart = true;
+      }
+    });
+      if (!productInCart) {
+        if (this.state.checked) {
+          return (
+            <div
+              onClick={() => this.onAddToCart()}
+              className="shopping_cart_btn_addstate"
+            >
+              <CheckMark className="cart_checkmark" />
+            </div>
+          );
+        } else {
+          return (
+            <div
+              onClick={() => this.onAddToCart()}
+              className="shopping_cart_btn_auth"
+            >
+              <ShoppingCartIcon className="cart_icon" />
+            </div>
+          );
+        }
+      } else {
+        if (this.state.checked) {
+          return (
+            <div
+              onClick={() => this.onAddToCart()}
+              className="shopping_cart_btn_addstate"
+            >
+              <CheckMark className="cart_checkmark" />
+            </div>
+          );
+        } else {
+          return (
+            <div
+              onClick={() => this.props.route.push("/user/cart")}
+              className="shopping_cart_btn_added"
+            >
+              <ShopIcon className="cart_icon" />
+            </div>
+          ); 
+        }
+      }
+    } else {
+      return (
+        <Tooltip
+          TransitionComponent={Zoom}
+          title="Log in or Register to purchase"
+          placement="top-end"
+        >
+          <div
+            onClick={() => this.props.runAction()}
+            className="shopping_cart_btn_nonauth"
+          >
+            <ShoppingCartIcon className="cart_icon" />
+          </div>
+        </Tooltip>
+      );
+    }
   };
 
   onAddToCart = () => {
@@ -25,42 +93,19 @@ class ViewDetailsBtn extends Component {
   };
   render() {
     const props = this.props;
-    const { checked } = this.state;
     return (
       <div className="view_details_btn_container">
         <div onClick={props.viewDetailsClick} className="view_details_btn">
           {props.title}
         </div>
-        {props.isAuth ? (
-          <div
-            onClick={() => this.onAddToCart()}
-            className={
-              checked ? "shopping_cart_btn_addstate" : "shopping_cart_btn_auth"
-            }
-          >
-            {checked ? (
-              <CheckMark className="cart_checkmark" />
-            ) : (
-              <ShoppingCartIcon className="cart_icon" />
-            )}
-          </div>
-        ) : (
-          <Tooltip
-            TransitionComponent={Zoom}
-            title="Log in or Register to purchase"
-            placement="top-end"
-          >
-            <div
-              onClick={() => props.runAction()}
-              className="shopping_cart_btn_nonauth"
-            >
-              <ShoppingCartIcon className="cart_icon" />
-            </div>
-          </Tooltip>
-        )}
+        {this.renderActionBtn()}
       </div>
     );
   }
 }
 
-export default connect()(ViewDetailsBtn);
+const mapStateToProps = ({ users }) => ({
+  user: users.authedUser
+});
+
+export default connect(mapStateToProps)(ViewDetailsBtn);

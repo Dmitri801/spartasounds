@@ -25,7 +25,7 @@ class Register extends Component {
         validation: {
           required: false
         },
-        valid: false,
+        valid: true,
         touched: false,
         validationMessage: ""
       },
@@ -40,7 +40,7 @@ class Register extends Component {
         validation: {
           required: false
         },
-        valid: false,
+        valid: true,
         touched: false,
         validationMessage: ""
       },

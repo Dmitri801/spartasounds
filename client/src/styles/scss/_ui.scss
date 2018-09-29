@@ -71,6 +71,24 @@
     }
   }
 
+  .shopping_cart_btn_added {
+    @include easeOut;
+    width: 20%;
+    height: 30px;
+    padding: 12px;
+    margin: 7px;
+    margin-left: 0;
+    background-color: $success-green;
+    cursor: pointer;
+    &:hover {
+      background-color: lighten($success-green, 2);
+      box-shadow: 0 0 20px $secondary-dark;
+    }
+    &:active {
+      box-shadow: inset 0 0 30px $secondary-dark;
+    }
+  }
+
   .shopping_cart_btn_addstate {
     @include easeOut;
     width: 50%;
@@ -129,5 +147,31 @@
     svg {
       font-size: 3.2rem;
     }
+  }
+  .checkout_btn {
+    svg {
+      margin-right: 10px;
+    }
+  }
+}
+
+.checkout_btn {
+  @include easeOut;
+  height: 70px;
+  width: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-color: $success-green;
+  font-family: 'Cinzel', 'serif';
+  cursor: pointer;
+  &:hover {
+    background-color: darken($success-green, 2);
+    box-shadow: 0 0 50px $success-green;
+  }
+  &:active {
+    box-shadow: inset 0 0 30px $secondary-dark;
   }
 }

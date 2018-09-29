@@ -73,7 +73,7 @@ class Card extends Component {
           this.props.audio.currentTime = 0;
           this.pauseDemoTrack();
         });
-      }, 30);
+      }, 30); 
     } else {
       this.props.audio.play();
       this.props.playAudio();
@@ -126,6 +126,8 @@ class Card extends Component {
                   : console.log("Login First");
               }}
               isAuth={props.isAuth}
+              kitId={props._id}
+              route={this.props.history}
               title="View Details"
             />
           </div>

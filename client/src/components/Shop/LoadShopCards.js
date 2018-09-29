@@ -10,6 +10,7 @@ const LoadShopCards = props => {
       {props.size > 0 && props.size >= props.limit ? (
         <div>
           <hr className="shopCards_hr" />
+         
           <div className="load_more_container">
             <span onClick={() => props.loadMore()}>Load More</span>
           </div>

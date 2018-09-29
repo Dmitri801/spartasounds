@@ -69,6 +69,7 @@ class ProductDetail extends Component {
             addToCart={this.onAddToCart}
             users={this.props.users}
             kit={kit}
+            route={this.props.history}
           />
           <ProductDetailDesc kit={kit} />
         </div>

@@ -7,6 +7,8 @@ import {
   RESET_REGISTER,
   ADD_TO_CART,
   GET_ALL_CART_ITEMS_USER,
+  CLEAR_NEW_CART_ITEM,
+  REMOVE_CART_ITEM_USER,
   LOGOUT_USER
 } from "./types";
 import { USERS_API, PRODUCTS_API } from "../utils/misc";
@@ -66,7 +68,9 @@ export const logoutUser = () => {
 export const addToCart = id => {
   const request = axios
     .post(`${USERS_API}/addToCart?productId=${id}`)
-    .then(res => res.data);
+    .then(res => {
+      return res.data;
+    });
   return {
     type: ADD_TO_CART,
     payload: request
@@ -91,3 +95,27 @@ export const getAllCartItems = (cartItems, userCart) => {
     payload: request
   };
 };
+
+export const clearNewCartItem = () => {
+  return {
+    type: CLEAR_NEW_CART_ITEM
+  }
+}
+
+export const removeCartItemUser = (id) => {
+  const request = axios.get(`${USERS_API}/removeFromCart?_id=${id}`)
+    .then(res => {
+      res.data.cart.forEach(item => {
+        res.data.cartDetail.forEach((detItem, index) => {
+          if(item.id === detItem._id) {
+            res.data.cartDetail[index].quantity = item.quantity
+          }
+        })
+      })
+      return res.data;
+    });
+    return {
+      type: REMOVE_CART_ITEM_USER,
+      payload: request
+    }
+}

@@ -6,6 +6,8 @@ import {
   RESET_REGISTER,
   ADD_TO_CART,
   GET_ALL_CART_ITEMS_USER,
+  CLEAR_NEW_CART_ITEM,
+  REMOVE_CART_ITEM_USER,
   RESET_LOGIN
 } from "../actions/types";
 
@@ -45,12 +47,17 @@ export default function(state = initialState, action) {
         ...state
       };
     case ADD_TO_CART:
+     let newItemAdded;
+     action.payload.forEach(item => {
+      newItemAdded = item.id
+     })
       return {
         ...state,
         authedUser: {
           ...state.authedUser,
           cart: action.payload
-        }
+        },
+        newItemToCart: newItemAdded
       };
     case GET_ALL_CART_ITEMS_USER:
       return {
@@ -60,6 +67,20 @@ export default function(state = initialState, action) {
           cartDetail: action.payload
         }
       };
+    case CLEAR_NEW_CART_ITEM:
+     return {
+       ...state,
+       newItemToCart: ""
+     }
+    case REMOVE_CART_ITEM_USER:
+     return {
+       ...state,
+       authedUser: {
+         ...state.authedUser,
+         cartDetail: action.payload.cartDetail,
+         cart: action.payload.cart
+       }
+     }
     default:
       return state;
   }

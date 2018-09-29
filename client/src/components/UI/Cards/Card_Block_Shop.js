@@ -24,7 +24,7 @@ class CardBlockShop extends Component {
             playAudio={this.props.playAudio}
             pauseAudio={this.props.pauseAudio}
             resetAudio={this.props.resetAudio}
-            setKitPlaying={this.props.setKitPlaying}
+            setKitPlaying={this.props.setKitPlaying} 
             playing={this.props.musicPlayer.playing}
             openMusicPlayer={this.props.openMusicPlayer}
             closeMusicPlayer={this.props.closeMusicPlayer}
@@ -35,13 +35,13 @@ class CardBlockShop extends Component {
             imageStyling={"shopImage"}
           />
         ))
-      : null;
+      : null; 
   };
 
   render() {
     const { list } = this.props;
     return (
-      <div className="card_block_shop">
+      <div id="card_block_shop" className="card_block_shop">
         <div className="container">
           <div className="cards_wrapper">
             {list ? list.length === 0 ? <NoResultsCard /> : null : null}

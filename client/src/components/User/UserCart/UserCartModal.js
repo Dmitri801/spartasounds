@@ -1,22 +1,64 @@
 import React, { Component } from "react";
 import Modal from "../../UI/Modal";
 import CheckMark from "@material-ui/icons/Check";
+import CartProductBlock from "../../UI/Cart/Product_Block";
+import CheckoutBtn from "../../UI/Buttons/Checkout";
+import Spinner from "../../UI/Spinner";
 import { Link } from "react-router-dom";
 import { closeCartModal } from "../../../store/actions/modalActions";
+import { getAllCartItems, clearNewCartItem } from "../../../store/actions/userActions";
 import { connect } from "react-redux";
 
 class UserCartModal extends Component {
+  state = {
+    newItemInCart: [],
+    loading: true
+  }
   closeModal = () => {
     this.props.dispatch(closeCartModal());
   };
+
+  onModalEnter = () => {
+    setTimeout(() => {
+      let cartItem = [];
+      let user = this.props.user;
+      if (user.cart) {
+        if (user.cart.length > 0) {
+          user.cart.forEach(item => {
+            cartItem.push(item.id);
+          });
+          this.props
+            .dispatch(getAllCartItems(cartItem, user.cart))
+            .then(res => {
+              let newItem;
+              newItem = res.payload.filter(item => item._id === this.props.itemToCartId)
+              this.setState({newItemInCart: newItem}, () => this.setState({loading: false}))
+            });
+        }
+      }
+    }, 500);
+  };
+
+  onModalLeave = () => {
+    this.props.dispatch(clearNewCartItem())
+      this.setState({newItemInCart: "", loading: true})
+    
+  }
+
+
+
+ 
   render() {
+    
     return (
       <Modal
         closeIcon={this.closeIcon}
+        onEnter={() => this.onModalEnter()}
+        onExited={() => this.onModalLeave()}
         modalName="cartModal"
         modalTitle=""
         modalOpen={this.props.userCartModalOpen}
-        titleClassName="login_header"
+        
         onBackDropClick={this.closeModal}
       >
         <div className="cart_modal_container">
@@ -26,18 +68,32 @@ class UserCartModal extends Component {
               <span>Added</span>
             </p>
             <div className="link_container">
-              <Link to="/user/cart">GO to Cart</Link> /
-              <Link to="/user/cart">Keep Shopping</Link>
+              <Link onClick={() => this.closeModal()} to="/user/cart">Go to Cart</Link> /
+              <a onClick={() => this.closeModal()}>Keep Shopping</a>
             </div>
           </div>
+          <div className="cart_block_container">
+          {this.state.loading ? <Spinner specialClassName="modal_cart_spinner" /> : (
+            <CartProductBlock location="cartModal" products={this.state.newItemInCart} />  
+          )}
+          </div>    
+          {!this.state.loading && (
+            <div className="checkout_btn_container">
+            <CheckoutBtn>
+              Checkout Now 
+            </CheckoutBtn>
+           </div>
+          )}
         </div>
       </Modal>
     );
   }
 }
 
-const mapStateToProps = ({ modals }) => ({
-  userCartModalOpen: modals.userCartModalOpen
+const mapStateToProps = ({ modals, users }) => ({
+  userCartModalOpen: modals.userCartModalOpen,
+  user: users.authedUser,
+  itemToCartId: users.newItemToCart
 });
 
 export default connect(mapStateToProps)(UserCartModal);

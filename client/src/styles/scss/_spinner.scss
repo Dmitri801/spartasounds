@@ -66,6 +66,23 @@
   animation: spinner 1s linear infinite;
 }
 
+.modal_cart_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  margin-top: -40px;
+  margin-left: -50px;
+  border-radius: 50%;
+  border: 12px inset $sparta-orange;
+  border-top-color: $sparta-red;
+  animation: spinner 1s linear infinite;
+}
+
 .detail_page_spinner:before {
   content: "";
   box-sizing: border-box;

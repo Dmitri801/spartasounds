@@ -28,7 +28,9 @@ const CartProductBlock = ({ products, removeItem, location }) => {
               </div>
               <div className="end_container">
                <span className="price">${product.price}</span>
-               <TrashIcon />
+               {location !== "cartModal" && (
+                  <TrashIcon onClick={() => removeItem(product._id)} />
+               )}
               </div>
             </div>
           </div>

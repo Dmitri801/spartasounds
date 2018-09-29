@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import UserLayout from "../index";
-import { getAllCartItems } from "../../../store/actions/userActions";
+import { getAllCartItems, removeCartItemUser } from "../../../store/actions/userActions";
 import CartProductBlock from "../../UI/Cart/Product_Block";
+import CheckoutBtn from "../../UI/Buttons/Checkout";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faFrown from "@fortawesome/fontawesome-free-solid/faFrown";
 import faSmile from "@fortawesome/fontawesome-free-solid/faSmile";
@@ -11,9 +12,7 @@ const userDashboardBackground = require("../../../resources/Images/user-dashboar
 class UserCart extends Component {
   state = {
     loading: true,
-    total: 0,
-    showTotal: false,
-    showSuccess: false,
+    itemsInCart: false,
     step: 1,
     page: 1
   };
@@ -27,6 +26,7 @@ class UserCart extends Component {
         user.cart.forEach(item => {
           cartItem.push(item.id);
         });
+        this.setState({ itemsInCart: true });
         this.props.dispatch(getAllCartItems(cartItem, user.cart)).then(res => {
           console.log(res);
         });
@@ -43,6 +43,28 @@ class UserCart extends Component {
     }
     return highlightStyle;
   };
+
+  calculateTotalCost = () => {
+    let total = 0;
+    if (this.props.user && this.props.user.cartDetail) {
+      this.props.user.cartDetail.forEach(item => {
+        total += item.price;
+      });
+
+      return <span>${total}</span>;
+    }
+  };
+
+  removeFromCart = (id) => {
+    this.props.dispatch(removeCartItemUser(id))
+      .then(() => {
+        if(this.props.user.cartDetail.length <= 0) {
+          this.setState({itemsInCart: false})
+        } else {
+          this.calculateTotalCost()
+        }
+      })
+  }
 
   render() {
     const { step } = this.state;
@@ -68,7 +90,7 @@ class UserCart extends Component {
           }}
           className="bck_overlay"
         />
-        <div className="shop_container">
+        <div className="cart_container">
           <div className="cart_main_card">
             <div className="checkout_steps">
               <h1>
@@ -105,15 +127,29 @@ class UserCart extends Component {
               <h1>Shopping Cart</h1>
             </div>
             <div className="user_cart">
-              <CartProductBlock
-                products={this.props.user.cartDetail}
-                location="userCart"
-                removeItem={() => this.removeFromCart()}
-              />
+              {this.state.itemsInCart ? (
+                <CartProductBlock
+                  products={this.props.user.cartDetail}
+                  location="userCart"
+                  removeItem={this.removeFromCart}
+                />
+              ) : (
+                <div>
+                  <h1>You Don't Have Any Items In Your Cart</h1>
+                  <div className="frown_container">
+                    <FontAwesomeIcon icon={faFrown} />
+                    <CheckoutBtn styles={{width: "500px", fontSize: "3.5rem"}} click={() => this.props.history.push("/shop")}>
+                      Shop
+                    </CheckoutBtn>
+                  </div>
+                </div>
+              )}
             </div>
             <div className="checkout_container">
-              <h1>Total:</h1>
-              <div>Checkout</div>
+              {this.state.itemsInCart && (
+                <h1>Total: {this.calculateTotalCost()}</h1>
+              )}
+              {this.state.itemsInCart && <CheckoutBtn>Checkout</CheckoutBtn>}
             </div>
           </div>
         </div>
