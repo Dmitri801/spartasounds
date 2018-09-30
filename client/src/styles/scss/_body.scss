@@ -1,6 +1,7 @@
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  
 }
 
 body {
@@ -8,7 +9,12 @@ body {
     padding: 0;
     font-family: 'Mukta', 'sans-serif' !important; 
     background: #1a1a1d;
+    height: 100%;
     
+  }
+
+  .App {
+    height: 100%;
   }
 
   input {

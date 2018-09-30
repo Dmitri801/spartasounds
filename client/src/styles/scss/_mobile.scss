@@ -2,7 +2,6 @@
   footer .contact_btn {
     left: 1250px;
   }
-  
 }
 
 @include media2Xlg {
@@ -21,7 +20,6 @@
   .user_info_panel {
     margin-left: 250px;
   }
-  
 }
 
 @include mediaXlg {
@@ -37,7 +35,6 @@
       width: 800px;
     }
   }
- 
 }
 
 @include mediaLg {
@@ -69,6 +66,10 @@
 }
 
 @include mediaMdLg {
+  .header_second {
+    top: -80px;
+    left: 138px;
+  }
   footer .contact_btn {
     width: 250px;
     left: 830px;
@@ -97,6 +98,10 @@
 }
 
 @include mediaMd {
+  .header_second {
+    display: none;
+    
+  }
   .homeSignup {
     display: none;
   }
@@ -126,6 +131,7 @@
       display: none;
     }
   }
+  
 }
 
 @include mediaSm {
@@ -156,5 +162,31 @@
   footer .copyright {
     top: 0px;
     left: 10px;
+  }
+  .nav {
+    .navigation_items {
+      .header_logo {
+        display: none;
+      }
+      a {
+        display: none;
+      }
+     
+    }
+  }
+  .img_cover {
+    display: none;
+  }
+
+  .header_text {
+    display: none;
+  }
+
+  .toggle_button {
+    display: flex;
+  }
+
+  .user_menu {
+    display: none;
   }
 }

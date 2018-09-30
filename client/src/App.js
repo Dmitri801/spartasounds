@@ -12,10 +12,12 @@ import Manage from "./components/User/Admin/Manage/index.js";
 import ProductDetail from "./components/Product";
 import UserCart from "./components/User/UserCart/Cart";
 import TestUpload from "./components/Test/TestUpload";
+
 class App extends Component {
   render() {
     return (
       <Layout>
+        
         <Switch>
           <Route
             path="/user/dashboard"

@@ -86,7 +86,7 @@ class ViewDetailsBtn extends Component {
       this.setState({ checked: true });
       setTimeout(() => {
         this.setState({ checked: false });
-      }, 5000);
+      }, 2000);
     } else {
       console.log("State is Checked");
     }

@@ -5,6 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
+import DrawerToggleButton from "./SideDrawer/DrawerButton.js";
 import { Link, withRouter } from "react-router-dom";
 import { TheLogo } from "../UI/Icon";
 import { PopoverMenu } from "../UI/PopoverMenu";
@@ -35,7 +36,7 @@ class Navbar extends Component {
     const { users } = this.props;
     if (users && !users.isAuth) {
       return (
-        <div style={{ display: "flex" }}>
+        <div className="navigation_items" style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
             <Button disableRipple color="inherit">
               Home
@@ -72,7 +73,7 @@ class Navbar extends Component {
       );
     } else {
       return (
-        <div style={{ display: "flex" }}>
+        <div className="navigation_items" style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
             <Button disableRipple={true} color="inherit">
               Home
@@ -98,6 +99,7 @@ class Navbar extends Component {
               color="inherit"
             >
               <AccountCircle
+                className="accountCircle"
                 style={{
                   fontSize: 50,
                   border: "2px solid #4e4e50",
@@ -173,9 +175,9 @@ class Navbar extends Component {
         position="fixed"
         style={{
           backgroundColor: this.state.scrollTop
-            ? "rgb(17, 17, 17)"
-            : "rgba(17, 17, 17, 0.8)",
-          padding: this.state.scrollTop ? "10px 0px" : "0px 0px",
+            ? "rgb(0, 0, 0)"
+            : "rgba(0, 0, 0, 0.9)",
+          padding: this.state.scrollTop ? "10px 0px" : "5px 0px",
           borderBottom: "0.3px solid rgba(202,55,38, 0.9)",
           transition: "all 0.5s ease-out"
         }}
@@ -184,11 +186,10 @@ class Navbar extends Component {
           <div style={{ flexGrow: 1 }}>
             <div className="header_logo">
               <TheLogo link={true} linkTo="/" width="100px" height="70px" />
-
               <Link to="/">
                 <span className="header_text">Sparta Sounds</span>
               </Link>
-
+              <DrawerToggleButton click={this.props.drawerClickHandler} />
               {scrollTop ? (
                 <Transition
                   from={{ opacity: 0 }}
