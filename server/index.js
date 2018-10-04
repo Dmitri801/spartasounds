@@ -7,15 +7,15 @@ const users = require("./routes/api/users");
 const products = require("./routes/api/products");
 const categories = require("./routes/api/categories");
 const genres = require("./routes/api/genres");
-const audiotracks = require('./routes/api/audiotracks');
-const images = require('./routes/api/images');
-const test = require('./routes/api/test');
+const audiotracks = require("./routes/api/audiotracks");
+const images = require("./routes/api/images");
+const test = require("./routes/api/test");
 const PORT = process.env.PORT || 8080;
 const app = express();
 
 // Mongoose/MongoDb
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.MONGODB_URI);
 
 // Middleware
 
@@ -35,9 +35,6 @@ app.use("/", products);
 app.use("/", categories);
 app.use("/", genres);
 
-
 app.listen(PORT, () => {
   console.log(`SERVER Running On Port: ${PORT}`);
 });
-
-
