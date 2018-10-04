@@ -148,7 +148,9 @@ class MusicPlayer extends Component {
               <SliderThumb progressBarWidth={progressBar} />
               <Filler progressBarWidth={progressBar} />
             </ProgressBar>
-            <span className="duration">{trackDuration}</span>
+            <span className="duration">
+              {trackDuration === "NaN:NaN" ? "Loading.." : trackDuration}
+            </span>
           </div>
           <span onClick={this.stopPlayer} className="close_icon">
             X
