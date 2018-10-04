@@ -45,8 +45,9 @@
 // HOME CARDS
 
 .card_block_featured {
+  display: grid;
   margin: 20px;
-  height: 650px;
+  grid-auto-rows: minmax(650px, auto);
   background-color: #000;
   color: #fff;
   border-radius: 10px;
@@ -101,7 +102,6 @@
     margin-left: 100px;
     margin-top: 50px;
     &:hover {
-      color: $sparta-blue;
       transform: scale(1.1);
     }
   }
@@ -115,7 +115,6 @@
     margin-left: 100px;
     margin-top: 50px;
     &:hover {
-      color: $sparta-blue;
       transform: scale(1.1);
     }
   }

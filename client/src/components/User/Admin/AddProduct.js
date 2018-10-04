@@ -16,8 +16,8 @@ import {
   clearProduct
 } from "../../../store/actions/productActions";
 import { connect } from "react-redux";
-import ArrowForward from "@material-ui/icons/ArrowForward";
-import ArrowBack from "@material-ui/icons/ArrowBack";
+import BackArrowBtn from "../../UI/Buttons/BackBtn";
+import NextArrowBtn from "../../UI/Buttons/NextBtn";
 import Button from "@material-ui/core/Button";
 import Spinner from "../../UI/Spinner";
 import FileUpload from "../../UI/Forms/FileUpload";
@@ -202,7 +202,7 @@ class AddProduct extends Component {
       );
       this.updateFields(newFormData);
     });
-  } 
+  }
 
   updateFields = newFormData => {
     this.setState({ formData: newFormData });
@@ -249,19 +249,18 @@ class AddProduct extends Component {
         formError: true
       });
       this.props.alert.show("Check Your Data Bruh");
-      console.log(this.state.formData);
     }
   };
-  imagesHandler = (images) => { 
+  imagesHandler = images => {
     const newFormData = {
-      ...this.state.formData,
-    }
-    newFormData['images'].value = images;
-    newFormData['images'].valid = true;
+      ...this.state.formData
+    };
+    newFormData["images"].value = images;
+    newFormData["images"].valid = true;
 
     this.setState({
       formData: newFormData
-    })
+    });
   };
   render() {
     const { page } = this.state;
@@ -318,19 +317,12 @@ class AddProduct extends Component {
                 </span>
               </div>
             </form>
-            <div className="next_btn_container">
-              <div
-                onClick={() =>
-                  this.setState(prevState => ({ page: prevState.page + 1 }))
-                }
-                className="next_btn"
-              >
-                <h1>Next</h1>
-                <div className="arrow_forward">
-                  <ArrowForward fontSize="inherit" />
-                </div>
-              </div>
-            </div>
+            <NextArrowBtn
+              click={() =>
+                this.setState(prevState => ({ page: prevState.page + 1 }))
+              }
+              title="Next"
+            />
           </div>
         </div>
       );
@@ -417,19 +409,12 @@ class AddProduct extends Component {
                 />
               </div>
             </form>
-            <div className="back_btn_container">
-              <div
-                onClick={() =>
-                  this.setState(prevState => ({ page: prevState.page - 1 }))
-                }
-                className="back_btn"
-              >
-                <h1>Back</h1>
-                <div className="arrow_back">
-                  <ArrowBack fontSize="inherit" />
-                </div>
-              </div>
-            </div>
+            <BackArrowBtn
+              click={() =>
+                this.setState(prevState => ({ page: prevState.page - 1 }))
+              }
+              title="Back"
+            />
             <div className="addproduct_btn_container">
               <Button
                 onClick={event => this.submitForm(event)}

@@ -25,6 +25,9 @@ const FormField = ({ formData, id, change, location }) => {
       case "destroy_product":
         locationClassname = "destroy_product_inputs";
         break;
+      case "updateProfile":
+        locationClassname = "update_profile_inputs";
+        break;
       default:
         locationClassname = "";
     }

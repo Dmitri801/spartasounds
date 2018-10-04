@@ -33,17 +33,34 @@ class Navbar extends Component {
   };
 
   renderNavLinks = () => {
-    const { users } = this.props;
+    const { users, location } = this.props;
+
     if (users && !users.isAuth) {
       return (
         <div className="navigation_items" style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button disableRipple color="inherit">
+            <Button
+              style={
+                location.pathname === "/"
+                  ? { color: "#fff" }
+                  : { color: "rgba(255, 255, 255, 0.7)" }
+              }
+              disableRipple
+              color="inherit"
+            >
               Home
             </Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/shop">
-            <Button disableRipple color="inherit">
+            <Button
+              style={
+                location.pathname === "/shop"
+                  ? { color: "#fff" }
+                  : { color: "rgba(255, 255, 255, 0.7)" }
+              }
+              disableRipple
+              color="inherit"
+            >
               Shop
             </Button>
           </Link>
@@ -51,7 +68,15 @@ class Navbar extends Component {
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
             to="/beatstore"
           >
-            <Button disableRipple color="inherit">
+            <Button
+              style={
+                location.pathname === "/beatstore"
+                  ? { color: "#fff" }
+                  : { color: "rgba(255, 255, 255, 0.7)" }
+              }
+              disableRipple
+              color="inherit"
+            >
               Beat Store
             </Button>
           </Link>
@@ -75,12 +100,28 @@ class Navbar extends Component {
       return (
         <div className="navigation_items" style={{ display: "flex" }}>
           <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button disableRipple={true} color="inherit">
+            <Button
+              style={
+                location.pathname === "/"
+                  ? { color: "#fff" }
+                  : { color: "rgba(255, 255, 255, 0.7)" }
+              }
+              disableRipple={true}
+              color="inherit"
+            >
               Home
             </Button>
           </Link>
           <Link style={{ alignSelf: "flex-end" }} to="/shop">
-            <Button disableRipple={true} color="inherit">
+            <Button
+              style={
+                location.pathname === "/shop"
+                  ? { color: "#fff" }
+                  : { color: "rgba(255, 255, 255, 0.7)" }
+              }
+              disableRipple={true}
+              color="inherit"
+            >
               Shop
             </Button>
           </Link>
@@ -88,7 +129,15 @@ class Navbar extends Component {
             style={{ alignSelf: "flex-end", marginRight: "20px" }}
             to="/beatstore"
           >
-            <Button disableRipple={true} color="inherit">
+            <Button
+              style={
+                location.pathname === "/beatstore"
+                  ? { color: "#fff" }
+                  : { color: "rgba(255, 255, 255, 0.7)" }
+              }
+              disableRipple={true}
+              color="inherit"
+            >
               Beat Store
             </Button>
           </Link>

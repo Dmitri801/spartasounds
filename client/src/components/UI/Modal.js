@@ -19,7 +19,7 @@ const Modal = props => {
         enter: props.modalName === "cartModal" ? 350 : 300,
         exit: 80
       }}
-      BackdropProps={{ 
+      BackdropProps={{
         style: {
           backgroundColor: "rgba(14,29,36, 0.5)"
         }
@@ -27,7 +27,7 @@ const Modal = props => {
       PaperProps={{
         style: {
           backgroundColor: props.modalName === "cartModal" ? "#000" : "#1a1a1d",
-          height: props.modalName === "cartModal" ? "280px" : "470px",
+          height: props.modalName === "cartModal" ? "280px" : "490px",
           width: "3000px",
           border: props.modalName === "cartModal" ? "2px solid #1a1a1d" : "",
           color: "#fff"

@@ -49,6 +49,23 @@
   animation: spinner 1s linear infinite;
 }
 
+.cart_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  height: 160px;
+  width: 160px;
+  margin-top: -30px;
+  margin-left: 110px;
+  border-radius: 50%;
+  border: 11px solid $secondary-dark;
+  border-top-color: $sparta-red;
+  animation: spinner 1s linear infinite;
+}
+
 .file_upload_spinner:before {
   content: "";
   box-sizing: border-box;

@@ -10,14 +10,15 @@ import Home from "./components/Home";
 import AddProduct from "./components/User/Admin/AddProduct";
 import Manage from "./components/User/Admin/Manage/index.js";
 import ProductDetail from "./components/Product";
-import UserCart from "./components/User/UserCart/Cart";
+import UserCart from "./components/User/UserCart";
+import UpdateProfile from "./components/User/UpdateProfile";
+import ManageSite from "./components/User/Admin/ManageSite";
 import TestUpload from "./components/Test/TestUpload";
 
 class App extends Component {
   render() {
     return (
       <Layout>
-        
         <Switch>
           <Route
             path="/user/dashboard"
@@ -34,6 +35,16 @@ class App extends Component {
             path="/admin/manage_products"
             exact
             component={Auth(Manage, true)}
+          />
+          <Route
+            path="/admin/site_info"
+            exact
+            component={Auth(ManageSite, true)}
+          />
+          <Route
+            path="/user/user_profile"
+            exact
+            component={Auth(UpdateProfile, true)}
           />
           <Route path="/" exact component={Auth(Home, null)} />
           <Route

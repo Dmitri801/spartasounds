@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-const Footer = ({location}) => {
+const Footer = ({ location }) => {
   const renderFooter = () => {
-      return (
-        <footer className="bck_ultra_dark">
+    return (
+      <footer className="bck_ultra_dark">
         <div className="container">
           <div className="logo">
             <img
@@ -39,22 +39,22 @@ const Footer = ({location}) => {
               fullWidth={true}
               size="large"
               variant="outlined"
-              
-              
             >
               Get In Touch
             </Button>
             <div className="copyright_wrapper">
-            <p className="copyright">Copyright &copy;2018  - <a href="https://buildwithme-dmitriy.now.sh">DMI Web Design</a> - </p>
+              <p className="copyright">
+                Copyright &copy;2018 -{" "}
+                <a href="https://buildwithme-dmitriy.now.sh">DMI Web Design</a>{" "}
+                -{" "}
+              </p>
             </div>
           </div>
         </div>
       </footer>
-      )
-  }
-  return (
-    renderFooter()
-  );
+    );
+  };
+  return renderFooter();
 };
 
 export default Footer;

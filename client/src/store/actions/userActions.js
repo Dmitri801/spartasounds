@@ -9,6 +9,8 @@ import {
   GET_ALL_CART_ITEMS_USER,
   CLEAR_NEW_CART_ITEM,
   REMOVE_CART_ITEM_USER,
+  ON_SUCCESS_BUY_USER,
+  UPDATE_USER_PROFILE,
   LOGOUT_USER
 } from "./types";
 import { USERS_API, PRODUCTS_API } from "../utils/misc";
@@ -99,23 +101,44 @@ export const getAllCartItems = (cartItems, userCart) => {
 export const clearNewCartItem = () => {
   return {
     type: CLEAR_NEW_CART_ITEM
-  }
-}
+  };
+};
 
-export const removeCartItemUser = (id) => {
-  const request = axios.get(`${USERS_API}/removeFromCart?_id=${id}`)
+export const removeCartItemUser = id => {
+  const request = axios
+    .get(`${USERS_API}/removeFromCart?_id=${id}`)
     .then(res => {
       res.data.cart.forEach(item => {
         res.data.cartDetail.forEach((detItem, index) => {
-          if(item.id === detItem._id) {
-            res.data.cartDetail[index].quantity = item.quantity
+          if (item.id === detItem._id) {
+            res.data.cartDetail[index].quantity = item.quantity;
           }
-        })
-      })
+        });
+      });
       return res.data;
     });
-    return {
-      type: REMOVE_CART_ITEM_USER,
-      payload: request
-    }
-}
+  return {
+    type: REMOVE_CART_ITEM_USER,
+    payload: request
+  };
+};
+
+export const onSuccessPurchase = data => {
+  const request = axios
+    .post(`${USERS_API}/successBuy`, data)
+    .then(res => res.data);
+  return {
+    type: ON_SUCCESS_BUY_USER,
+    payload: request
+  };
+};
+
+export const updateUserProfile = dataToSubmit => {
+  const request = axios
+    .post(`${USERS_API}/update_profile`, dataToSubmit)
+    .then(res => res.data);
+  return {
+    type: UPDATE_USER_PROFILE,
+    payload: request
+  };
+};

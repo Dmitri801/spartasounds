@@ -272,7 +272,7 @@ class TextAndModal extends Component {
                 }}
                 onClick={() =>
                   (window.location.href =
-                    "http://localhost:8080/api/test/stream/47c45dccd515a0f77d1a3ca738d7eecd.zip")
+                    "http://localhost:8080/api/test/stream/90b7d1d5ed550882284dcf6f62774963.zip")
                 }
               >
                 <Button onClick={this.closeSampleModal}>DOWNLOAD</Button>

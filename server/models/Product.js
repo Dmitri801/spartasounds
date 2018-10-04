@@ -1,57 +1,63 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const productSchema = Schema({
+const productSchema = Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        unique: 1,
-        maxlength: 100
+      type: String,
+      required: true,
+      unique: 1,
+      maxlength: 100
     },
     description: {
-        type: String,
-        required: true,
-        maxlength: 50000
-    }, 
+      type: String,
+      required: true,
+      maxlength: 50000
+    },
     price: {
-        type: Number,
-        required: true,
-        maxlength: 255
+      type: Number,
+      required: true,
+      maxlength: 255
     },
     genre: {
-        type: Schema.Types.ObjectId,
-        ref: 'Genre',
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: "Genre",
+      required: true
     },
     category: {
-        type: Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      required: true
     },
     instruments: {
-        type: Array,
-        default: []
+      type: Array,
+      default: []
     },
     demoTrack: {
-        type: String,
+      type: String
+    },
+    samplePack: {
+      type: String
     },
     sampleLength: {
-        type: Number
+      type: Number
     },
     sold: {
-        type: Number,
-        maxlength: 100,
-        default: 0
+      type: Number,
+      maxlength: 100,
+      default: 0
     },
     publish: {
-        required: true,
-        type: Boolean
+      required: true,
+      type: Boolean
     },
     images: {
-        type: Array,
-        default: []
+      type: Array,
+      default: []
     }
-}, {timestamps: true});
+  },
+  { timestamps: true }
+);
 
 const Product = mongoose.model("Product", productSchema);
 

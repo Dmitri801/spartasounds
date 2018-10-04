@@ -165,7 +165,7 @@
   text-transform: uppercase;
   border-radius: 5px;
   background-color: $success-green;
-  font-family: 'Cinzel', 'serif';
+  font-family: "Cinzel", "serif";
   cursor: pointer;
   &:hover {
     background-color: darken($success-green, 2);
@@ -176,6 +176,89 @@
   }
 }
 
+.next_btn_container {
+  height: 115px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  .next_btn {
+    margin-right: 15px;
+    &:hover {
+      h1 {
+        color: $sparta-yellow;
+      }
+      .arrow_forward {
+        color: $sparta-yellow;
+      }
+    }
+  }
+  h1 {
+    @include easeOut;
+    cursor: pointer;
+    font-family: "Cinzel", "serif";
+    display: inline-block;
+    margin: 0;
+    margin-top: 7px;
+    position: absolute;
+    font-weight: 800;
+    font-size: 30px;
+    color: #fff;
+    margin-right: 45px;
+  }
+  .arrow_forward {
+    @include easeOut;
+    cursor: pointer;
+    font-size: 45px;
+
+    bottom: 60px;
+    margin-left: 70px;
+    color: #fff;
+  }
+}
+
+.back_btn_container {
+  margin-top: 75px;
+  margin-left: 10px;
+  height: 50px;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+
+  .back_btn {
+    z-index: 999;
+    &:hover {
+      h1 {
+        color: $sparta-yellow;
+      }
+      .arrow_back {
+        color: $sparta-yellow;
+      }
+    }
+  }
+  h1 {
+    @include easeOut;
+    cursor: pointer;
+    font-family: "Cinzel", "serif";
+    position: absolute;
+    margin: 0;
+    margin-top: 10px;
+    font-weight: 800;
+    font-size: 30px;
+    color: #fff;
+    margin-left: 40px;
+  }
+  .arrow_back {
+    @include easeOut;
+    cursor: pointer;
+    font-size: 45px;
+
+    bottom: 35px;
+    margin-right: 60px;
+
+    color: #fff;
+  }
+}
 
 .backdrop {
   position: fixed;

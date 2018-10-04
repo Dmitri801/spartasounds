@@ -9,22 +9,20 @@ import Backdrop from "../UI/Backdrop/Backdrop";
 class Layout extends Component {
   state = {
     sideDrawerOpen: false
-  }
+  };
   drawerToggleClickHandler = () => {
-   this.setState((prevState) => ({
-     sideDrawerOpen: !prevState.sideDrawerOpen
-   }))
-  }
+    this.setState(prevState => ({
+      sideDrawerOpen: !prevState.sideDrawerOpen
+    }));
+  };
 
   backDropClickHandler = () => {
-    this.setState({sideDrawerOpen: false})
-  }
+    this.setState({ sideDrawerOpen: false });
+  };
   render() {
-    let sideDrawer;
     let backDrop;
-    if(this.state.sideDrawerOpen) {
-     
-      backDrop = <Backdrop click={this.backDropClickHandler} />
+    if (this.state.sideDrawerOpen) {
+      backDrop = <Backdrop click={this.backDropClickHandler} />;
     }
     return (
       <div className="App">

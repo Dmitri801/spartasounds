@@ -1,13 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const moment = require("moment");
+const async = require("async");
 // Middleware
 const { auth } = require("../../middleware/auth");
 
 // Models
 const { User } = require("../../models/User");
-const {Product} = require("../../models/Product");
-
+const { Product } = require("../../models/Product");
+const { Payment } = require("../../models/Payment");
 // ============= USERS ============== //
 // @route       GET api/users/auth
 // @description Access a protected route
@@ -82,6 +84,30 @@ router.get("/api/users/logout", auth, (req, res) => {
   });
 });
 
+// @route      POST api/users/update_profile
+// @description Update User Info
+// @access      Private
+router.post("/api/users/update_profile", auth, (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    {
+      $set: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email
+      }
+    },
+    {
+      new: true
+    },
+    (err, doc) => {
+      if (err) return res.json({ success: false, err });
+
+      return res.status(200).json({ success: true, doc });
+    }
+  );
+});
+
 // @route POST api/users/addToCart
 // @description Add Item To Users Cart
 // @access Private
@@ -135,26 +161,96 @@ router.post("/api/users/addToCart", auth, (req, res) => {
 
 router.get("/api/users/removeFromCart", auth, (req, res) => {
   User.findOneAndUpdate(
-    {_id: req.user._id}, 
-    {$pull: {
-      cart: {
-        id: mongoose.Types.ObjectId(req.query._id)
+    { _id: req.user._id },
+    {
+      $pull: {
+        cart: {
+          id: mongoose.Types.ObjectId(req.query._id)
+        }
       }
-    }},
-    {new: true}, 
+    },
+    { new: true },
     (err, doc) => {
       let cart = doc.cart;
       let array = cart.map(item => {
         return mongoose.Types.ObjectId(item.id);
-      })
-      Product.find({'_id': {$in: array}})
-      .populate("genre")
-      .populate("category")
-      .exec((err, cartDetail) => {
-        return res.status(200).json({cartDetail: cartDetail, cart: cart})
-      })
+      });
+      Product.find({ _id: { $in: array } })
+        .populate("genre")
+        .populate("category")
+        .exec((err, cartDetail) => {
+          return res.status(200).json({ cartDetail: cartDetail, cart: cart });
+        });
     }
-  )
-})
+  );
+});
+
+// @route GET api/users/successBuy
+// @description SUCCESSFUL PURCHASE- Add purchased items to history of user, create "receipt" of purchase through the payment model
+// @access Private
+
+router.post("/api/users/successBuy", auth, (req, res) => {
+  let history = [];
+  let transactionData = {};
+
+  // User History
+  req.body.cartDetail.forEach(cartItem => {
+    history.push({
+      dateOfPurchase: moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+      name: cartItem.name,
+      genre: cartItem.genre,
+      samplePack: cartItem.samplePack,
+      id: cartItem._id,
+      price: cartItem.price,
+      quantity: cartItem.quantity,
+      paymentId: req.body.paymentData.paymentID
+    });
+  });
+
+  // Add to user history/payment dashboard
+  transactionData.user = {
+    id: req.user._id,
+    firstName: req.user.name,
+    lastName: req.user.lastName,
+    email: req.user.email
+  };
+  transactionData.data = req.body.paymentData;
+  transactionData.product = history;
+
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $push: { history: history }, $set: { cart: [] } },
+    { new: true },
+    (err, user) => {
+      if (err) return res.json({ success: false, err });
+
+      const payment = new Payment(transactionData);
+      payment.save((err, doc) => {
+        if (err) return res.json({ success: false, err });
+        let products = [];
+        doc.product.forEach(item => {
+          products.push({ id: item.id, quantity: item.quantity });
+        });
+        async.eachSeries(
+          products,
+          (item, callback) => {
+            Product.update(
+              { _id: item.id },
+              { $inc: { sold: item.quantity } },
+              { new: false },
+              callback
+            );
+          },
+          err => {
+            if (err) return res.json({ success: false, err });
+            res
+              .status(200)
+              .json({ success: true, cart: user.cart, cartDetail: [] });
+          }
+        );
+      });
+    }
+  );
+});
 
 module.exports = router;

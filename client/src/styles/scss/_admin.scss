@@ -122,88 +122,7 @@
     font-family: "Cinzel", "serif";
     content: "$";
   }
-  .next_btn_container {
-    height: 115px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    .next_btn {
-      margin-right: 15px;
-      &:hover {
-        h1 {
-          color: $sparta-yellow;
-        }
-        .arrow_forward {
-          color: $sparta-yellow;
-        }
-      }
-    }
-    h1 {
-      @include easeOut;
-      cursor: pointer;
-      font-family: "Cinzel", "serif";
-      display: inline-block;
-      margin: 0;
-      margin-top: 7px;
-      position: absolute;
-      font-weight: 800;
-      font-size: 30px;
-      color: #fff;
-      margin-right: 45px;
-    }
-    .arrow_forward {
-      @include easeOut;
-      cursor: pointer;
-      font-size: 45px;
 
-      bottom: 60px;
-      margin-left: 70px;
-      color: #fff;
-    }
-  }
-  .back_btn_container {
-    margin-top: 75px;
-    margin-left: 10px;
-    height: 50px;
-    width: 50%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-
-    .back_btn {
-      z-index: 999;
-      &:hover {
-        h1 {
-          color: $sparta-yellow;
-        }
-        .arrow_back {
-          color: $sparta-yellow;
-        }
-      }
-    }
-    h1 {
-      @include easeOut;
-      cursor: pointer;
-      font-family: "Cinzel", "serif";
-      position: absolute;
-      margin: 0;
-      margin-top: 10px;
-      font-weight: 800;
-      font-size: 30px;
-      color: #fff;
-      margin-left: 40px;
-    }
-    .arrow_back {
-      @include easeOut;
-      cursor: pointer;
-      font-size: 45px;
-
-      bottom: 35px;
-      margin-right: 60px;
-
-      color: #fff;
-    }
-  }
   .addproduct_btn_container {
     display: flex;
     justify-content: center;
@@ -339,88 +258,88 @@
 // Add Category
 
 .manage_card {
-    .form_group {
-      .add_category_inputs {
-        width: 450px;
-        input {
-          @include quickOut;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          box-shadow: 0 0 0 2pt $secondary-dark;
-          border: none;
-          font-size: 15px;
-          padding: 10px 10px;
-          border-radius: 30px;
-          width: 100%;
-        }
-        input:focus {
-          box-shadow: 0 0 0 1.5pt $sparta-orange;
-          outline: none;
-        }
+  .form_group {
+    .add_category_inputs {
+      width: 450px;
+      input {
+        @include quickOut;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        box-shadow: 0 0 0 2pt $secondary-dark;
+        border: none;
+        font-size: 15px;
+        padding: 10px 10px;
+        border-radius: 30px;
+        width: 100%;
       }
-      .add_category_label {
-        position: absolute;
-        margin-top: -25px;
-        margin-left: -195px;
-        color: lighten($secondary-dark, 15);
+      input:focus {
+        box-shadow: 0 0 0 1.5pt $sparta-orange;
+        outline: none;
       }
     }
-    .addcategory_btn_container {
-      display: flex;
-      justify-content: center;
-      width: 550px;
-      height: 50px;
-  
-      .add_category_btn {
-        margin-top: 38px;
-        width: 300px;
-        margin-left: 60px;
-        bottom: 100px;
-        background-color: $sparta-orange !important;
-      }
+    .add_category_label {
+      position: absolute;
+      margin-top: -25px;
+      margin-left: -195px;
+      color: lighten($secondary-dark, 15);
     }
   }
+  .addcategory_btn_container {
+    display: flex;
+    justify-content: center;
+    width: 550px;
+    height: 50px;
 
-  // Destroy Product
-  .manage_card {
-    .form_group {
-      .destroy_product_inputs {
-        width: 450px;
-        input {
-          @include quickOut;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          box-shadow: 0 0 0 2pt $secondary-dark;
-          border: none;
-          font-size: 15px;
-          padding: 10px 10px;
-          border-radius: 30px;
-          width: 100%;
-        }
-        input:focus {
-          box-shadow: 0 0 0 1.5pt $sparta-orange;
-          outline: none;
-        }
-      }
-      .destroy_product_label {
-        position: absolute;
-        margin-top: -25px;
-        margin-left: -175px;
-        color: lighten($secondary-dark, 15);
-      }
-    }
-    .destroy_btn_container {
-      display: flex;
-      justify-content: center;
-      width: 550px;
-      height: 50px;
-  
-      .destroy_product_btn {
-        margin-top: 38px;
-        width: 300px;
-        margin-left: 60px;
-        bottom: 100px;
-        background-color: $sparta-red !important;
-      }
+    .add_category_btn {
+      margin-top: 38px;
+      width: 300px;
+      margin-left: 60px;
+      bottom: 100px;
+      background-color: $sparta-orange !important;
     }
   }
+}
+
+// Destroy Product
+.manage_card {
+  .form_group {
+    .destroy_product_inputs {
+      width: 450px;
+      input {
+        @include quickOut;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        box-shadow: 0 0 0 2pt $secondary-dark;
+        border: none;
+        font-size: 15px;
+        padding: 10px 10px;
+        border-radius: 30px;
+        width: 100%;
+      }
+      input:focus {
+        box-shadow: 0 0 0 1.5pt $sparta-orange;
+        outline: none;
+      }
+    }
+    .destroy_product_label {
+      position: absolute;
+      margin-top: -25px;
+      margin-left: -175px;
+      color: lighten($secondary-dark, 15);
+    }
+  }
+  .destroy_btn_container {
+    display: flex;
+    justify-content: center;
+    width: 550px;
+    height: 50px;
+
+    .destroy_product_btn {
+      margin-top: 38px;
+      width: 300px;
+      margin-left: 60px;
+      bottom: 100px;
+      background-color: $sparta-red !important;
+    }
+  }
+}

@@ -4,16 +4,20 @@ import CheckMark from "@material-ui/icons/Check";
 import CartProductBlock from "../../UI/Cart/Product_Block";
 import CheckoutBtn from "../../UI/Buttons/Checkout";
 import Spinner from "../../UI/Spinner";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { closeCartModal } from "../../../store/actions/modalActions";
-import { getAllCartItems, clearNewCartItem } from "../../../store/actions/userActions";
+import {
+  getAllCartItems,
+  clearNewCartItem
+} from "../../../store/actions/userActions";
+import { changeCheckoutStep } from "../../../store/actions/cartActions";
 import { connect } from "react-redux";
 
 class UserCartModal extends Component {
   state = {
     newItemInCart: [],
     loading: true
-  }
+  };
   closeModal = () => {
     this.props.dispatch(closeCartModal());
   };
@@ -31,8 +35,12 @@ class UserCartModal extends Component {
             .dispatch(getAllCartItems(cartItem, user.cart))
             .then(res => {
               let newItem;
-              newItem = res.payload.filter(item => item._id === this.props.itemToCartId)
-              this.setState({newItemInCart: newItem}, () => this.setState({loading: false}))
+              newItem = res.payload.filter(
+                item => item._id === this.props.itemToCartId
+              );
+              this.setState({ newItemInCart: newItem }, () =>
+                this.setState({ loading: false })
+              );
             });
         }
       }
@@ -40,16 +48,17 @@ class UserCartModal extends Component {
   };
 
   onModalLeave = () => {
-    this.props.dispatch(clearNewCartItem())
-      this.setState({newItemInCart: "", loading: true})
-    
-  }
+    this.props.dispatch(clearNewCartItem());
+    this.setState({ newItemInCart: "", loading: true });
+  };
 
+  onCheckoutClick = () => {
+    this.props.dispatch(changeCheckoutStep("payment"));
+    this.props.history.push("/user/cart");
+    this.closeModal();
+  };
 
-
- 
   render() {
-    
     return (
       <Modal
         closeIcon={this.closeIcon}
@@ -58,7 +67,6 @@ class UserCartModal extends Component {
         modalName="cartModal"
         modalTitle=""
         modalOpen={this.props.userCartModalOpen}
-        
         onBackDropClick={this.closeModal}
       >
         <div className="cart_modal_container">
@@ -68,21 +76,28 @@ class UserCartModal extends Component {
               <span>Added</span>
             </p>
             <div className="link_container">
-              <Link onClick={() => this.closeModal()} to="/user/cart">Go to Cart</Link> /
-              <a onClick={() => this.closeModal()}>Keep Shopping</a>
+              <Link onClick={() => this.closeModal()} to="/user/cart">
+                Go to Cart
+              </Link>{" "}
+              /<a onClick={() => this.closeModal()}>Keep Shopping</a>
             </div>
           </div>
           <div className="cart_block_container">
-          {this.state.loading ? <Spinner specialClassName="modal_cart_spinner" /> : (
-            <CartProductBlock location="cartModal" products={this.state.newItemInCart} />  
-          )}
-          </div>    
+            {this.state.loading ? (
+              <Spinner specialClassName="modal_cart_spinner" />
+            ) : (
+              <CartProductBlock
+                location="cartModal"
+                products={this.state.newItemInCart}
+              />
+            )}
+          </div>
           {!this.state.loading && (
             <div className="checkout_btn_container">
-            <CheckoutBtn>
-              Checkout Now 
-            </CheckoutBtn>
-           </div>
+              <CheckoutBtn click={this.onCheckoutClick}>
+                Checkout Now
+              </CheckoutBtn>
+            </div>
           )}
         </div>
       </Modal>
@@ -96,4 +111,4 @@ const mapStateToProps = ({ modals, users }) => ({
   itemToCartId: users.newItemToCart
 });
 
-export default connect(mapStateToProps)(UserCartModal);
+export default connect(mapStateToProps)(withRouter(UserCartModal));

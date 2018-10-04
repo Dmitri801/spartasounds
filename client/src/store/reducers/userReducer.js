@@ -8,6 +8,8 @@ import {
   GET_ALL_CART_ITEMS_USER,
   CLEAR_NEW_CART_ITEM,
   REMOVE_CART_ITEM_USER,
+  ON_SUCCESS_BUY_USER,
+  UPDATE_USER_PROFILE,
   RESET_LOGIN
 } from "../actions/types";
 
@@ -47,10 +49,10 @@ export default function(state = initialState, action) {
         ...state
       };
     case ADD_TO_CART:
-     let newItemAdded;
-     action.payload.forEach(item => {
-      newItemAdded = item.id
-     })
+      let newItemAdded;
+      action.payload.forEach(item => {
+        newItemAdded = item.id;
+      });
       return {
         ...state,
         authedUser: {
@@ -68,19 +70,39 @@ export default function(state = initialState, action) {
         }
       };
     case CLEAR_NEW_CART_ITEM:
-     return {
-       ...state,
-       newItemToCart: ""
-     }
+      return {
+        ...state,
+        newItemToCart: ""
+      };
     case REMOVE_CART_ITEM_USER:
-     return {
-       ...state,
-       authedUser: {
-         ...state.authedUser,
-         cartDetail: action.payload.cartDetail,
-         cart: action.payload.cart
-       }
-     }
+      return {
+        ...state,
+        authedUser: {
+          ...state.authedUser,
+          cartDetail: action.payload.cartDetail,
+          cart: action.payload.cart
+        }
+      };
+    case ON_SUCCESS_BUY_USER:
+      return {
+        ...state,
+        authedUser: {
+          ...state.authedUser,
+          cart: action.payload.cart,
+          cartDetail: action.payload.cartDetail,
+          successBuy: action.payload.success
+        }
+      };
+    case UPDATE_USER_PROFILE:
+      return {
+        ...state,
+        authedUser: {
+          ...state.authedUser,
+          firstName: action.payload.firstName,
+          lastName: action.payload.lastName,
+          email: action.payload.email
+        }
+      };
     default:
       return state;
   }

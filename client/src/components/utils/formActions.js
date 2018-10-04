@@ -100,3 +100,14 @@ export const resetFields = (formData, formName) => {
 
   return newFormData;
 };
+
+export const populateFields = (formData, fields) => {
+  // Loop form data, grab the same key in fields, and replace the values
+  for (let key in formData) {
+    formData[key].value = fields[key];
+    formData[key].valid = true;
+    formData[key].touched = true;
+    formData[key].validationMessage = "";
+  }
+  return formData;
+};

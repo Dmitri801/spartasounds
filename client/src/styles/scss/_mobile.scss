@@ -16,10 +16,6 @@
       width: 1000px;
     }
   }
-
-  .user_info_panel {
-    margin-left: 250px;
-  }
 }
 
 @include mediaXlg {
@@ -100,14 +96,13 @@
 @include mediaMd {
   .header_second {
     display: none;
-    
   }
   .homeSignup {
     display: none;
   }
   footer .contact_btn {
     width: 150px;
-    left: 580px;
+    left: 320px;
   }
   footer .connect_header {
     left: 100px;
@@ -131,12 +126,11 @@
       display: none;
     }
   }
-  
 }
 
 @include mediaSm {
   footer .contact_btn {
-    top: 150px;
+    top: 145px;
     width: 150px;
     left: 220px;
   }
@@ -171,7 +165,6 @@
       a {
         display: none;
       }
-     
     }
   }
   .img_cover {
@@ -188,5 +181,47 @@
 
   .user_menu {
     display: none;
+  }
+}
+
+@include mediaXsm {
+  // Home
+  // Cards
+  .card_item_wrapper {
+    margin-bottom: 10px;
+    .image {
+      width: 200px;
+      height: 200px;
+    }
+    .card_playBtn {
+      font-size: 7.2rem;
+      margin-left: 40px;
+      margin-top: 30px;
+    }
+    .card_pauseBtn {
+      font-size: 7.2rem;
+      margin-left: 40px;
+      margin-top: 30px;
+    }
+  }
+
+  // Register
+  .form_card {
+    width: 350px;
+    .form_group {
+      .register_inputs {
+        width: 300px;
+      }
+      .register_label {
+        margin-left: -100px;
+      }
+    }
+  }
+
+  footer .logo img {
+    display: none;
+  }
+  footer {
+    background: #000;
   }
 }

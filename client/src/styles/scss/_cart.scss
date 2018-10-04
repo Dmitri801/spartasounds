@@ -62,7 +62,7 @@
             color: $sparta-yellow;
             font-size: 1.4rem;
           }
-  
+
           color: $secondary-dark;
           svg {
             @include easeOut;
@@ -149,6 +149,7 @@
       justify-content: center;
       color: #fff;
       margin: 0;
+      font-family: "Cinzel", "serif";
       h1 {
         font-weight: 200;
       }
@@ -223,7 +224,44 @@
         }
       }
     }
-    .checkout_container {
+    .user_payment {
+      color: #fff;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      padding: 15px;
+      margin: 10px;
+      background-color: $primary-dark;
+      height: 400px;
+      border-radius: 15px;
+      .payment_options {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .paypal_btn_container {
+          color: #fff;
+        }
+      }
+      .about_specs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-left: 1px solid $secondary-dark;
+        padding: 0 15px;
+        .spec_container {
+          display: grid;
+          grid-template-columns: 0.5fr 3.5fr;
+          grid-column-gap: 5px;
+
+          .bullet_point {
+            svg {
+              color: $success-green;
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+    }
+    .cart_bottom_container {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
@@ -232,6 +270,15 @@
       background-color: #000;
       margin: 10px;
       color: #fff;
+    }
+    .payment_bottom_container {
+      display: flex;
+      .totalText {
+        font-size: 3.2rem;
+        margin-left: auto;
+        margin-right: 50px;
+        color: #fff;
+      }
     }
   }
 }

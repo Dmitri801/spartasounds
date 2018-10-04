@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 const links = [
@@ -47,10 +47,9 @@ class UserLayout extends Component {
     ));
   };
 
-  
   render() {
-      const {props} = this;
-      console.log(props);
+    const { props } = this;
+
     return (
       <div className="container">
         <div className="user_container">
