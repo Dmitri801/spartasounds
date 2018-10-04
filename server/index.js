@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(express.static("/../client/build"));
+app.use(express.static("client/build"));
 
 // =================================== //
 // ============= Routes ============== //
@@ -43,7 +43,7 @@ app.use("/", genres);
 if (process.env.NODE_ENV === "production") {
   const path = require("path");
   app.get("/*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/../client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
   });
 }
 

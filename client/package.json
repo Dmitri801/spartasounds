@@ -36,7 +36,7 @@
     "sass": "sass --watch src/styles/scss:src/styles/css",
     "client": "concurrently \"npm run start\" \"npm run sass\"",
     "sass:build": "sass --update src/styles/scss:src/styles/css",
-    "build": "npm run react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
