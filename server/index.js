@@ -23,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use(express.static("client/build"));
+
 // =================================== //
 // ============= Routes ============== //
 // =================================== //
@@ -34,6 +36,14 @@ app.use("/", users);
 app.use("/", products);
 app.use("/", categories);
 app.use("/", genres);
+
+// DEFAULT
+if (process.env.NODE_ENV === "production") {
+  const path = require("path");
+  app.get("/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`SERVER Running On Port: ${PORT}`);
