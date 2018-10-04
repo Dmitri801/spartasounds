@@ -2,7 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const users = require("./routes/api/users");
 const products = require("./routes/api/products");
 const categories = require("./routes/api/categories");
