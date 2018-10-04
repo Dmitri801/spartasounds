@@ -61,7 +61,8 @@ router.post(
 // PUBLIC
 router.get("/api/test/stream/:filename", (req, res) => {
   res.set({
-    "Accept-Ranges": "bytes"
+    "Accept-Ranges": "bytes",
+    "Content-Disposition": `attachment; filename=${req.params.filename}`
   });
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (!file || file.length === 0) {
