@@ -1,5 +1,5 @@
 import React from "react";
-import TrashIcon from "@material-ui/icons/Delete"
+import TrashIcon from "@material-ui/icons/Delete";
 const comingSoonImage = require("../../../resources/Images/coming_soon_cartsize.png");
 const CartProductBlock = ({ products, removeItem, location }) => {
   const renderCartImage = images => {
@@ -19,25 +19,23 @@ const CartProductBlock = ({ products, removeItem, location }) => {
                 style={{
                   background: `url(${renderCartImage(
                     product.images
-                  )}) no-repeat` 
+                  )}) no-repeat`
                 }}
                 className="cart_image"
               />
-              <div className="name">
-               {product.name}
-              </div>
+              <div className="name">{product.name}</div>
               <div className="end_container">
-               <span className="price">${product.price}</span>
-               {location !== "cartModal" && (
+                <span className="price">${product.price}</span>
+                {location !== "cartModal" && (
                   <TrashIcon onClick={() => removeItem(product._id)} />
-               )}
+                )}
               </div>
             </div>
           </div>
         ))
       : null;
   };
-  return <div>{renderItems()}</div>;
+  return <div className="cart_block_container">{renderItems()}</div>;
 };
 
 export default CartProductBlock;

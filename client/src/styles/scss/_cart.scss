@@ -27,12 +27,13 @@
     }
   }
   .cart_block_container {
+    width: 100%;
     display: flex;
     justify-content: center;
     .cart_product_block {
       @include easeOut;
       height: 100px;
-      width: 500px;
+      width: 80%;
       padding: 10px;
       margin: 10px 0;
       border-bottom: 1px solid $secondary-dark;
@@ -84,15 +85,14 @@
 
 .cart_container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 1000px;
-  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 930px;
+  width: 99%;
   .cart_main_card {
-    width: 70%;
+    width: 75%;
     height: 820px;
-    margin-left: 380px;
-    margin-top: 25px;
+    margin: 10px 0;
     border-radius: 15px;
     border: 1px solid $secondary-dark;
     z-index: 5;
@@ -102,12 +102,14 @@
       justify-content: space-evenly;
       color: #fff;
       h1 {
+        display: flex;
         padding: 15px;
         width: 290px;
         text-align: center;
+
         span {
           @include easeOut;
-          position: absolute;
+          display: inline;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -177,47 +179,50 @@
           font-size: 100px;
         }
       }
-      .cart_product_block {
-        @include easeOut;
-        height: 100px;
-        width: 800px;
-        padding: 10px;
-        margin: 10px 0;
-        border-bottom: 1px solid $secondary-dark;
-        &:hover {
-          background-color: $sparta-blue;
-        }
-        .cart_item {
-          display: flex;
-          .cart_image {
-            height: 120px;
-            width: 130px;
+      .cart_block_container {
+        width: 100%;
+        .cart_product_block {
+          @include easeOut;
+          height: 100px;
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border-bottom: 1px solid $secondary-dark;
+          &:hover {
+            background-color: $sparta-blue;
           }
-          .name {
-            align-self: center;
-            font-family: "Cinzel", "serif";
-            font-size: 1.7rem;
-          }
-          .end_container {
+          .cart_item {
             display: flex;
-            align-self: center;
-            padding: 10px;
-            margin-left: auto;
-            .price {
-              margin-right: 25px;
-              font-family: "Cinzel", "serif";
-              align-self: flex-end;
-              color: $sparta-yellow;
-              font-size: 1.4rem;
+            .cart_image {
+              height: 120px;
+              width: 130px;
             }
+            .name {
+              align-self: center;
+              font-family: "Cinzel", "serif";
+              font-size: 1.7rem;
+            }
+            .end_container {
+              display: flex;
+              align-self: center;
+              padding: 10px;
+              margin-left: auto;
+              .price {
+                margin-right: 25px;
+                font-family: "Cinzel", "serif";
+                align-self: flex-end;
+                color: $sparta-yellow;
+                font-size: 1.4rem;
+              }
 
-            color: $secondary-dark;
-            svg {
-              @include easeOut;
-              cursor: pointer;
-              font-size: 2.2rem;
-              &:hover {
-                color: $sparta-red;
+              color: $secondary-dark;
+              svg {
+                @include easeOut;
+                cursor: pointer;
+                font-size: 2.2rem;
+                &:hover {
+                  color: $sparta-red;
+                }
               }
             }
           }
@@ -231,12 +236,41 @@
       padding: 15px;
       margin: 10px;
       background-color: $primary-dark;
-      height: 400px;
+      grid-auto-rows: minmax(400px, auto);
+
       border-radius: 15px;
+      .payment_info_container {
+        display: grid;
+        grid-template-rows: 3fr 1fr;
+        justify-content: center;
+        .confirm_info {
+          h1 {
+            font-family: "Cinzel", "serif";
+          }
+          p {
+            font-size: 1.6rem;
+            .checkout_confirm_email {
+              color: $sparta-yellow;
+            }
+            .change_email_btn {
+              padding: 0 25px;
+              text-transform: uppercase;
+              border: 1px solid white;
+              background-color: $sparta-red;
+              margin-left: 10px;
+              cursor: pointer;
+              &:hover {
+                background-color: lighten($sparta-red, 5);
+              }
+            }
+          }
+        }
+      }
       .payment_options {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
+        margin: 10px 0;
         .paypal_btn_container {
           color: #fff;
         }

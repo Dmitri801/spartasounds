@@ -110,7 +110,9 @@ class UserCart extends Component {
           onSuccess={data => this.transactionSuccess(data)}
           onError={err => this.transactionError(err)}
           onCancel={this.transactionCanceled}
+          user={this.props.user}
           total={this.state.total}
+          route={this.props.history}
         />
       );
     } else if (step === "download") {
@@ -129,7 +131,7 @@ class UserCart extends Component {
     } else if (step === "payment") {
       return (
         <div className="cart_header">
-          <h1>Pick A Payment</h1>
+          <h1>Payment Information</h1>
         </div>
       );
     } else if (step === "download") {
@@ -168,12 +170,22 @@ class UserCart extends Component {
       );
     }
   };
+  changeStepToPayment = () => {
+    if (this.props.step !== "payment") {
+      this.props.dispatch(changeCheckoutStep("payment"));
+    }
+  };
+  changeStepToCart = () => {
+    if (this.props.step !== "cart") {
+      this.props.dispatch(changeCheckoutStep("cart"));
+    }
+  };
 
   render() {
     const { step } = this.props;
     let highlightStyle = {};
     if (step === "payment") {
-      highlightStyle = { transform: `translateX(100%)` };
+      highlightStyle = { transform: `translateX(110%)` };
     } else if (step === "download") {
       highlightStyle = { transform: `translateX(210%)` };
     }
@@ -196,7 +208,7 @@ class UserCart extends Component {
         <div className="cart_container">
           <div className="cart_main_card">
             <div className="checkout_steps">
-              <h1>
+              <h1 style={{ cursor: "pointer" }} onClick={this.changeStepToCart}>
                 <span
                   style={step === "cart" ? { backgroundColor: "#ca3726" } : {}}
                   className="one"
@@ -205,7 +217,10 @@ class UserCart extends Component {
                 </span>
                 Your Order
               </h1>
-              <h1>
+              <h1
+                style={{ cursor: "pointer" }}
+                onClick={this.changeStepToPayment}
+              >
                 <span
                   style={
                     step === "payment" ? { backgroundColor: "#ca3726" } : {}

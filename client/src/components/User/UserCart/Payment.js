@@ -3,30 +3,43 @@ import PayPalBtn from "../../UI/Buttons/PayPalBtn";
 import CheckMark from "@material-ui/icons/Check";
 
 const Payment = props => {
+  const renderInfoPanel = () => {
+    if (props.user.isAuth) {
+      return (
+        <div className="confirm_info">
+          <h1>Email To Send Download</h1>
+          <p>
+            <span className="checkout_confirm_email">{props.user.email}</span>
+            <span
+              onClick={() => props.route.push("/user/user_profile")}
+              className="change_email_btn"
+            >
+              Change
+            </span>
+          </p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="guest_info">
+          <h1>Where Should We Send Your Download?</h1>
+        </div>
+      );
+    }
+  };
   return (
     <div className="user_payment">
-      <div className="payment_options">
-        <div className="paypal_btn_container">
-          <PayPalBtn
-            onError={err => props.onError(err)}
-            onCancel={props.onCancel}
-            onSuccess={data => props.onSuccess(data)}
-            toPay={props.total}
-          />
-        </div>
-        <div className="stripe_container">
-          <form action="your-server-side-code" method="POST">
-            <script
-              src="https://checkout.stripe.com/checkout.js"
-              className="stripe-button"
-              data-key="pk_test_FLrTk0GeFw35rr6jWPunButY"
-              data-amount="999"
-              data-name="Demo Site"
-              data-description="Widget"
-              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-              data-locale="auto"
+      <div className="payment_info_container">
+        {renderInfoPanel()}
+        <div className="payment_options">
+          <div className="paypal_btn_container">
+            <PayPalBtn
+              onError={err => props.onError(err)}
+              onCancel={props.onCancel}
+              onSuccess={data => props.onSuccess(data)}
+              toPay={props.total}
             />
-          </form>
+          </div>
         </div>
       </div>
       <div className="about_specs">

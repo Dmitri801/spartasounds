@@ -142,6 +142,7 @@ class UpdatePersonalNfo extends Component {
           }}
         />
         <div className="form_container_updateprof">
+          <div />
           <div className="form_card_updateprof">
             <h2>Update Your Profile</h2>
             <form
@@ -212,6 +213,7 @@ class UpdatePersonalNfo extends Component {
               ) : null}
             </form>
           </div>
+          <div />
         </div>
       </div>
     );

@@ -6,7 +6,6 @@ const UpdateProfile = props => {
   console.log(props);
   return (
     <UserLayout>
-      <h1>Profile</h1>
       <UpdatePersonalNfo route={props.history} />
     </UserLayout>
   );

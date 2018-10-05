@@ -54,7 +54,7 @@ const UserDashboard = props => {
       />
       <div className="user_info">
         <div className="user_info_panel">
-          <h1>Your Information</h1>
+          <h1>Account Information</h1>
           <div className="user_info_textContent">
             <span>
               {props.authedUser.firstName
@@ -75,15 +75,16 @@ const UserDashboard = props => {
           >
             Edit Account Information
           </Button>
-        </div>
-        {props.authedUser.history ? (
-          <div className="user_history_panel">
-            <h1>Sound History</h1>
-            <div className="user_product_block_wrapper">
-              <UserHistoryBlock products={props.authedUser.history} />
+
+          {props.authedUser.history ? (
+            <div className="user_info_panel_history">
+              <h1>Sound History</h1>
+              <div className="user_product_block_wrapper">
+                <UserHistoryBlock products={props.authedUser.history} />
+              </div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </div>
     </UserLayout>
   );
