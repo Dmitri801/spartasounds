@@ -1335,8 +1335,8 @@ form .bottom_updateprof_container {
   width: 60px;
   margin-bottom: 250px;
   border-radius: 50%;
-  border: 5px solid transparent;
-  border-top-color: #b31314;
+  border-top: 2px solid #b31314;
+  border-right: 2px solid transparent;
   animation: spinner 0.7s linear infinite; }
 
 @keyframes spinner {
