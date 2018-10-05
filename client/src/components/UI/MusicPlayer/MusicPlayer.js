@@ -6,6 +6,7 @@ import RewindIcon from "@material-ui/icons/FastRewind";
 import ForwardIcon from "@material-ui/icons/FastForward";
 import PlayIcon from "@material-ui/icons/PlayCircleOutline";
 import PauseIcon from "@material-ui/icons/PauseCircleOutline";
+import Spinner from "../Spinner";
 import { connect } from "react-redux";
 import {
   openMusicPlayer,
@@ -19,7 +20,7 @@ class MusicPlayer extends Component {
     super(props);
     this.state = {
       currentTime: "0:00",
-      trackDuration: null,
+      trackDuration: "NaN:NaN",
       progressBar: 0
     };
     this.activateControls = this.activateControls.bind(this);
@@ -126,32 +127,43 @@ class MusicPlayer extends Component {
           }}
           className="the_player"
         >
-          <div className="controls">
-            <RewindIcon
-              onClick={() => (audio.currentTime -= 10.0)}
-              className="rewind"
-            />
-            {!playing ? (
-              <PlayIcon onClick={this.playTrack} className="play" />
-            ) : (
-              <PauseIcon onClick={() => this.pauseTrack()} className="pause" />
-            )}
-            <ForwardIcon
-              onClick={() => (audio.currentTime += 10.0)}
-              className="forward"
-            />
-          </div>
-          <div className="playerDisplay">
-            <span className="currentTime">{currentTime}</span>
-            <span className="trackName">{kitPlaying} - Demo</span>
-            <ProgressBar>
-              <SliderThumb progressBarWidth={progressBar} />
-              <Filler progressBarWidth={progressBar} />
-            </ProgressBar>
-            <span className="duration">
-              {trackDuration === "NaN:NaN" ? "Loading.." : trackDuration}
-            </span>
-          </div>
+          {" "}
+          {this.state.trackDuration !== "NaN:NaN" && (
+            <div className="controls">
+              <RewindIcon
+                onClick={() => (audio.currentTime -= 10.0)}
+                className="rewind"
+              />
+              {!playing ? (
+                <PlayIcon onClick={this.playTrack} className="play" />
+              ) : (
+                <PauseIcon
+                  onClick={() => this.pauseTrack()}
+                  className="pause"
+                />
+              )}
+              <ForwardIcon
+                onClick={() => (audio.currentTime += 10.0)}
+                className="forward"
+              />
+            </div>
+          )}
+          {this.state.trackDuration !== "NaN:NaN" && (
+            <div className="playerDisplay">
+              <span className="currentTime">{currentTime}</span>
+              <span className="trackName">{kitPlaying} - Demo</span>
+              <ProgressBar>
+                <SliderThumb progressBarWidth={progressBar} />
+                <Filler progressBarWidth={progressBar} />
+              </ProgressBar>
+              <span className="duration">
+                {trackDuration === "NaN:NaN" ? "Loading.." : trackDuration}
+              </span>
+            </div>
+          )}
+          {this.state.trackDuration === "NaN:NaN" && (
+            <Spinner specialClassName="musicplayer_spinner" />
+          )}
           <span onClick={this.stopPlayer} className="close_icon">
             X
           </span>

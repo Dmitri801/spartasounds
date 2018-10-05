@@ -1324,6 +1324,21 @@ form .bottom_updateprof_container {
   border-top-color: #b31314;
   animation: spinner 1s linear infinite; }
 
+.musicplayer_spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 99999;
+  top: 10%;
+  left: 50%;
+  height: 60px;
+  width: 60px;
+  margin-bottom: 250px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top-color: #b31314;
+  animation: spinner 0.7s linear infinite; }
+
 @keyframes spinner {
   to {
     transform: rotate(360deg); } }
