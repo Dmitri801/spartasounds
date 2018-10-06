@@ -228,7 +228,8 @@ class Navbar extends Component {
             : "rgba(0, 0, 0, 0.9)",
           padding: this.state.scrollTop ? "10px 0px" : "5px 0px",
           borderBottom: "0.3px solid rgba(202,55,38, 0.9)",
-          transition: "all 0.5s ease-out"
+          transition: "all 0.5s ease-out",
+          zIndex: "99999999"
         }}
       >
         <Toolbar className="nav" style={{ display: "flex" }}>
@@ -238,7 +239,10 @@ class Navbar extends Component {
               <Link to="/">
                 <span className="header_text">Sparta Sounds</span>
               </Link>
-              <DrawerToggleButton click={this.props.drawerClickHandler} />
+              <DrawerToggleButton
+                sideDrawerOpen={this.props.sideDrawerOpen}
+                click={this.props.drawerClickHandler}
+              />
               {scrollTop ? (
                 <Transition
                   from={{ opacity: 0 }}

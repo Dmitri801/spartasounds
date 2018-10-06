@@ -1634,7 +1634,18 @@ form .bottom_updateprof_container {
   .toggle_button .toggle_button_line {
     width: 30px;
     height: 2px;
-    background: #fff; }
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    transition: all 0.3s ease-out; }
+
+.drawerOpen .toggle_button_line.one {
+  transform: rotate(50deg) translate(1px, 0); }
+.drawerOpen .toggle_button_line.two {
+  transform: rotate(-50deg) translate(6px, -5px); }
+.drawerOpen .toggle_button_line.three {
+  background: transparent;
+  border: none; }
 
 .sideDrawer {
   transition: all 0.5s ease-out;
@@ -1642,8 +1653,7 @@ form .bottom_updateprof_container {
   position: fixed;
   background: #1a1a1d;
   box-shadow: 2px 0px 5px rgba(202, 55, 38, 0.6);
-  width: 70%;
-  max-width: 800px;
+  width: 100%;
   z-index: 99999;
   top: 0;
   left: 0;
@@ -1654,13 +1664,39 @@ form .bottom_updateprof_container {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 40%; }
+    height: 90%;
+    margin-top: 50px;
+    padding: 0; }
   .sideDrawer li {
     margin: 15px 0; }
   .sideDrawer a {
     color: #ca3726;
     text-decoration: none;
-    font-size: 1.8rem; }
+    font-size: 1.8rem;
+    font-family: "Cinzel", "serif"; }
+  .sideDrawer hr {
+    border-color: #4e4e50; }
+  .sideDrawer .home_register_btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-right: 0; }
+    .sideDrawer .home_register_btn button {
+      width: 60%;
+      border: 1px solid #4e4e50; }
+  .sideDrawer .login_btn {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 65px;
+    color: #fff;
+    font-family: "Cinzel", "serif";
+    background-color: #0e1d24;
+    font-size: 2.2rem;
+    border: 1px solid #4e4e50; }
+    .sideDrawer .login_btn button {
+      width: 90%;
+      border: none; }
 
 .sideDrawer.open {
   transform: translateX(0); }
@@ -2134,6 +2170,8 @@ a {
   .nav .navigation_items .header_logo {
     display: none; }
   .nav .navigation_items a {
+    display: none; }
+  .nav .navigation_items button {
     display: none; }
 
   .img_cover {
