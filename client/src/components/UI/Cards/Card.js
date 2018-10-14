@@ -6,7 +6,7 @@ import { addToCart } from "../../../store/actions/userActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 const imageComingSoon = require("../../../resources/Images/coming_soon-medium.png");
-const imageComingSoonSml = require("../../../resources/Images/coming_soon-small.png");
+
 class Card extends Component {
   state = {
     screenWidth: window.innerWidth

@@ -308,6 +308,19 @@ input::placeholder {
   position: absolute;
   color: #b31314; }
 
+.download_confirm_container_modal {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .download_confirm_container_modal h1 {
+    margin-bottom: auto; }
+  .download_confirm_container_modal svg {
+    font-size: 12em;
+    margin-bottom: auto; }
+
 .login_header {
   text-align: center;
   padding-bottom: 0px !important;

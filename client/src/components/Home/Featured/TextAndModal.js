@@ -10,14 +10,17 @@ import FeaturedKit from "../../../resources/Images/LandingBox-medium-min.png";
 import Button from "@material-ui/core/Button";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import Modal from "../../UI/Modal";
+import faSmile from "@fortawesome/fontawesome-free-solid/faSmile";
 import { getSamplePack } from "../../../store/actions/testActions";
 import {
   openSampleModal,
   closeSampleModal
 } from "../../../store/actions/modalActions";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 class TextAndModal extends Component {
   state = {
+    fileDownloading: false,
     formError: false,
     formSuccess: "",
     formData: {
@@ -239,7 +242,27 @@ class TextAndModal extends Component {
     </Animate>
   );
 
+  onDownloadSampleClick = () => {
+    axios({
+      method: "GET",
+      url: "/api/test/stream/90b7d1d5ed550882284dcf6f62774963.zip",
+      responseType: "blob"
+    })
+      .then(response => {
+        this.setState({ fileDownloading: true }, () => {
+          FileSaver.saveAs(response.data, "sparta_sample_pack.zip");
+        });
+      })
+      .then(() => {
+        this.setState({ fileDownloading: false }, () => {
+          this.closeSampleModal();
+          console.log("Completed");
+        });
+      });
+  };
+
   render() {
+    console.log(this.state.fileDownloading);
     const { sampleModalOpen } = this.props;
     return (
       <div className="featured_text">
@@ -256,50 +279,48 @@ class TextAndModal extends Component {
           fullWidth={true}
           modalOpen={sampleModalOpen}
         >
-          <form style={{ width: "100%" }}>
-            <div className="send_sample_form_wrapper">
-              <FormField
-                change={element => this.updateForm(element)}
-                id={"email"}
-                location="home"
-                formData={this.state.formData.email}
-              />
-            </div>
-            <div className="sample_btn">
-              <a
+          {!this.state.fileDownloading ? (
+            <form style={{ width: "100%" }}>
+              <div className="send_sample_form_wrapper">
+                <FormField
+                  change={element => this.updateForm(element)}
+                  id={"email"}
+                  location="home"
+                  formData={this.state.formData.email}
+                />
+              </div>
+              <div className="sample_btn">
+                <a
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center"
+                  }}
+                  onClick={this.onDownloadSampleClick}
+                >
+                  <Button>DOWNLOAD</Button>
+                </a>
+              </div>
+              <p
                 style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center"
+                  marginTop: "80px",
+                  marginBottom: "0px"
                 }}
-                onClick={() =>
-                  axios({
-                    method: "GET",
-                    url:
-                      "/api/test/stream/90b7d1d5ed550882284dcf6f62774963.zip",
-                    responseType: "blob"
-                  }).then(response =>
-                    FileSaver.saveAs(response.data, "sparta_sample_pack.zip")
-                  )
-                }
               >
-                <Button onClick={this.closeSampleModal}>DOWNLOAD</Button>
-              </a>
+                Download A Variety of Free Kits When You Become A Member
+              </p>
+              <div className="sample_headline">
+                <Link to="/register">
+                  <span>Register Now</span>
+                </Link>
+              </div>
+            </form>
+          ) : (
+            <div className="download_confirm_container_modal">
+              <h1>Your Download Should Start Shortly...</h1>
+              <FontAwesomeIcon icon={faSmile} />
             </div>
-            <p
-              style={{
-                marginTop: "80px",
-                marginBottom: "0px"
-              }}
-            >
-              Download A Variety of Free Kits When You Become A Member
-            </p>
-            <div className="sample_headline">
-              <Link to="/register">
-                <span>Register Now</span>
-              </Link>
-            </div>
-          </form>
+          )}
         </Modal>
       </div>
     );

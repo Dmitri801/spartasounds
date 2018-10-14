@@ -3,7 +3,7 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faFrown from "@fortawesome/fontawesome-free-solid/faFrown";
 import CartProductBlock from "../../UI/Cart/Product_Block";
 import CheckoutBtn from "../../UI/Buttons/Checkout";
-import faSmile from "@fortawesome/fontawesome-free-solid/faSmile";
+
 const Cart = props => {
   return (
     <div className="user_cart">
