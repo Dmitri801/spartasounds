@@ -243,15 +243,14 @@ class TextAndModal extends Component {
   );
 
   onDownloadSampleClick = () => {
+    this.setState({ fileDownloading: true });
     axios({
       method: "GET",
       url: "/api/test/stream/90b7d1d5ed550882284dcf6f62774963.zip",
       responseType: "blob"
     })
       .then(response => {
-        this.setState({ fileDownloading: true }, () => {
-          FileSaver.saveAs(response.data, "sparta_sample_pack.zip");
-        });
+        FileSaver.saveAs(response.data, "sparta_sample_pack.zip");
       })
       .then(() => {
         this.setState({ fileDownloading: false }, () => {
