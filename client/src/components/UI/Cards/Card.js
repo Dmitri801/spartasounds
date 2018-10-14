@@ -5,14 +5,34 @@ import ViewDetailsBtn from "../Buttons/ViewDetails";
 import { addToCart } from "../../../store/actions/userActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-const imageComingSoon = require("../../../resources/Images/coming_soon.png");
-
+const imageComingSoon = require("../../../resources/Images/coming_soon-medium.png");
+const imageComingSoonSml = require("../../../resources/Images/coming_soon-small.png");
 class Card extends Component {
+  state = {
+    screenWidth: window.innerWidth
+  };
+
+  componentDidMount() {
+    window.addEventListener("resize", this.onPageResize);
+  }
+
+  onPageResize = () => {
+    this.setState({ screenWidth: window.innerWidth });
+  };
+
   renderCardImage = images => {
-    if (images.length > 0) {
-      return images[0].url;
+    if (this.state.screenWidth > 554) {
+      if (images.length > 0) {
+        return images[0].url;
+      } else {
+        return imageComingSoon;
+      }
     } else {
-      return imageComingSoon;
+      if (images.length > 0) {
+        return images[0].url;
+      } else {
+        return imageComingSoon;
+      }
     }
   };
 
@@ -73,7 +93,7 @@ class Card extends Component {
           this.props.audio.currentTime = 0;
           this.pauseDemoTrack();
         });
-      }, 30); 
+      }, 30);
     } else {
       this.props.audio.play();
       this.props.playAudio();

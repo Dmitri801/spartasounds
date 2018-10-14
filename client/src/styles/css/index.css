@@ -191,6 +191,17 @@ input::placeholder {
   .landing_btn:hover {
     background-color: #070e12 !important; }
 
+.mobile_featured_header {
+  position: absolute;
+  display: flex;
+  width: 350px;
+  margin-left: 25px;
+  color: #fff;
+  font-size: 1.7rem;
+  text-align: center;
+  font-family: "Cinzel", "serif";
+  top: 60px; }
+
 .homeSignup {
   margin: 10px auto; }
   .homeSignup .signupPromo_img {
@@ -2137,6 +2148,22 @@ a {
     font-size: 35px; }
 
   .the_player .playerDisplay {
+    display: none; }
+
+  .wave_container {
+    display: none; }
+
+  .header_container {
+    display: grid;
+    grid-template-columns: 4fr;
+    justify-content: center; }
+    .header_container .header_pic {
+      justify-self: center; }
+
+  .details_header h1 {
+    display: none; }
+
+  .details_badges p {
     display: none; } }
 @media screen and (max-width: 856px) {
   footer .contact_btn {
@@ -2184,6 +2211,18 @@ a {
     display: flex; }
 
   .user_menu {
+    display: none; }
+
+  .header_container .header_pic {
+    height: 50%;
+    width: 50%; }
+  .header_container .btn_container .playdemo_btn {
+    width: 150px; }
+
+  .details_header h1 {
+    display: none; }
+
+  .details_badges p {
     display: none; } }
 @media screen and (max-width: 556px) {
   .card_item_wrapper {
@@ -2211,6 +2250,13 @@ a {
     display: none; }
 
   footer {
-    background: #000; } }
+    background: #000; }
+
+  .sideDrawer ul {
+    height: 80%;
+    margin-top: 60px; }
+
+  .header_container .header_pic {
+    justify-self: start; } }
 
 /*# sourceMappingURL=index.css.map */

@@ -126,6 +126,26 @@
       display: none;
     }
   }
+
+  .wave_container {
+    display: none;
+  }
+  .header_container {
+    display: grid;
+    grid-template-columns: 4fr;
+    justify-content: center;
+    .header_pic {
+      justify-self: center;
+    }
+  }
+  .details_header {
+    h1 {
+      display: none;
+    }
+  }
+  .details_badges p {
+    display: none;
+  }
 }
 
 @include mediaSm {
@@ -185,6 +205,24 @@
   .user_menu {
     display: none;
   }
+  .header_container {
+    .header_pic {
+      height: 50%;
+      width: 50%;
+    }
+    .btn_container .playdemo_btn {
+      width: 150px;
+    }
+  }
+
+  .details_header {
+    h1 {
+      display: none;
+    }
+  }
+  .details_badges p {
+    display: none;
+  }
 }
 
 @include mediaXsm {
@@ -226,5 +264,18 @@
   }
   footer {
     background: #000;
+  }
+
+  // Side Drawer
+  .sideDrawer {
+    ul {
+      height: 80%;
+      margin-top: 60px;
+    }
+  }
+  .header_container {
+    .header_pic {
+      justify-self: start;
+    }
   }
 }

@@ -71,12 +71,18 @@ class StaticHero extends Component {
           }}
           className="featured_kit"
         />
+        <div>
+          <h3 className="mobile_featured_header">
+            Colosseum For Music Producers
+          </h3>
+        </div>
+        <hr />
         <div
           style={{
             transform:
               this.state.screenWidth > 556
                 ? `translate(250px, 520px)`
-                : `translate(0px, 520px)`,
+                : `translate(0px, 500px)`,
             transition: "all 0.5s ease-out"
           }}
           className="featured_button"

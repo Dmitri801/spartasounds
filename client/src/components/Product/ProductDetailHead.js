@@ -19,7 +19,7 @@ const ProductDetailHead = ({
     } else {
       return <img src={imageComingSoon} alt="mainImg" />;
     }
-  }; 
+  };
   return (
     <div className="header_container">
       <div className="header_pic">{loadProductImage()}</div>

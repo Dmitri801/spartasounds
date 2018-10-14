@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
+const helmet = require("helmet");
 const users = require("./routes/api/users");
 const products = require("./routes/api/products");
 const categories = require("./routes/api/categories");
@@ -20,7 +21,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI);
 
 // Middleware
-
+app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());

@@ -65,6 +65,19 @@
   }
 }
 
+.mobile_featured_header {
+  position: absolute;
+  display: flex;
+  width: 350px;
+  margin-left: 25px;
+  color: #fff;
+  font-size: 1.7rem;
+  text-align: center;
+
+  font-family: "Cinzel", "serif";
+  top: 60px;
+}
+
 // Home - Signup Promo
 .homeSignup {
   margin: 10px auto;

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import FileSaver from "file-saver";
 import { Link } from "react-router-dom";
 import FormField from "../../UI/Forms/FormField";
 import { update } from "../../utils/formActions";
 import { easePolyOut } from "d3-ease";
 import Animate from "react-move/Animate";
-import FeaturedKit from "../../../resources/Images/LandingBox.png";
+import FeaturedKit from "../../../resources/Images/LandingBox-medium-min.png";
 import Button from "@material-ui/core/Button";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import Modal from "../../UI/Modal";
@@ -272,8 +273,14 @@ class TextAndModal extends Component {
                   justifyContent: "center"
                 }}
                 onClick={() =>
-                  (window.location.href =
-                    "http://localhost:8080/api/test/stream/90b7d1d5ed550882284dcf6f62774963.zip")
+                  axios({
+                    method: "GET",
+                    url:
+                      "/api/test/stream/90b7d1d5ed550882284dcf6f62774963.zip",
+                    responseType: "blob"
+                  }).then(response =>
+                    FileSaver.saveAs(response.data, "sparta_sample_pack.zip")
+                  )
                 }
               >
                 <Button onClick={this.closeSampleModal}>DOWNLOAD</Button>
