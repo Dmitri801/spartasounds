@@ -54,7 +54,7 @@ input::placeholder {
   display: "inline";
   position: relative;
   left: 338px;
-  bottom: 67px; }
+  bottom: 77px; }
 
 .header_logo {
   max-height: 70px; }
@@ -1637,7 +1637,7 @@ form .bottom_updateprof_container {
   flex-direction: column;
   justify-content: space-around;
   position: absolute;
-  left: 20px;
+  left: 40px;
   top: 20px;
   height: 25px;
   width: 37px;
@@ -2102,7 +2102,7 @@ a {
     width: 800px; } }
 @media screen and (min-width: 769px) and (max-width: 1287px) {
   .header_second {
-    top: -30px; }
+    left: 100px; }
 
   footer .contact_btn {
     width: 250px;
@@ -2123,10 +2123,6 @@ a {
   .the_player .playerDisplay {
     width: 600px; } }
 @media screen and (max-width: 1040px) {
-  .header_second {
-    top: -80px;
-    left: 138px; }
-
   footer .contact_btn {
     width: 250px;
     left: 830px; }
@@ -2156,7 +2152,7 @@ a {
     display: none; }
 
   footer .contact_btn {
-    width: 150px;
+    width: 200px;
     left: 320px; }
 
   footer .connect_header {
@@ -2184,9 +2180,13 @@ a {
   .header_container {
     display: grid;
     grid-template-columns: 4fr;
+    max-width: 100%;
     justify-content: center; }
     .header_container .header_pic {
-      justify-self: center; }
+      margin-left: auto;
+      margin-right: auto; }
+      .header_container .header_pic img {
+        width: 100%; }
 
   .details_header h1 {
     display: none; }
@@ -2195,9 +2195,9 @@ a {
     display: none; } }
 @media screen and (max-width: 856px) {
   footer .contact_btn {
-    top: 145px;
-    width: 150px;
-    left: 220px; }
+    top: 80px;
+    width: 200px;
+    left: 180px; }
 
   footer .connect_header {
     left: 100px;
@@ -2217,10 +2217,6 @@ a {
     top: 158px;
     left: 150px;
     font-size: 25px; }
-
-  footer .copyright {
-    top: 0px;
-    left: 10px; }
 
   .nav .navigation_items .header_logo {
     display: none; }
@@ -2247,12 +2243,33 @@ a {
   .header_container .btn_container .playdemo_btn {
     width: 150px; }
 
+  .btn_container {
+    margin: 0 40px; }
+    .btn_container .addtocartbtn_container .add_to_cart_btn_unauth {
+      width: 100%;
+      margin-left: 10px;
+      font-size: 0.7em; }
+    .btn_container .addtocartbtn_container .add_to_cart_btn {
+      width: 100%;
+      margin-left: 10px;
+      font-size: 0.7em; }
+    .btn_container .addtocartbtn_container .checkout_btn {
+      width: 100% !important;
+      margin-left: 10px;
+      font-size: 0.7em;
+      padding: 0 25px; }
+    .btn_container .addtocartbtn_container .cart_success_btn {
+      width: 40% !important; }
+
   .details_header h1 {
     display: none; }
 
   .details_badges p {
     display: none; } }
 @media screen and (max-width: 556px) {
+  .card_block_featured .title {
+    font-size: 2.1em; }
+
   .card_item_wrapper {
     margin-bottom: 10px; }
     .card_item_wrapper .image {
@@ -2280,9 +2297,40 @@ a {
   footer {
     background: #000; }
 
+  footer .contact_btn {
+    top: 20px;
+    width: 200px;
+    left: 50px; }
+
+  footer .connect_header {
+    left: 100px;
+    display: none; }
+
+  footer .connect_facebook_icon a {
+    top: 100px;
+    left: 50px;
+    font-size: 20px; }
+
+  footer .connect_soundcloud_icon a {
+    top: 93px;
+    left: 100px;
+    font-size: 30px; }
+
+  footer .connect_twitter_icon a {
+    top: 98px;
+    left: 180px;
+    font-size: 25px; }
+
+  footer .copyright {
+    left: 50px; }
+
   .sideDrawer ul {
     height: 80%;
     margin-top: 60px; }
+  .sideDrawer .login_btn {
+    width: 80%; }
+  .sideDrawer .home_register_btn {
+    width: 80%; }
 
   .header_container .header_pic {
     justify-self: start; } }

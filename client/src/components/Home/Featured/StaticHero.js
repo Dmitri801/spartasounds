@@ -82,7 +82,7 @@ class StaticHero extends Component {
             transform:
               this.state.screenWidth > 556
                 ? `translate(250px, 520px)`
-                : `translate(0px, 500px)`,
+                : `translate(10px, 510px)`,
             transition: "all 0.5s ease-out"
           }}
           className="featured_button"
