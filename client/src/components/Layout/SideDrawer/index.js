@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import FlatBtn from "../../UI/Buttons/FlatBtn";
 import { Link } from "react-router-dom";
 const SideDrawer = props => {
   const onLoginBtnClick = () => {
@@ -32,13 +33,7 @@ const SideDrawer = props => {
               <hr />
 
               <Link className="home_register_btn" to="/register">
-                <Button
-                  onClick={props.closeSideDrawer}
-                  disableRipple
-                  variant="contained"
-                >
-                  Register
-                </Button>
+                <FlatBtn click={props.closeSideDrawer} title="Register" />
               </Link>
               <Button
                 disableRipple={true}

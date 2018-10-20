@@ -33,12 +33,15 @@
 - Expanded Product Schema
 - Filter By Instruments
 - Get In Touch / Contact Form
+- Payment Process
 
 ## Image Order For Uploading
 
 1. Card Image
 2. Detail Image
 3. Cart Image
+
+## Product Information
 
 - 9lives Track ID - 5b9c4d3dc8864204090c20e5 - macbookpro
 - Sparta Sample Pack Description

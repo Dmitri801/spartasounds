@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import ShopIcon from '@material-ui/icons/Shop';
+import ShopIcon from "@material-ui/icons/Shop";
 import CheckMark from "@material-ui/icons/Check";
 import Tooltip from "@material-ui/core/Tooltip";
 import Zoom from "@material-ui/core/Zoom";
@@ -15,11 +15,11 @@ class ViewDetailsBtn extends Component {
   renderActionBtn = () => {
     if (this.props.isAuth) {
       let productInCart = false;
-    this.props.user.cart.forEach(item => {
-      if (item.id === this.props.kitId) {
-        productInCart = true;
-      }
-    });
+      this.props.user.cart.forEach(item => {
+        if (item.id === this.props.kitId) {
+          productInCart = true;
+        }
+      });
       if (!productInCart) {
         if (this.state.checked) {
           return (
@@ -58,7 +58,7 @@ class ViewDetailsBtn extends Component {
             >
               <ShopIcon className="cart_icon" />
             </div>
-          ); 
+          );
         }
       }
     } else {

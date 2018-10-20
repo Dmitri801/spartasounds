@@ -6,6 +6,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import DrawerToggleButton from "./SideDrawer/DrawerButton.js";
+import FlatBtn from "../UI/Buttons/FlatBtn";
 import { Link, withRouter } from "react-router-dom";
 import { TheLogo } from "../UI/Icon";
 import { PopoverMenu } from "../UI/PopoverMenu";
@@ -81,9 +82,7 @@ class Navbar extends Component {
             </Button>
           </Link>
           <Link className="home_register_btn" to="/register">
-            <Button disableRipple variant="contained">
-              Register
-            </Button>
+            <FlatBtn margin="0" title="Register" width="100px" />
           </Link>
           <Button
             disableRipple={true}

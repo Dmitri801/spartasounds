@@ -169,6 +169,13 @@ input::placeholder {
 .featured_button {
   position: absolute;
   padding: 0px 20px; }
+  .featured_button button {
+    transition: all 0.5s ease-out; }
+    .featured_button button:hover {
+      background-color: #12262f !important;
+      box-shadow: 0 0px 20px rgba(243, 177, 105, 0.3); }
+    .featured_button button:active {
+      box-shadow: inset 0 0 30px #4e4e50; }
 
 .featured_first {
   position: absolute;
@@ -281,19 +288,6 @@ input::placeholder {
     .send_sample_form_wrapper input:focus {
       box-shadow: 0 0 0 2pt #ca3726;
       outline: none; }
-
-.sample_btn {
-  transition: all 0.5s ease-out;
-  display: flex;
-  justify-content: center; }
-  .sample_btn button {
-    border: 1px solid;
-    border-color: #b31314;
-    padding: 15px;
-    color: #fff;
-    width: 90%; }
-    .sample_btn button:hover {
-      background-color: #b31314; }
 
 .sample_headline {
   display: flex;
@@ -1750,6 +1744,29 @@ form .bottom_updateprof_container {
     .load_more_container span:active {
       box-shadow: inset 0 0 30px #4e4e50; }
 
+.flat_btn_container {
+  display: flex;
+  width: 370px; }
+  .flat_btn_container .flat_btn {
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1.2px;
+    width: 100%;
+    padding: 10px;
+    margin: 7px;
+    margin-right: 0;
+    font-family: "Cinzel", "serif";
+    background: #b31314;
+    color: #fff; }
+    .flat_btn_container .flat_btn:hover {
+      background-color: #d31618;
+      box-shadow: 0 0px 20px #4e4e50; }
+    .flat_btn_container .flat_btn:active {
+      box-shadow: inset 0 0 30px #4e4e50; }
+
 .view_details_btn_container {
   display: flex;
   width: 100%; }
@@ -1864,7 +1881,7 @@ form .bottom_updateprof_container {
   cursor: pointer; }
   .checkout_btn:hover {
     background-color: #147b03;
-    box-shadow: 0 0 50px #168503; }
+    box-shadow: 0 0 30px #168503; }
   .checkout_btn:active {
     box-shadow: inset 0 0 30px #4e4e50; }
 
@@ -2010,8 +2027,6 @@ footer .contact_btn {
   width: 450px;
   top: 82px;
   left: 1190px; }
-  footer .contact_btn:hover {
-    background-color: #ca1517 !important; }
 
 footer .copyright_wrapper {
   display: flex;

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import FlatBtn from "../UI/Buttons/FlatBtn";
 const Footer = ({ location }) => {
   const renderFooter = () => {
     return (
@@ -34,14 +34,7 @@ const Footer = ({ location }) => {
             </div>
           </div>
           <div className="contact_wrapper">
-            <Button
-              className="contact_btn"
-              fullWidth={true}
-              size="large"
-              variant="outlined"
-            >
-              Get In Touch
-            </Button>
+            <FlatBtn classes="contact_btn" title="Get In Touch" />
             <div className="copyright_wrapper">
               <p className="copyright">
                 Copyright &copy;2018 -{" "}

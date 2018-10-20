@@ -217,10 +217,7 @@ class UserCart extends Component {
                 </span>
                 Your Order
               </h1>
-              <h1
-                style={{ cursor: "pointer" }}
-                onClick={this.changeStepToPayment}
-              >
+              <h1>
                 <span
                   style={
                     step === "payment" ? { backgroundColor: "#ca3726" } : {}

@@ -17,6 +17,7 @@ import {
   closeSampleModal
 } from "../../../store/actions/modalActions";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import FlatBtn from "../../UI/Buttons/FlatBtn";
 import { connect } from "react-redux";
 class TextAndModal extends Component {
   state = {
@@ -30,7 +31,7 @@ class TextAndModal extends Component {
         config: {
           name: "emailInput",
           type: "email",
-          placeholder: "Enter Your Email For A Free Pack"
+          placeholder: "Enter Your Email For A Free Download Instantly"
         },
         validation: {
           required: true,
@@ -253,10 +254,8 @@ class TextAndModal extends Component {
         FileSaver.saveAs(response.data, "sparta_sample_pack.zip");
       })
       .then(() => {
-        this.setState({ fileDownloading: false }, () => {
-          this.closeSampleModal();
-          console.log("Completed");
-        });
+        this.closeSampleModal();
+        this.setState({ fileDownloading: false });
       });
   };
 
@@ -288,21 +287,16 @@ class TextAndModal extends Component {
                   formData={this.state.formData.email}
                 />
               </div>
-              <div className="sample_btn">
-                <a
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center"
-                  }}
-                  onClick={this.onDownloadSampleClick}
-                >
-                  <Button>DOWNLOAD</Button>
-                </a>
-              </div>
+              <FlatBtn
+                width="100%"
+                margin="0 10px"
+                click={this.onDownloadSampleClick}
+                title="Download"
+                fontSize="1.7em"
+              />
               <p
                 style={{
-                  marginTop: "80px",
+                  marginTop: "60px",
                   marginBottom: "0px"
                 }}
               >

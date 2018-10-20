@@ -28,6 +28,34 @@
     }
   }
 }
+
+.flat_btn_container {
+  display: flex;
+  width: 370px;
+  .flat_btn {
+    @include easeOut;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1.2px;
+    width: 100%;
+    padding: 10px;
+    margin: 7px;
+    margin-right: 0;
+    font-family: "Cinzel", "serif";
+    background: $sparta-red;
+    color: #fff;
+    &:hover {
+      background-color: lighten($sparta-red, 7);
+      box-shadow: 0 0px 20px $secondary-dark;
+    }
+    &:active {
+      box-shadow: inset 0 0 30px $secondary-dark;
+    }
+  }
+}
+
 .view_details_btn_container {
   display: flex;
   width: 100%;
@@ -169,7 +197,7 @@
   cursor: pointer;
   &:hover {
     background-color: darken($success-green, 2);
-    box-shadow: 0 0 50px $success-green;
+    box-shadow: 0 0 30px $success-green;
   }
   &:active {
     box-shadow: inset 0 0 30px $secondary-dark;
