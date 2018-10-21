@@ -299,14 +299,13 @@
 // Glitch Effect
 
 .glitch {
-  color: white;
   font-size: 25px;
   position: relative;
   width: 400px;
   margin: 0 auto;
 }
 @keyframes noise-anim {
-  $steps: 20;
+  $steps: 10;
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
@@ -323,11 +322,11 @@
   background: black;
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
-  animation: noise-anim 5s infinite linear alternate-reverse;
+  animation: noise-anim 2s infinite linear alternate-reverse;
 }
 
 @keyframes noise-anim-2 {
-  $steps: 20;
+  $steps: 15;
   @for $i from 0 through $steps {
     #{percentage($i*(1/$steps))} {
       clip: rect(random(100) + px, 9999px, random(100) + px, 0);
@@ -344,5 +343,5 @@
   background: black;
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
-  animation: noise-anim-2 7s infinite linear alternate-reverse;
+  animation: noise-anim-2 5s infinite linear alternate-reverse;
 }
