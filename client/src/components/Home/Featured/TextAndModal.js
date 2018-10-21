@@ -260,7 +260,6 @@ class TextAndModal extends Component {
   };
 
   render() {
-    console.log(this.state.fileDownloading);
     const { sampleModalOpen } = this.props;
     return (
       <div className="featured_text">

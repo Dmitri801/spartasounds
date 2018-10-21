@@ -30,7 +30,7 @@
 - Guest Shopping Cart Route, Local Storage to store cart information
 - Add Stripe Payment option
 - Mobile UI
-  - Side drawer view on super small screens (chrome dev tools phone)
+  - Side drawer view on super small screens (chrome dev tools phone) \*\*\* DONE
   - Modals
   - Shop Page
   - User dashboard pages

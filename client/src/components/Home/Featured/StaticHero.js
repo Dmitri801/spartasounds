@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FeaturedKit from "../../../resources/Images/LandingBox.png";
+import FeaturedKit from "../../../resources/Images/spartaSamplePackNewLarge.png";
 import Button from "@material-ui/core/Button";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import { openSampleModal } from "../../../store/actions/modalActions";
@@ -8,7 +8,7 @@ class StaticHero extends Component {
   state = {
     stripes: [
       {
-        background: "#b31314",
+        background: "#0e1d24",
         left: -50,
         rotate: 25,
         top: -260,
@@ -22,7 +22,7 @@ class StaticHero extends Component {
         delay: 200
       },
       {
-        background: "#ca3726",
+        background: "#4e4e50",
         left: 430,
         rotate: 25,
         top: -498,
@@ -82,7 +82,7 @@ class StaticHero extends Component {
             transform:
               this.state.screenWidth > 556
                 ? `translate(250px, 520px)`
-                : `translate(10px, 510px)`,
+                : `translate(-10px, 510px)`,
             transition: "all 0.5s ease-out"
           }}
           className="featured_button"
@@ -90,7 +90,8 @@ class StaticHero extends Component {
           <Button
             onClick={this.openSampleModal}
             style={{
-              background: "#0e1d24",
+              background: "#1a1a1d",
+
               color: "#fff",
               padding: "10px 10px",
               width: "300px"

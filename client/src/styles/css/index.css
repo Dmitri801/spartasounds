@@ -55,9 +55,9 @@ input::placeholder {
   position: relative;
   left: 338px;
   bottom: 77px; }
-  .header_second span {
+  .header_second .glitch {
     color: #ca3726;
-    margin-right: 10px; }
+    margin-right: 15px; }
 
 .header_logo {
   max-height: 70px; }
@@ -176,7 +176,7 @@ input::placeholder {
     transition: all 0.5s ease-out; }
     .featured_button button:hover {
       background-color: #12262f !important;
-      box-shadow: 0 0px 20px rgba(243, 177, 105, 0.3); }
+      box-shadow: 0 0px 20px rgba(78, 78, 80, 0.3); }
     .featured_button button:active {
       box-shadow: inset 0 0 30px #4e4e50; }
 
@@ -1967,27 +1967,27 @@ form .bottom_updateprof_container {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(3px, 9999px, 37px, 0); }
+    clip: rect(79px, 9999px, 52px, 0); }
   10% {
-    clip: rect(97px, 9999px, 88px, 0); }
+    clip: rect(38px, 9999px, 3px, 0); }
   20% {
-    clip: rect(21px, 9999px, 47px, 0); }
+    clip: rect(73px, 9999px, 66px, 0); }
   30% {
-    clip: rect(40px, 9999px, 100px, 0); }
+    clip: rect(38px, 9999px, 63px, 0); }
   40% {
-    clip: rect(63px, 9999px, 49px, 0); }
+    clip: rect(13px, 9999px, 44px, 0); }
   50% {
-    clip: rect(18px, 9999px, 1px, 0); }
+    clip: rect(35px, 9999px, 9px, 0); }
   60% {
-    clip: rect(30px, 9999px, 58px, 0); }
+    clip: rect(98px, 9999px, 52px, 0); }
   70% {
-    clip: rect(59px, 9999px, 88px, 0); }
+    clip: rect(98px, 9999px, 67px, 0); }
   80% {
-    clip: rect(29px, 9999px, 94px, 0); }
+    clip: rect(12px, 9999px, 94px, 0); }
   90% {
-    clip: rect(43px, 9999px, 77px, 0); }
+    clip: rect(91px, 9999px, 85px, 0); }
   100% {
-    clip: rect(67px, 9999px, 52px, 0); } }
+    clip: rect(21px, 9999px, 78px, 0); } }
 .glitch:after {
   content: attr(data-text);
   position: absolute;
@@ -2002,37 +2002,37 @@ form .bottom_updateprof_container {
 
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(16px, 9999px, 51px, 0); }
+    clip: rect(14px, 9999px, 5px, 0); }
   6.6666666667% {
-    clip: rect(77px, 9999px, 52px, 0); }
+    clip: rect(52px, 9999px, 4px, 0); }
   13.3333333333% {
-    clip: rect(50px, 9999px, 60px, 0); }
+    clip: rect(78px, 9999px, 28px, 0); }
   20% {
-    clip: rect(63px, 9999px, 14px, 0); }
+    clip: rect(46px, 9999px, 4px, 0); }
   26.6666666667% {
-    clip: rect(58px, 9999px, 39px, 0); }
+    clip: rect(37px, 9999px, 67px, 0); }
   33.3333333333% {
-    clip: rect(24px, 9999px, 13px, 0); }
+    clip: rect(30px, 9999px, 9px, 0); }
   40% {
-    clip: rect(91px, 9999px, 23px, 0); }
+    clip: rect(88px, 9999px, 47px, 0); }
   46.6666666667% {
-    clip: rect(66px, 9999px, 7px, 0); }
+    clip: rect(99px, 9999px, 35px, 0); }
   53.3333333333% {
-    clip: rect(21px, 9999px, 37px, 0); }
+    clip: rect(20px, 9999px, 10px, 0); }
   60% {
-    clip: rect(76px, 9999px, 32px, 0); }
+    clip: rect(52px, 9999px, 73px, 0); }
   66.6666666667% {
-    clip: rect(71px, 9999px, 68px, 0); }
+    clip: rect(11px, 9999px, 84px, 0); }
   73.3333333333% {
-    clip: rect(42px, 9999px, 52px, 0); }
+    clip: rect(73px, 9999px, 89px, 0); }
   80% {
-    clip: rect(91px, 9999px, 62px, 0); }
+    clip: rect(21px, 9999px, 15px, 0); }
   86.6666666667% {
-    clip: rect(98px, 9999px, 64px, 0); }
+    clip: rect(37px, 9999px, 95px, 0); }
   93.3333333333% {
-    clip: rect(72px, 9999px, 68px, 0); }
+    clip: rect(61px, 9999px, 55px, 0); }
   100% {
-    clip: rect(62px, 9999px, 17px, 0); } }
+    clip: rect(68px, 9999px, 6px, 0); } }
 .glitch:before {
   content: attr(data-text);
   position: absolute;
@@ -2043,7 +2043,7 @@ form .bottom_updateprof_container {
   background: black;
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
-  animation: noise-anim-2 5s infinite linear alternate-reverse; }
+  animation: noise-anim-2 9s infinite linear alternate-reverse; }
 
 footer {
   position: relative;
@@ -2211,13 +2211,13 @@ a {
 
   .the_player .playerDisplay {
     width: 600px; } }
-@media screen and (max-width: 1040px) {
-  .header_second {
-    left: 350px; }
+@media screen and (max-width: 1140px) {
+  .header_second .subtext {
+    display: none; }
 
   footer .contact_btn {
     width: 250px;
-    left: 830px; }
+    left: 730px; }
 
   footer .connect_header {
     left: 100px; }
@@ -2232,7 +2232,7 @@ a {
     left: 250px; }
 
   footer .logo {
-    width: 0px; }
+    left: 50px; }
 
   .the_player .playerDisplay {
     width: 400px; } }
@@ -2245,7 +2245,7 @@ a {
 
   footer .contact_btn {
     width: 200px;
-    left: 320px; }
+    left: 630px; }
 
   footer .connect_header {
     left: 100px;
@@ -2289,7 +2289,7 @@ a {
   footer .contact_btn {
     top: 80px;
     width: 200px;
-    left: 180px; }
+    left: 50px; }
 
   footer .connect_header {
     left: 100px;
@@ -2362,6 +2362,9 @@ a {
   .card_block_featured .title {
     font-size: 2.1em; }
 
+  .mobile_featured_header {
+    font-size: 1.5em; }
+
   .card_item_wrapper {
     margin-bottom: 10px; }
     .card_item_wrapper .image {
@@ -2414,7 +2417,14 @@ a {
     font-size: 25px; }
 
   footer .copyright {
-    left: 50px; }
+    left: 30px; }
+
+  .MuiAppBar-positionFixed-15 {
+    top: 0;
+    left: 0;
+    right: auto;
+    position: fixed;
+    max-width: 100%; }
 
   .sideDrawer ul {
     height: 80%;
@@ -2425,6 +2435,13 @@ a {
     width: 80%; }
 
   .header_container .header_pic {
-    justify-self: start; } }
+    justify-self: start; }
+
+  .page_top .container {
+    max-width: 80%;
+    left: 50px; } }
+@media screen and (max-width: 346px) {
+  .mobile_featured_header {
+    font-size: 1em; } }
 
 /*# sourceMappingURL=index.css.map */
