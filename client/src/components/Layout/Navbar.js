@@ -250,7 +250,10 @@ class Navbar extends Component {
                 >
                   {styles => (
                     <span style={styles} className="header_second">
-                      Colosseum for music producers
+                      <span class="glitch" data-text="COLOSSEUM">
+                        Colosseum
+                      </span>{" "}
+                      for music producers
                     </span>
                   )}
                 </Transition>

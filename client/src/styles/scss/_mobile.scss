@@ -62,6 +62,9 @@
 }
 
 @include mediaMdLg {
+  .header_second {
+    left: 350px;
+  }
   footer .contact_btn {
     width: 250px;
     left: 830px;

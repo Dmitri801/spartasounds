@@ -6,7 +6,7 @@ import FormField from "../../UI/Forms/FormField";
 import { update } from "../../utils/formActions";
 import { easePolyOut } from "d3-ease";
 import Animate from "react-move/Animate";
-import FeaturedKit from "../../../resources/Images/LandingBox-medium-min.png";
+import FeaturedKit from "../../../resources/Images/spartaSamplePackNewLarge.png";
 import Button from "@material-ui/core/Button";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import Modal from "../../UI/Modal";
@@ -225,7 +225,7 @@ class TextAndModal extends Component {
             <Button
               onClick={this.openSampleModal}
               style={{
-                background: "#0e1d24",
+                background: "#1a1a1d",
                 color: "#fff",
                 padding: "10px 10px",
                 width: "300px"

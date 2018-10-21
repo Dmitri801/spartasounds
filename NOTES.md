@@ -30,10 +30,16 @@
 - Guest Shopping Cart Route, Local Storage to store cart information
 - Add Stripe Payment option
 - Mobile UI
+  - Side drawer view on super small screens (chrome dev tools phone)
+  - Modals
+  - Shop Page
+  - User dashboard pages
 - Expanded Product Schema
 - Filter By Instruments
 - Get In Touch / Contact Form
 - Payment Process
+- Use modernizr (https://modernizr.com/docs/#audio) to try to get audio to play in Safari.
+- Create Update Route on the server side for product management
 
 ## Image Order For Uploading
 
