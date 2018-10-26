@@ -11,6 +11,10 @@
   letter-spacing: 0.3px;
 }
 
+.header_link {
+  outline: none;
+}
+
 .header_second {
   @include easeOut;
   font-family: "Cinzel", serif;

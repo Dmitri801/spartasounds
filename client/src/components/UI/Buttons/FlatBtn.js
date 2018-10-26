@@ -13,9 +13,11 @@ function FlatBtn(props) {
           fontSize: props.fontSize,
           margin: props.margin,
           height: props.height,
-          padding: props.padding
+          padding: props.padding,
+          outline: props.outline
         }}
         className="flat_btn"
+        tabIndex={props.tabIndex}
       >
         {props.title}
       </div>

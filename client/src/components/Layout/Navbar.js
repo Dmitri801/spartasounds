@@ -34,170 +34,176 @@ class Navbar extends Component {
   };
 
   renderNavLinks = () => {
-    const { users, location } = this.props;
+    const { users, location, sideDrawerOpen } = this.props;
+    if (!sideDrawerOpen) {
+      if (users && !users.isAuth) {
+        return (
+          <div className="navigation_items" style={{ display: "flex" }}>
+            <Link style={{ alignSelf: "flex-end" }} to="/">
+              <Button
+                style={
+                  location.pathname === "/"
+                    ? { color: "#fff" }
+                    : { color: "rgba(255, 255, 255, 0.7)" }
+                }
+                disableRipple
+                color="inherit"
+                tabIndex="-1"
+              >
+                Home
+              </Button>
+            </Link>
+            <Link style={{ alignSelf: "flex-end" }} to="/shop">
+              <Button
+                style={
+                  location.pathname === "/shop"
+                    ? { color: "#fff" }
+                    : { color: "rgba(255, 255, 255, 0.7)" }
+                }
+                disableRipple
+                color="inherit"
+                tabIndex="-1"
+              >
+                Shop
+              </Button>
+            </Link>
+            <Link
+              style={{ alignSelf: "flex-end", marginRight: "20px" }}
+              to="/beatstore"
+            >
+              <Button
+                style={
+                  location.pathname === "/beatstore"
+                    ? { color: "#fff" }
+                    : { color: "rgba(255, 255, 255, 0.7)" }
+                }
+                disableRipple
+                color="inherit"
+                tabIndex="-1"
+              >
+                Beat Store
+              </Button>
+            </Link>
+            <Link className="home_register_btn" to="/register">
+              <FlatBtn margin="0" title="Register" width="100px" />
+            </Link>
 
-    if (users && !users.isAuth) {
-      return (
-        <div className="navigation_items" style={{ display: "flex" }}>
-          <Link style={{ alignSelf: "flex-end" }} to="/">
             <Button
-              style={
-                location.pathname === "/"
-                  ? { color: "#fff" }
-                  : { color: "rgba(255, 255, 255, 0.7)" }
-              }
-              disableRipple
-              color="inherit"
-            >
-              Home
-            </Button>
-          </Link>
-          <Link style={{ alignSelf: "flex-end" }} to="/shop">
-            <Button
-              style={
-                location.pathname === "/shop"
-                  ? { color: "#fff" }
-                  : { color: "rgba(255, 255, 255, 0.7)" }
-              }
-              disableRipple
-              color="inherit"
-            >
-              Shop
-            </Button>
-          </Link>
-          <Link
-            style={{ alignSelf: "flex-end", marginRight: "20px" }}
-            to="/beatstore"
-          >
-            <Button
-              style={
-                location.pathname === "/beatstore"
-                  ? { color: "#fff" }
-                  : { color: "rgba(255, 255, 255, 0.7)" }
-              }
-              disableRipple
-              color="inherit"
-            >
-              Beat Store
-            </Button>
-          </Link>
-          <Link className="home_register_btn" to="/register">
-            <FlatBtn margin="0" title="Register" width="100px" />
-          </Link>
-          <Button
-            disableRipple={true}
-            onClick={this.openLoginModal}
-            className="login_btn"
-            variant="outlined"
-            color="inherit"
-          >
-            Log In
-          </Button>
-        </div>
-      );
-    } else {
-      return (
-        <div className="navigation_items" style={{ display: "flex" }}>
-          <Link style={{ alignSelf: "flex-end" }} to="/">
-            <Button
-              style={
-                location.pathname === "/"
-                  ? { color: "#fff" }
-                  : { color: "rgba(255, 255, 255, 0.7)" }
-              }
               disableRipple={true}
+              onClick={this.openLoginModal}
+              className="login_btn"
+              variant="outlined"
               color="inherit"
+              tabIndex="0"
             >
-              Home
+              Log In
             </Button>
-          </Link>
-          <Link style={{ alignSelf: "flex-end" }} to="/shop">
-            <Button
-              style={
-                location.pathname === "/shop"
-                  ? { color: "#fff" }
-                  : { color: "rgba(255, 255, 255, 0.7)" }
-              }
-              disableRipple={true}
-              color="inherit"
-            >
-              Shop
-            </Button>
-          </Link>
-          <Link
-            style={{ alignSelf: "flex-end", marginRight: "20px" }}
-            to="/beatstore"
-          >
-            <Button
-              style={
-                location.pathname === "/beatstore"
-                  ? { color: "#fff" }
-                  : { color: "rgba(255, 255, 255, 0.7)" }
-              }
-              disableRipple={true}
-              color="inherit"
-            >
-              Beat Store
-            </Button>
-          </Link>
-          <div className="user_menu">
-            <IconButton
-              onMouseEnter={this.handleMenuOpen}
-              onClick={this.handleMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle
-                className="accountCircle"
-                style={{
-                  fontSize: 50,
-                  border: "2px solid #4e4e50",
-                  borderRadius: "50%"
-                }}
-              />
-            </IconButton>
-            <PopoverMenu>
-              <div className="menu">
-                <Link to="/user/dashboard">
-                  <MenuItem
-                    style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
-                    disableRipple={true}
-                  >
-                    My Account
-                  </MenuItem>
-                </Link>
-                <Link to="/user/cart">
-                  <div className="cart_link">
-                    <span>{users && users.cart ? users.cart.length : 0}</span>
-                  </div>
-                  <MenuItem
-                    style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
-                    disableRipple={true}
-                  >
-                    My Cart
-                  </MenuItem>
-                </Link>
-                <div onClick={() => this.logoutHandler()}>
-                  <MenuItem
-                    style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
-                    disableRipple={true}
-                  >
-                    Log Out
-                  </MenuItem>
-                </div>
-              </div>
-              <TheLogo
-                right="-100px"
-                bottom="10px"
-                position="absolute"
-                link={true}
-                linkTo="/"
-                width="400px"
-                height="170px"
-              />
-            </PopoverMenu>
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="navigation_items" style={{ display: "flex" }}>
+            <Link style={{ alignSelf: "flex-end" }} to="/">
+              <Button
+                style={
+                  location.pathname === "/"
+                    ? { color: "#fff" }
+                    : { color: "rgba(255, 255, 255, 0.7)" }
+                }
+                disableRipple={true}
+                color="inherit"
+              >
+                Home
+              </Button>
+            </Link>
+            <Link style={{ alignSelf: "flex-end" }} to="/shop">
+              <Button
+                style={
+                  location.pathname === "/shop"
+                    ? { color: "#fff" }
+                    : { color: "rgba(255, 255, 255, 0.7)" }
+                }
+                disableRipple={true}
+                color="inherit"
+              >
+                Shop
+              </Button>
+            </Link>
+            <Link
+              style={{ alignSelf: "flex-end", marginRight: "20px" }}
+              to="/beatstore"
+            >
+              <Button
+                style={
+                  location.pathname === "/beatstore"
+                    ? { color: "#fff" }
+                    : { color: "rgba(255, 255, 255, 0.7)" }
+                }
+                disableRipple={true}
+                color="inherit"
+              >
+                Beat Store
+              </Button>
+            </Link>
+            <div className="user_menu">
+              <IconButton
+                onMouseEnter={this.handleMenuOpen}
+                onClick={this.handleMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle
+                  className="accountCircle"
+                  style={{
+                    fontSize: 50,
+                    border: "2px solid #4e4e50",
+                    borderRadius: "50%"
+                  }}
+                />
+              </IconButton>
+              <PopoverMenu>
+                <div className="menu">
+                  <Link to="/user/dashboard">
+                    <MenuItem
+                      style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
+                      disableRipple={true}
+                    >
+                      My Account
+                    </MenuItem>
+                  </Link>
+                  <Link to="/user/cart">
+                    <div className="cart_link">
+                      <span>{users && users.cart ? users.cart.length : 0}</span>
+                    </div>
+                    <MenuItem
+                      style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
+                      disableRipple={true}
+                    >
+                      My Cart
+                    </MenuItem>
+                  </Link>
+                  <div onClick={() => this.logoutHandler()}>
+                    <MenuItem
+                      style={{ color: "#fff", fontFamily: "Cinzel, serif" }}
+                      disableRipple={true}
+                    >
+                      Log Out
+                    </MenuItem>
+                  </div>
+                </div>
+                <TheLogo
+                  right="-100px"
+                  bottom="10px"
+                  position="absolute"
+                  link={true}
+                  linkTo="/"
+                  width="400px"
+                  height="170px"
+                />
+              </PopoverMenu>
+            </div>
+          </div>
+        );
+      }
     }
   };
 
@@ -235,7 +241,7 @@ class Navbar extends Component {
           <div style={{ flexGrow: 1 }}>
             <div className="header_logo">
               <TheLogo link={true} linkTo="/" width="100px" height="70px" />
-              <Link to="/">
+              <Link className="header_link" tabIndex="-1" to="/">
                 <span className="header_text">Sparta Sounds</span>
               </Link>
               <DrawerToggleButton

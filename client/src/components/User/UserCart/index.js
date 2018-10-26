@@ -215,7 +215,7 @@ class UserCart extends Component {
                 >
                   1
                 </span>
-                Your Order
+                <div className="steps_text">Your Order</div>
               </h1>
               <h1>
                 <span
@@ -226,17 +226,18 @@ class UserCart extends Component {
                 >
                   2
                 </span>
-                Payment
+                <div className="steps_text">Payment</div>
               </h1>
               <h1>
                 <span
                   style={
                     step === "download" ? { backgroundColor: "#ca3726" } : {}
                   }
+                  className="three"
                 >
                   3
                 </span>
-                Download Now
+                <div className="steps_text">Download Now</div>
               </h1>
             </div>
             <div className="hr_container">

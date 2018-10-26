@@ -7,26 +7,29 @@ import Footer from "./Footer";
 import SideDrawer from "./SideDrawer";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import { openLoginModal } from "../../store/actions/modalActions";
+import {
+  openNavSideDrawer,
+  closeNavSideDrawer
+} from "../../store/actions/sideDrawerActions";
 import { connect } from "react-redux";
 class Layout extends Component {
-  state = {
-    sideDrawerOpen: false
-  };
   drawerToggleClickHandler = () => {
-    this.setState(prevState => ({
-      sideDrawerOpen: !prevState.sideDrawerOpen
-    }));
+    if (!this.props.navSideDrawerOpen) {
+      this.props.openNavSideDrawer();
+    } else {
+      this.props.closeNavSideDrawer();
+    }
   };
 
   backDropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false });
+    this.props.closeNavSideDrawer();
   };
   closeSideDrawer = () => {
-    this.setState({ sideDrawerOpen: false });
+    this.props.closeNavSideDrawer();
   };
   render() {
     let backDrop;
-    if (this.state.sideDrawerOpen) {
+    if (this.props.navSideDrawerOpen) {
       backDrop = <Backdrop click={this.backDropClickHandler} />;
     }
     return (
@@ -34,14 +37,14 @@ class Layout extends Component {
         {backDrop}
         <SideDrawer
           closeSideDrawer={this.closeSideDrawer}
-          open={this.state.sideDrawerOpen}
-          authedUser={this.props.authedUser}
+          open={this.props.navSideDrawerOpen}
+          user={this.props.authedUser}
           openLoginModal={this.props.openLoginModal}
         />
         <Login />
         <UserCartModal />
         <Navbar
-          sideDrawerOpen={this.state.sideDrawerOpen}
+          sideDrawerOpen={this.props.navSideDrawerOpen}
           drawerClickHandler={this.drawerToggleClickHandler}
         />
         <div>{this.props.children}</div>
@@ -51,11 +54,12 @@ class Layout extends Component {
   }
 }
 
-const mapStateToProps = ({ users }) => ({
-  authedUser: users.authedUser
+const mapStateToProps = ({ users, sideDrawer }) => ({
+  authedUser: users.authedUser,
+  navSideDrawerOpen: sideDrawer.navDrawerOpen
 });
 
 export default connect(
   mapStateToProps,
-  { openLoginModal }
+  { openLoginModal, openNavSideDrawer, closeNavSideDrawer }
 )(withRouter(Layout));

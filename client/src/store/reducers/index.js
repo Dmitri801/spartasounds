@@ -6,9 +6,11 @@ import modalReducer from "./modalReducer";
 import musicPlayerReducer from "./musicPlayerReducer";
 import audioTrackReducer from "./audioTrackReducer";
 import userCartReducer from "./userCartReducer";
+import sideDrawerReducer from "./sideDrawerReducer";
 import testReducer from "./testReducer";
 
 const rootReducer = combineReducers({
+  sideDrawer: sideDrawerReducer,
   modals: modalReducer,
   users: userReducer,
   products: productReducer,

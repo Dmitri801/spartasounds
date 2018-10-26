@@ -26,6 +26,7 @@ class ViewDetailsBtn extends Component {
             <div
               onClick={() => this.onAddToCart()}
               className="shopping_cart_btn_addstate"
+              tabIndex="0"
             >
               <CheckMark className="cart_checkmark" />
             </div>
@@ -35,6 +36,7 @@ class ViewDetailsBtn extends Component {
             <div
               onClick={() => this.onAddToCart()}
               className="shopping_cart_btn_auth"
+              tabIndex="0"
             >
               <ShoppingCartIcon className="cart_icon" />
             </div>
@@ -46,6 +48,7 @@ class ViewDetailsBtn extends Component {
             <div
               onClick={() => this.onAddToCart()}
               className="shopping_cart_btn_addstate"
+              tabIndex="0"
             >
               <CheckMark className="cart_checkmark" />
             </div>
@@ -55,6 +58,8 @@ class ViewDetailsBtn extends Component {
             <div
               onClick={() => this.props.route.push("/user/cart")}
               className="shopping_cart_btn_added"
+              tabIndex="0"
+              style={{ outline: "none" }}
             >
               <ShopIcon className="cart_icon" />
             </div>
@@ -95,7 +100,11 @@ class ViewDetailsBtn extends Component {
     const props = this.props;
     return (
       <div className="view_details_btn_container">
-        <div onClick={props.viewDetailsClick} className="view_details_btn">
+        <div
+          tabIndex="0"
+          onClick={props.viewDetailsClick}
+          className="view_details_btn"
+        >
           {props.title}
         </div>
         {this.renderActionBtn()}

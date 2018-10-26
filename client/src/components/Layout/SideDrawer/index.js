@@ -3,67 +3,74 @@ import Button from "@material-ui/core/Button";
 import FlatBtn from "../../UI/Buttons/FlatBtn";
 import { Link } from "react-router-dom";
 const SideDrawer = props => {
-  const onLoginBtnClick = () => {
-    props.closeSideDrawer();
-    setTimeout(() => {
-      props.openLoginModal();
-    }, 500);
-  };
   const renderContent = () => {
     let sideDrawerClasses = ["sideDrawer"];
     if (props.open) {
       sideDrawerClasses = ["sideDrawer", "open"];
     }
-    if (props.authedUser) {
-      if (!props.authedUser.isAuth) {
+    if (props.user) {
+      if (!props.user.isAuth) {
         return (
           <div className={sideDrawerClasses.join(" ")}>
-            <ul>
-              <li onClick={props.closeSideDrawer}>
-                <Link to="/">Home</Link>
-              </li>
-              <hr />
-              <li onClick={props.closeSideDrawer}>
-                <Link to="/shop">Shop</Link>
-              </li>
-              <hr />
-              <li onClick={props.closeSideDrawer}>
-                <Link to="/beatstore">Beat Store</Link>
-              </li>
-              <hr />
+            {props.open && (
+              <ul>
+                <li onClick={props.closeSideDrawer}>
+                  <Link to="/">Home</Link>
+                </li>
+                <hr />
+                <li onClick={props.closeSideDrawer}>
+                  <Link to="/shop">Shop</Link>
+                </li>
+                <hr />
+                <li onClick={props.closeSideDrawer}>
+                  <Link to="/beatstore">Beat Store</Link>
+                </li>
+                <hr />
 
-              <Link className="home_register_btn" to="/register">
-                <FlatBtn click={props.closeSideDrawer} title="Register" />
-              </Link>
-              <Button
-                disableRipple={true}
-                onClick={() => onLoginBtnClick()}
-                className="login_btn"
-                variant="outlined"
-                color="inherit"
-              >
-                Log In
-              </Button>
-            </ul>
+                <Link
+                  onClick={props.closeSideDrawer}
+                  className="home_register_btn"
+                  to="/register"
+                >
+                  <FlatBtn click={props.closeSideDrawer} title="Register" />
+                </Link>
+                <Link
+                  onClick={props.closeSideDrawer}
+                  to="/login"
+                  className="login_btn"
+                >
+                  <Button
+                    disableRipple={true}
+                    className="login_btn"
+                    variant="outlined"
+                    color="inherit"
+                  >
+                    Log In
+                  </Button>
+                </Link>
+              </ul>
+            )}
           </div>
         );
       } else {
         return (
           <div className={sideDrawerClasses.join(" ")}>
-            <ul>
-              <li onClick={props.closeSideDrawer}>
-                <Link to="/">Home</Link>
-              </li>
-              <hr />
-              <li onClick={props.closeSideDrawer}>
-                <Link to="/shop">Shop</Link>
-              </li>
-              <hr />
-              <li onClick={props.closeSideDrawer}>
-                <Link to="/beatstore">Beat Store</Link>
-              </li>
-              <hr />
-            </ul>
+            {props.open && (
+              <ul>
+                <li onClick={props.closeSideDrawer}>
+                  <Link to="/">Home</Link>
+                </li>
+                <hr />
+                <li onClick={props.closeSideDrawer}>
+                  <Link to="/shop">Shop</Link>
+                </li>
+                <hr />
+                <li onClick={props.closeSideDrawer}>
+                  <Link to="/beatstore">Beat Store</Link>
+                </li>
+                <hr />
+              </ul>
+            )}
           </div>
         );
       }

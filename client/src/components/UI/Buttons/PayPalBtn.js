@@ -37,7 +37,7 @@ class PayPal extends Component {
           onSuccess={onSuccess}
           onCancel={onCancel}
           style={{
-            size: "large",
+            size: "responsive",
             color: "black",
             shape: "pill",
             tagline: false

@@ -20,7 +20,7 @@ $success-green: darken(#1eb704, 10);
   }
 }
 @mixin mediaXsm {
-  @media screen and (max-width: 556px) {
+  @media screen and (max-width: 656px) {
     @content;
   }
 }

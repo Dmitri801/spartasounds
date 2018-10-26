@@ -87,26 +87,32 @@ class StaticHero extends Component {
           }}
           className="featured_button"
         >
-          <Button
-            onClick={this.openSampleModal}
-            style={{
-              background: "#1a1a1d",
+          {!this.props.navSideDrawerOpen && (
+            <Button
+              onClick={this.openSampleModal}
+              style={{
+                background: "#1a1a1d",
 
-              color: "#fff",
-              padding: "10px 10px",
-              width: "300px"
-            }}
-            className="landing_btn"
-            size="large"
-            variant="contained"
-          >
-            <CloudDownloadIcon style={{ margin: "0px 10px" }} />
-            Free Download
-          </Button>
+                color: "#fff",
+                padding: "10px 10px",
+                width: "300px"
+              }}
+              className="landing_btn"
+              size="large"
+              variant="contained"
+            >
+              <CloudDownloadIcon style={{ margin: "0px 10px" }} />
+              Free Download
+            </Button>
+          )}
         </div>
       </div>
     );
   }
 }
 
-export default connect()(StaticHero);
+const mapStateToProps = ({ sideDrawer }) => ({
+  navSideDrawerOpen: sideDrawer.navDrawerOpen
+});
+
+export default connect(mapStateToProps)(StaticHero);

@@ -34,7 +34,12 @@ const Footer = ({ location }) => {
             </div>
           </div>
           <div className="contact_wrapper">
-            <FlatBtn classes="contact_btn" title="Get In Touch" />
+            <FlatBtn
+              outline="none"
+              tabIndex="0"
+              classes="contact_btn"
+              title="Get In Touch"
+            />
             <div className="copyright_wrapper">
               <p className="copyright">
                 Copyright &copy;2018 -{" "}

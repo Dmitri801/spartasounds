@@ -92,6 +92,25 @@
       width: 400px;
     }
   }
+  // User Dashboard
+  .user_container {
+    .user_left_nav {
+      display: none;
+    }
+  }
+
+  // Cart Page
+  .cart_container {
+    justify-content: center;
+  }
+  .steps_text {
+    font-size: 21px;
+  }
+  .hr_container {
+    .checkout_hr {
+      display: none;
+    }
+  }
 }
 
 @include mediaMd {
@@ -182,6 +201,8 @@
     font-size: 25px;
   }
 
+  // Nav Breaking Point
+
   .nav {
     .navigation_items {
       .header_logo {
@@ -251,6 +272,52 @@
   }
   .details_badges p {
     display: none;
+  }
+  // User Dashboard
+  .user_container {
+    .user_left_nav {
+      display: none;
+    }
+  }
+
+  // Cart Page
+  .cart_container {
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+  }
+  .cart_container .cart_main_card {
+    height: 720px;
+    .user_cart {
+      h1 {
+        font-size: 2em;
+        text-align: center;
+      }
+    }
+  }
+  .cart_header {
+    h1 {
+      display: none;
+    }
+  }
+  .steps_text {
+    display: none;
+  }
+
+  // Payment
+  .cart_container .cart_main_card .user_payment {
+    grid-template-columns: 4fr;
+    .about_specs {
+      display: none;
+    }
+  }
+  h1 {
+    .three {
+      margin-left: 55px;
+    }
+  }
+  .cart_container .cart_main_card .payment_bottom_container .totalText {
+    font-size: 2.5em;
   }
 }
 
@@ -367,10 +434,175 @@
     max-width: 80%;
     left: 50px;
   }
+
+  // Cart Modal
+  .cart_modal_container {
+    .modal_header {
+      .link_container {
+        display: none;
+      }
+    }
+    .cart_block_container {
+      .cart_product_block {
+        .cart_item {
+          .cart_image {
+            display: none;
+          }
+          .name {
+            font-size: 1rem;
+            margin-right: 10px;
+          }
+          .end_container {
+            display: flex;
+            align-self: center;
+            padding: 10px;
+            margin-left: auto;
+            background: $secondary-dark;
+            border-radius: 50%;
+            justify-content: center;
+            .price {
+              font-family: "Cinzel", "serif";
+
+              color: $sparta-yellow;
+              font-size: 2rem;
+            }
+
+            color: $secondary-dark;
+          }
+        }
+      }
+    }
+    .checkout_btn_container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  // Cart Page
+  .cart_container {
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
+  }
+  .cart_container .cart_main_card {
+    height: 720px;
+    .user_cart {
+      h1 {
+        font-size: 14px;
+      }
+    }
+  }
+  .cart_header {
+    h1 {
+      display: none;
+    }
+  }
+  .steps_text {
+    display: none;
+  }
+  .checkout_steps {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+  }
+  // Payment
+  .cart_container .cart_main_card .user_payment {
+    grid-template-columns: 4fr;
+    .about_specs {
+      display: none;
+    }
+  }
+  h1 {
+    padding: 0 !important;
+
+    .one {
+      margin: 0;
+      position: relative;
+    }
+    .two {
+      position: relative;
+    }
+
+    .three {
+      position: relative;
+    }
+  }
+  .confirm_info {
+    h1 {
+      font-size: 1em;
+    }
+  }
+  .change_email_btn {
+    display: block;
+    width: 100px;
+  }
+
+  .cart_container
+    .cart_main_card
+    .user_cart
+    .cart_block_container
+    .cart_product_block
+    .cart_item {
+    position: relative;
+    .end_container {
+      position: absolute;
+      top: -15px;
+      left: 100px;
+      .price {
+        font-size: 19px;
+      }
+      svg {
+        font-size: 24px;
+      }
+    }
+    .name {
+      font-size: 16px;
+    }
+  }
+  .cart_container .cart_main_card .cart_bottom_container {
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    .checkout_btn {
+      width: 60%;
+      margin-bottom: 15px;
+    }
+  }
+  .cart_container
+    .cart_main_card
+    .user_payment
+    .payment_options
+    .paypal_btn_container {
+    width: 100%;
+  }
+  .cart_container
+    .cart_main_card
+    .user_payment
+    .payment_info_container
+    .confirm_info
+    p
+    .change_email_btn {
+    padding: 0px 10px;
+    font-size: 0.8em;
+    width: 75px;
+  }
+  .back_btn_container {
+    .back_btn {
+      width: 30%;
+      h1 {
+        display: none;
+      }
+    }
+  }
+  .cart_container .cart_main_card .payment_bottom_container .totalText {
+    font-size: 2em;
+  }
 }
 
 @include mediaXXsm {
   .mobile_featured_header {
     font-size: 1em;
+  }
+  .cart_container {
+    justify-content: flex-start;
   }
 }

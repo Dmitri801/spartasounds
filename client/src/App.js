@@ -13,6 +13,7 @@ import ProductDetail from "./components/Product";
 import UserCart from "./components/User/UserCart";
 import UpdateProfile from "./components/User/UpdateProfile";
 import ManageSite from "./components/User/Admin/ManageSite";
+import LoginPage from "./components/Register_Login/LoginPage";
 import TestUpload from "./components/Test/TestUpload";
 
 class App extends Component {
@@ -20,6 +21,8 @@ class App extends Component {
     return (
       <Layout>
         <Switch>
+          <Route path="/" exact component={Auth(Home, null)} />
+          <Route path="/login" exact component={Auth(LoginPage, null)} />
           <Route
             path="/user/dashboard"
             exact
@@ -46,7 +49,6 @@ class App extends Component {
             exact
             component={Auth(UpdateProfile, true)}
           />
-          <Route path="/" exact component={Auth(Home, null)} />
           <Route
             path="/thedetails/:id"
             exact

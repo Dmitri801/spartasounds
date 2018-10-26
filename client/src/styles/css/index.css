@@ -46,6 +46,9 @@ input::placeholder {
   bottom: 43px;
   letter-spacing: 0.3px; }
 
+.header_link {
+  outline: none; }
+
 .header_second {
   transition: all 0.5s ease-out;
   font-family: "Cinzel", serif;
@@ -317,6 +320,76 @@ input::placeholder {
   .download_confirm_container_modal svg {
     font-size: 12em;
     margin-bottom: auto; }
+
+.login_page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .login_page .loginpage_card {
+    margin-top: 55px;
+    width: 380px;
+    height: 480px;
+    background: #4e4e50;
+    display: flex;
+    flex-direction: column;
+    padding: 15px; }
+    .login_page .loginpage_card h1 {
+      margin: 0;
+      text-align: center;
+      color: #fff;
+      font-size: 40px; }
+    .login_page .loginpage_card hr {
+      border-color: #1a1a1d; }
+    .login_page .loginpage_card .login_label {
+      margin-left: 50px;
+      margin-top: 10px;
+      color: #1a1a1d;
+      font-weight: 900; }
+    .login_page .loginpage_card .form_field_block {
+      display: flex;
+      justify-content: center;
+      margin: 0 10px; }
+      .login_page .loginpage_card .form_field_block input {
+        transition: all 0.2s ease-out;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        box-shadow: 0 0 0 2pt #4e4e50;
+        border: none;
+        font-size: 15px;
+        padding: 14px 10px;
+        border-radius: 30px;
+        width: 80%; }
+      .login_page .loginpage_card .form_field_block input:focus {
+        box-shadow: 0 0 0 1.5pt #ca3726;
+        outline: none; }
+    .login_page .loginpage_card .error_label_login {
+      transition: all 0.5s ease-out;
+      position: absolute;
+      margin-top: 48px;
+      color: #b31314;
+      font-size: 14px; }
+    .login_page .loginpage_card .error_label_bottom {
+      display: flex;
+      justify-content: center; }
+      .login_page .loginpage_card .error_label_bottom p {
+        color: #b31314;
+        font-size: 1.5rem;
+        font-family: "Cinzel", cursive;
+        text-align: center; }
+    .login_page .loginpage_card form .bottom_login_container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px; }
+      .login_page .loginpage_card form .bottom_login_container .login_user_btn {
+        width: 80%;
+        background-color: #ca3726;
+        color: #fff;
+        border-radius: 30px;
+        text-transform: capitalize; }
+        .login_page .loginpage_card form .bottom_login_container .login_user_btn:hover {
+          background-color: #d73b29; }
 
 .login_header {
   text-align: center;
@@ -1604,7 +1677,8 @@ form .bottom_updateprof_container {
         align-items: flex-end;
         margin: 10px 0; }
         .cart_container .cart_main_card .user_payment .payment_options .paypal_btn_container {
-          color: #fff; }
+          color: #fff;
+          width: 100%; }
       .cart_container .cart_main_card .user_payment .about_specs {
         display: flex;
         flex-direction: column;
@@ -1967,27 +2041,27 @@ form .bottom_updateprof_container {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(79px, 9999px, 52px, 0); }
+    clip: rect(84px, 9999px, 80px, 0); }
   10% {
-    clip: rect(38px, 9999px, 3px, 0); }
+    clip: rect(35px, 9999px, 21px, 0); }
   20% {
-    clip: rect(73px, 9999px, 66px, 0); }
+    clip: rect(46px, 9999px, 40px, 0); }
   30% {
-    clip: rect(38px, 9999px, 63px, 0); }
+    clip: rect(60px, 9999px, 89px, 0); }
   40% {
-    clip: rect(13px, 9999px, 44px, 0); }
+    clip: rect(85px, 9999px, 43px, 0); }
   50% {
-    clip: rect(35px, 9999px, 9px, 0); }
+    clip: rect(97px, 9999px, 27px, 0); }
   60% {
-    clip: rect(98px, 9999px, 52px, 0); }
+    clip: rect(48px, 9999px, 27px, 0); }
   70% {
-    clip: rect(98px, 9999px, 67px, 0); }
+    clip: rect(38px, 9999px, 8px, 0); }
   80% {
-    clip: rect(12px, 9999px, 94px, 0); }
+    clip: rect(86px, 9999px, 51px, 0); }
   90% {
-    clip: rect(91px, 9999px, 85px, 0); }
+    clip: rect(30px, 9999px, 30px, 0); }
   100% {
-    clip: rect(21px, 9999px, 78px, 0); } }
+    clip: rect(57px, 9999px, 89px, 0); } }
 .glitch:after {
   content: attr(data-text);
   position: absolute;
@@ -2002,37 +2076,37 @@ form .bottom_updateprof_container {
 
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(14px, 9999px, 5px, 0); }
+    clip: rect(10px, 9999px, 83px, 0); }
   6.6666666667% {
-    clip: rect(52px, 9999px, 4px, 0); }
+    clip: rect(7px, 9999px, 97px, 0); }
   13.3333333333% {
-    clip: rect(78px, 9999px, 28px, 0); }
+    clip: rect(76px, 9999px, 23px, 0); }
   20% {
-    clip: rect(46px, 9999px, 4px, 0); }
+    clip: rect(85px, 9999px, 32px, 0); }
   26.6666666667% {
-    clip: rect(37px, 9999px, 67px, 0); }
+    clip: rect(67px, 9999px, 72px, 0); }
   33.3333333333% {
-    clip: rect(30px, 9999px, 9px, 0); }
+    clip: rect(92px, 9999px, 48px, 0); }
   40% {
-    clip: rect(88px, 9999px, 47px, 0); }
+    clip: rect(55px, 9999px, 11px, 0); }
   46.6666666667% {
-    clip: rect(99px, 9999px, 35px, 0); }
+    clip: rect(92px, 9999px, 84px, 0); }
   53.3333333333% {
-    clip: rect(20px, 9999px, 10px, 0); }
+    clip: rect(95px, 9999px, 46px, 0); }
   60% {
-    clip: rect(52px, 9999px, 73px, 0); }
+    clip: rect(26px, 9999px, 19px, 0); }
   66.6666666667% {
-    clip: rect(11px, 9999px, 84px, 0); }
+    clip: rect(57px, 9999px, 51px, 0); }
   73.3333333333% {
-    clip: rect(73px, 9999px, 89px, 0); }
+    clip: rect(46px, 9999px, 88px, 0); }
   80% {
-    clip: rect(21px, 9999px, 15px, 0); }
+    clip: rect(4px, 9999px, 100px, 0); }
   86.6666666667% {
-    clip: rect(37px, 9999px, 95px, 0); }
+    clip: rect(26px, 9999px, 76px, 0); }
   93.3333333333% {
-    clip: rect(61px, 9999px, 55px, 0); }
+    clip: rect(4px, 9999px, 86px, 0); }
   100% {
-    clip: rect(68px, 9999px, 6px, 0); } }
+    clip: rect(37px, 9999px, 69px, 0); } }
 .glitch:before {
   content: attr(data-text);
   position: absolute;
@@ -2235,7 +2309,19 @@ a {
     left: 50px; }
 
   .the_player .playerDisplay {
-    width: 400px; } }
+    width: 400px; }
+
+  .user_container .user_left_nav {
+    display: none; }
+
+  .cart_container {
+    justify-content: center; }
+
+  .steps_text {
+    font-size: 21px; }
+
+  .hr_container .checkout_hr {
+    display: none; } }
 @media screen and (max-width: 1040px) {
   .header_second {
     display: none; }
@@ -2357,8 +2443,39 @@ a {
     display: none; }
 
   .details_badges p {
-    display: none; } }
-@media screen and (max-width: 556px) {
+    display: none; }
+
+  .user_container .user_left_nav {
+    display: none; }
+
+  .cart_container {
+    justify-content: center;
+    align-items: center;
+    width: 70%; }
+
+  .cart_container .cart_main_card {
+    height: 720px; }
+    .cart_container .cart_main_card .user_cart h1 {
+      font-size: 2em;
+      text-align: center; }
+
+  .cart_header h1 {
+    display: none; }
+
+  .steps_text {
+    display: none; }
+
+  .cart_container .cart_main_card .user_payment {
+    grid-template-columns: 4fr; }
+    .cart_container .cart_main_card .user_payment .about_specs {
+      display: none; }
+
+  h1 .three {
+    margin-left: 55px; }
+
+  .cart_container .cart_main_card .payment_bottom_container .totalText {
+    font-size: 2.5em; } }
+@media screen and (max-width: 656px) {
   .card_block_featured .title {
     font-size: 2.1em; }
 
@@ -2439,9 +2556,151 @@ a {
 
   .page_top .container {
     max-width: 80%;
-    left: 50px; } }
+    left: 50px; }
+
+  .cart_modal_container .modal_header .link_container {
+    display: none; }
+  .cart_modal_container .cart_block_container .cart_product_block .cart_item .cart_image {
+    display: none; }
+  .cart_modal_container .cart_block_container .cart_product_block .cart_item .name {
+    font-size: 1rem;
+    margin-right: 10px; }
+  .cart_modal_container .cart_block_container .cart_product_block .cart_item .end_container {
+    display: flex;
+    align-self: center;
+    padding: 10px;
+    margin-left: auto;
+    background: #4e4e50;
+    border-radius: 50%;
+    justify-content: center;
+    color: #4e4e50; }
+    .cart_modal_container .cart_block_container .cart_product_block .cart_item .end_container .price {
+      font-family: "Cinzel", "serif";
+      color: #f3b169;
+      font-size: 2rem; }
+  .cart_modal_container .checkout_btn_container {
+    display: flex;
+    justify-content: center; }
+
+  .cart_container {
+    justify-content: center;
+    align-items: center;
+    max-width: 40%; }
+
+  .cart_container .cart_main_card {
+    height: 720px; }
+    .cart_container .cart_main_card .user_cart h1 {
+      font-size: 14px; }
+
+  .cart_header h1 {
+    display: none; }
+
+  .steps_text {
+    display: none; }
+
+  .checkout_steps {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%; }
+
+  .cart_container .cart_main_card .user_payment {
+    grid-template-columns: 4fr; }
+    .cart_container .cart_main_card .user_payment .about_specs {
+      display: none; }
+
+  h1 {
+    padding: 0 !important; }
+    h1 .one {
+      margin: 0;
+      position: relative; }
+    h1 .two {
+      position: relative; }
+    h1 .three {
+      position: relative; }
+
+  .confirm_info h1 {
+    font-size: 1em; }
+
+  .change_email_btn {
+    display: block;
+    width: 100px; }
+
+  .cart_container
+  .cart_main_card
+  .user_cart
+  .cart_block_container
+  .cart_product_block
+  .cart_item {
+    position: relative; }
+    .cart_container
+    .cart_main_card
+    .user_cart
+    .cart_block_container
+    .cart_product_block
+    .cart_item .end_container {
+      position: absolute;
+      top: -15px;
+      left: 100px; }
+      .cart_container
+      .cart_main_card
+      .user_cart
+      .cart_block_container
+      .cart_product_block
+      .cart_item .end_container .price {
+        font-size: 19px; }
+      .cart_container
+      .cart_main_card
+      .user_cart
+      .cart_block_container
+      .cart_product_block
+      .cart_item .end_container svg {
+        font-size: 24px; }
+    .cart_container
+    .cart_main_card
+    .user_cart
+    .cart_block_container
+    .cart_product_block
+    .cart_item .name {
+      font-size: 16px; }
+
+  .cart_container .cart_main_card .cart_bottom_container {
+    display: flex;
+    flex-direction: column;
+    height: 170px; }
+    .cart_container .cart_main_card .cart_bottom_container .checkout_btn {
+      width: 60%;
+      margin-bottom: 15px; }
+
+  .cart_container
+  .cart_main_card
+  .user_payment
+  .payment_options
+  .paypal_btn_container {
+    width: 100%; }
+
+  .cart_container
+  .cart_main_card
+  .user_payment
+  .payment_info_container
+  .confirm_info
+  p
+  .change_email_btn {
+    padding: 0px 10px;
+    font-size: 0.8em;
+    width: 75px; }
+
+  .back_btn_container .back_btn {
+    width: 30%; }
+    .back_btn_container .back_btn h1 {
+      display: none; }
+
+  .cart_container .cart_main_card .payment_bottom_container .totalText {
+    font-size: 2em; } }
 @media screen and (max-width: 346px) {
   .mobile_featured_header {
-    font-size: 1em; } }
+    font-size: 1em; }
+
+  .cart_container {
+    justify-content: flex-start; } }
 
 /*# sourceMappingURL=index.css.map */
