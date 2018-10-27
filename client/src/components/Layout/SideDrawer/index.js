@@ -25,6 +25,7 @@ const SideDrawer = props => {
                 <li onClick={props.closeSideDrawer}>
                   <Link to="/beatstore">Beat Store</Link>
                 </li>
+
                 <hr />
 
                 <Link

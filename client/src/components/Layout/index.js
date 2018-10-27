@@ -9,7 +9,8 @@ import Backdrop from "../UI/Backdrop/Backdrop";
 import { openLoginModal } from "../../store/actions/modalActions";
 import {
   openNavSideDrawer,
-  closeNavSideDrawer
+  closeNavSideDrawer,
+  closeAccountSideDrawer
 } from "../../store/actions/sideDrawerActions";
 import { connect } from "react-redux";
 class Layout extends Component {
@@ -22,14 +23,14 @@ class Layout extends Component {
   };
 
   backDropClickHandler = () => {
-    this.props.closeNavSideDrawer();
+    this.props.closeAccountSideDrawer();
   };
   closeSideDrawer = () => {
     this.props.closeNavSideDrawer();
   };
   render() {
     let backDrop;
-    if (this.props.navSideDrawerOpen) {
+    if (this.props.accountDrawerOpen) {
       backDrop = <Backdrop click={this.backDropClickHandler} />;
     }
     return (
@@ -56,10 +57,16 @@ class Layout extends Component {
 
 const mapStateToProps = ({ users, sideDrawer }) => ({
   authedUser: users.authedUser,
-  navSideDrawerOpen: sideDrawer.navDrawerOpen
+  navSideDrawerOpen: sideDrawer.navDrawerOpen,
+  accountDrawerOpen: sideDrawer.accountDrawerOpen
 });
 
 export default connect(
   mapStateToProps,
-  { openLoginModal, openNavSideDrawer, closeNavSideDrawer }
+  {
+    openLoginModal,
+    openNavSideDrawer,
+    closeNavSideDrawer,
+    closeAccountSideDrawer
+  }
 )(withRouter(Layout));

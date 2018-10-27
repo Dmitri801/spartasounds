@@ -5,7 +5,8 @@ import Logo from "../../resources/Images/Logo.png";
 export const TheLogo = props => {
   const template = (
     <div
-      className="img_cover"
+      id={props.id}
+      className={props.classes}
       style={{
         width: props.width,
         height: props.height,

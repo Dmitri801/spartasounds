@@ -176,6 +176,9 @@
 }
 
 @include mediaSm {
+  .bck_overlay {
+    width: 85% !important;
+  }
   footer .contact_btn {
     top: 80px;
     width: 200px;
@@ -208,18 +211,17 @@
       .header_logo {
         display: none;
       }
-      a {
-        display: none;
-      }
-      button {
+      .main_link {
         display: none;
       }
     }
   }
-  .img_cover {
+  .noauth {
+    display: none !important;
+  }
+  #nav_logo {
     display: none;
   }
-
   .header_text {
     display: none;
   }
@@ -227,8 +229,26 @@
   .toggle_button {
     display: flex;
   }
-
   .user_menu {
+    .popover {
+      @include easeOut;
+      background: #000;
+      display: block;
+      right: 0;
+      width: 60%;
+      transform: translateX(200%);
+      .admin {
+        &:after {
+          top: -5.8% !important;
+          left: 79% !important;
+        }
+      }
+    }
+    .popover.open {
+      transform: translateX(0);
+    }
+  }
+  #popover_logo {
     display: none;
   }
   .header_container {
@@ -408,6 +428,21 @@
     right: auto;
     position: fixed;
     max-width: 100%;
+  }
+  .popover {
+    width: 70% !important;
+  }
+  .user_menu {
+    .admin {
+      &:after {
+        top: -4.8% !important;
+        left: 73% !important;
+      }
+    }
+  }
+  .logoutbtn_popover {
+    width: 90%;
+    margin-left: 10px;
   }
 
   // Side Drawer
@@ -604,5 +639,15 @@
   }
   .cart_container {
     justify-content: flex-start;
+  }
+  .popover {
+    width: 70% !important;
+  }
+  .user_menu {
+    .admin {
+      &:after {
+        left: 70% !important;
+      }
+    }
   }
 }
