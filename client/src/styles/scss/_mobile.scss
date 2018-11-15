@@ -98,6 +98,11 @@
       display: none;
     }
   }
+  // Account page
+
+  .user_info {
+    justify-content: center;
+  }
 
   // Cart Page
   .cart_container {
@@ -338,6 +343,9 @@
   }
   .cart_container .cart_main_card .payment_bottom_container .totalText {
     font-size: 2.5em;
+  }
+  .shop_wrapper .left {
+    display: none;
   }
 }
 
@@ -649,5 +657,9 @@
         left: 70% !important;
       }
     }
+  }
+  // Shop Page
+  .card_block_shop .container .cards_wrapper {
+    justify-content: flex-start;
   }
 }
