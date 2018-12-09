@@ -2051,6 +2051,59 @@ form .bottom_updateprof_container {
   background: rgba(26, 26, 29, 0.7);
   z-index: 10000; }
 
+.glitch {
+  position: relative; }
+
+@keyframes noise-anim {
+  0% {
+    clip: rect(73px, 9999px, 27px, 0); }
+  20% {
+    clip: rect(42px, 9999px, 58px, 0); }
+  40% {
+    clip: rect(84px, 9999px, 99px, 0); }
+  60% {
+    clip: rect(20px, 9999px, 89px, 0); }
+  80% {
+    clip: rect(13px, 9999px, 16px, 0); }
+  100% {
+    clip: rect(9px, 9999px, 6px, 0); } }
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse; }
+
+@keyframes noise-anim-2 {
+  0% {
+    clip: rect(59px, 9999px, 87px, 0); }
+  20% {
+    clip: rect(53px, 9999px, 32px, 0); }
+  40% {
+    clip: rect(4px, 9999px, 3px, 0); }
+  60% {
+    clip: rect(25px, 9999px, 36px, 0); }
+  80% {
+    clip: rect(1px, 9999px, 99px, 0); }
+  100% {
+    clip: rect(61px, 9999px, 19px, 0); } }
+.glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 #0e1d24;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse; }
+
 footer {
   position: relative;
   width: 100% !important;
