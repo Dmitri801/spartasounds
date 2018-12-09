@@ -247,7 +247,7 @@ class TextAndModal extends Component {
     this.setState({ fileDownloading: true });
     axios({
       method: "GET",
-      url: "/api/test/stream/90b7d1d5ed550882284dcf6f62774963.zip",
+      url: "/api/test/stream/2db28d3ce3d23053f4606de57b52e405.zip",
       responseType: "blob"
     })
       .then(response => {

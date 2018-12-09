@@ -16,10 +16,17 @@ const test = require("./routes/api/test");
 const nodeMailer = require("nodemailer");
 const PORT = process.env.PORT || 8080;
 const app = express();
+let dbURI;
+
+if (process.env.NODE_ENV === "production") {
+  dbURI = process.env.ATLAS_URI;
+} else {
+  dbURI = process.env.MONGODB_URI;
+}
 
 // Mongoose/MongoDb
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MLAB_URI);
+mongoose.connect(dbURI);
 
 // Middleware
 app.use(helmet());

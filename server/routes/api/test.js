@@ -6,6 +6,14 @@ const crypto = require("crypto");
 const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
+
+let dbURI;
+
+if (process.env.NODE_ENV === "production") {
+  dbURI = process.env.ATLAS_URI;
+} else {
+  dbURI = process.env.MONGODB_URI;
+}
 // Middleware
 const { auth } = require("../../middleware/auth");
 const { admin } = require("../../middleware/admin");
@@ -19,7 +27,7 @@ mongoose.connection.once("open", () => {
 
 // Create Storage Engine
 const storage = new GridFsStorage({
-  url: process.env.MONGODB_URI,
+  url: dbURI,
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {

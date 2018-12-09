@@ -10,6 +10,14 @@ const Grid = require("gridfs-stream");
 const { auth } = require("../../middleware/auth");
 const { admin } = require("../../middleware/admin");
 
+let dbURI;
+
+if (process.env.NODE_ENV === "production") {
+  dbURI = process.env.ATLAS_URI;
+} else {
+  dbURI = process.env.MONGODB_URI;
+}
+
 // Set Up GridFS
 let gfs;
 mongoose.connection.once("open", () => {
@@ -19,7 +27,7 @@ mongoose.connection.once("open", () => {
 
 // Create Storage Engine
 const storage = new GridFsStorage({
-  url: process.env.MONGODB_URI,
+  url: dbURI,
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {

@@ -60,7 +60,8 @@ input::placeholder {
   bottom: 77px; }
   .header_second .glitch {
     color: #ca3726;
-    margin-right: 15px; }
+    margin-right: 15px;
+    font-size: 2em; }
 
 .header_logo {
   max-height: 70px; }
