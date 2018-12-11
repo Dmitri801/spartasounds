@@ -27,5 +27,7 @@ cd ..
 
 - Slow fetching of audio files and zip files when in production with MongoDb Atlas
 - Music player not working in Safari
+- Mobile UI not completed
+
 
 For more information on the project check out - [Sparta sounds Notes](NOTES.md)
